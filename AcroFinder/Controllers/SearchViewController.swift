@@ -306,6 +306,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
             activityIndicator.hidden = true
         }
         else{
+            let url = NSURL(string: "http://acronymfinder.mybluemix.net/api/v1/acronyms/" + self.word)
+            
+            let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+                println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+                println(NSString(data: data, encoding: NSUTF8StringEncoding))
+            }
+            
+            task.resume()
             
             // Setting up the refresh control
             refreshControl.addTarget(self, action: Selector("handleRefreshAction") , forControlEvents: UIControlEvents.ValueChanged)
