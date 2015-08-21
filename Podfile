@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
+workspace 'AcroFinder'
+pod 'IMFCore'
+pod 'IMFPush'
+pod 'IMFGoogleAuthentication'
+pod 'IMFFacebookAuthentication'
+pod 'Facebook-iOS-SDK'
+pod 'google-plus-ios-sdk'
+pod 'IMFData'
+pod 'CloudantToolkit'

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>applicationRoute</key>
+	<string>https://acrofinder.mybluemix.net</string>
+	<key>applicationId</key>
+	<string>09bd6c16-fc5d-4187-a6cb-ace869b687dd</string>
+</dict>
+</plist>

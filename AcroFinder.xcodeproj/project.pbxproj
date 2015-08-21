@@ -7,13 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58AADFAC1AB48AE400224403 /* favStarBlank.png in Resources */ = {isa = PBXBuildFile; fileRef = 58AADFAA1AB48AE400224403 /* favStarBlank.png */; };
+		58AADFAD1AB48AE400224403 /* favStarYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 58AADFAB1AB48AE400224403 /* favStarYellow.png */; };
+		8C47A46A1AC4AE5B004DB0CE /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C47A4691AC4AE5B004DB0CE /* HelpViewController.swift */; };
 		8CAAD1D219FF4C86001A9E8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAAD1D119FF4C86001A9E8A /* AppDelegate.swift */; };
-		8CAAD1D419FF4C86001A9E8A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAAD1D319FF4C86001A9E8A /* FirstViewController.swift */; };
-		8CAAD1D619FF4C86001A9E8A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAAD1D519FF4C86001A9E8A /* SecondViewController.swift */; };
-		8CAAD1D919FF4C86001A9E8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CAAD1D719FF4C86001A9E8A /* Main.storyboard */; };
 		8CAAD1DB19FF4C86001A9E8A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CAAD1DA19FF4C86001A9E8A /* Images.xcassets */; };
-		8CAAD1DE19FF4C86001A9E8A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CAAD1DC19FF4C86001A9E8A /* LaunchScreen.xib */; };
 		8CAAD1EA19FF4C86001A9E8A /* AcroFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAAD1E919FF4C86001A9E8A /* AcroFinderTests.swift */; };
+		8CB9DCBC1AACF50800A85961 /* AcroFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9DCBA1AACF50800A85961 /* AcroFinder.xcdatamodeld */; };
+		925FA6281AB35E0C003017A1 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA61D1AB35E0C003017A1 /* AboutViewController.swift */; };
+		925FA6291AB35E0C003017A1 /* BackgroundColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA61E1AB35E0C003017A1 /* BackgroundColorController.swift */; };
+		925FA62A1AB35E0C003017A1 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA61F1AB35E0C003017A1 /* FavoritesViewController.swift */; };
+		925FA62B1AB35E0C003017A1 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6201AB35E0C003017A1 /* HistoryViewController.swift */; };
+		925FA62C1AB35E0C003017A1 /* MostViewedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6211AB35E0C003017A1 /* MostViewedController.swift */; };
+		925FA62D1AB35E0C003017A1 /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6221AB35E0C003017A1 /* ResultsTableViewCell.swift */; };
+		925FA62E1AB35E0C003017A1 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6231AB35E0C003017A1 /* SearchResultsViewController.swift */; };
+		925FA62F1AB35E0C003017A1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6241AB35E0C003017A1 /* SearchViewController.swift */; };
+		925FA6301AB35E0C003017A1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6251AB35E0C003017A1 /* SettingsViewController.swift */; };
+		925FA6321AB35E0C003017A1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6271AB35E0C003017A1 /* WebViewController.swift */; };
+		925FA63B1AB35E47003017A1 /* acroFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6351AB35E47003017A1 /* acroFavorites.swift */; };
+		925FA63C1AB35E47003017A1 /* acroHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6361AB35E47003017A1 /* acroHistory.swift */; };
+		925FA63D1AB35E47003017A1 /* acroMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6371AB35E47003017A1 /* acroMain.swift */; };
+		925FA63F1AB35E47003017A1 /* acroSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6391AB35E47003017A1 /* acroSearch.swift */; };
+		D00299DCEAA72C2AC6BA5DED /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D97C617AD320FE544AB9CC /* libPods.a */; };
+		D7661BDB1ACBFCBF0051E471 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B8172761A41E491008FC2A2 /* Main.storyboard */; };
+		D76919601AC09EB9009FAC43 /* NotFoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D769195F1AC09EB9009FAC43 /* NotFoundController.swift */; };
+		D76919621AC0A2F0009FAC43 /* GoogleWebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76919611AC0A2F0009FAC43 /* GoogleWebController.swift */; };
+		D7B906AE1ACAFE6F005A3723 /* acrofinder.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7B906AD1ACAFE6F005A3723 /* acrofinder.plist */; };
+		D7C71E7E1ACC1654005BF507 /* IMFLoggerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C71E7D1ACC1654005BF507 /* IMFLoggerExtension.swift */; };
+		F663AA601B86BC2700EB9AD5 /* CustomAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA5F1B86BC2700EB9AD5 /* CustomAuth.swift */; };
+		F663AA621B86BC3600EB9AD5 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA611B86BC3600EB9AD5 /* AuthenticationViewController.swift */; };
+		F663AA641B86BC5300EB9AD5 /* AboutAcroFinderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA631B86BC5300EB9AD5 /* AboutAcroFinderController.swift */; };
+		F663AA661B86BC6100EB9AD5 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA651B86BC6100EB9AD5 /* FavoritesTableViewCell.swift */; };
+		F663AA681B86BC6B00EB9AD5 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA671B86BC6B00EB9AD5 /* HistoryTableViewCell.swift */; };
+		F663AA6A1B86BC7400EB9AD5 /* LegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA691B86BC7400EB9AD5 /* LegalViewController.swift */; };
+		F663AA6C1B86BC7D00EB9AD5 /* MostViewedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA6B1B86BC7D00EB9AD5 /* MostViewedTableViewCell.swift */; };
+		F663AA6E1B86BC8800EB9AD5 /* NewAcroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA6D1B86BC8800EB9AD5 /* NewAcroController.swift */; };
+		F663AA701B86BD4700EB9AD5 /* acroPopular.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA6F1B86BD4700EB9AD5 /* acroPopular.swift */; };
+		F663AA721B86BD4F00EB9AD5 /* backgroundMgr.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA711B86BD4F00EB9AD5 /* backgroundMgr.swift */; };
+		F663AA741B86BD5900EB9AD5 /* AcronymItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA731B86BD5900EB9AD5 /* AcronymItem.swift */; };
+		F663AA761B86BD6100EB9AD5 /* acroFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA751B86BD6100EB9AD5 /* acroFlag.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,17 +59,52 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B8172771A41E491008FC2A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		58AADFAA1AB48AE400224403 /* favStarBlank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favStarBlank.png; path = AcroFinder/images/favStarBlank.png; sourceTree = "<group>"; };
+		58AADFAB1AB48AE400224403 /* favStarYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favStarYellow.png; path = AcroFinder/images/favStarYellow.png; sourceTree = "<group>"; };
+		6408CBC5FE6FCB0DE2586CE7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		73D97C617AD320FE544AB9CC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C47A4691AC4AE5B004DB0CE /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpViewController.swift; path = Controllers/HelpViewController.swift; sourceTree = "<group>"; };
 		8CAAD1CC19FF4C86001A9E8A /* AcroFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AcroFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CAAD1D019FF4C86001A9E8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CAAD1D119FF4C86001A9E8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8CAAD1D319FF4C86001A9E8A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		8CAAD1D519FF4C86001A9E8A /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		8CAAD1D819FF4C86001A9E8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8CAAD1DA19FF4C86001A9E8A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8CAAD1DD19FF4C86001A9E8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8CAAD1E319FF4C86001A9E8A /* AcroFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AcroFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8CAAD1E819FF4C86001A9E8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CAAD1E919FF4C86001A9E8A /* AcroFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcroFinderTests.swift; sourceTree = "<group>"; };
+		8CB9DCBB1AACF50800A85961 /* AcroFinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AcroFinder.xcdatamodel; sourceTree = "<group>"; };
+		925FA61D1AB35E0C003017A1 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = Controllers/AboutViewController.swift; sourceTree = "<group>"; };
+		925FA61E1AB35E0C003017A1 /* BackgroundColorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackgroundColorController.swift; path = Controllers/BackgroundColorController.swift; sourceTree = "<group>"; };
+		925FA61F1AB35E0C003017A1 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoritesViewController.swift; path = Controllers/FavoritesViewController.swift; sourceTree = "<group>"; };
+		925FA6201AB35E0C003017A1 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryViewController.swift; path = Controllers/HistoryViewController.swift; sourceTree = "<group>"; };
+		925FA6211AB35E0C003017A1 /* MostViewedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MostViewedController.swift; path = Controllers/MostViewedController.swift; sourceTree = "<group>"; };
+		925FA6221AB35E0C003017A1 /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultsTableViewCell.swift; path = Controllers/ResultsTableViewCell.swift; sourceTree = "<group>"; };
+		925FA6231AB35E0C003017A1 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchResultsViewController.swift; path = Controllers/SearchResultsViewController.swift; sourceTree = "<group>"; };
+		925FA6241AB35E0C003017A1 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = Controllers/SearchViewController.swift; sourceTree = "<group>"; };
+		925FA6251AB35E0C003017A1 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Controllers/SettingsViewController.swift; sourceTree = "<group>"; };
+		925FA6271AB35E0C003017A1 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = Controllers/WebViewController.swift; sourceTree = "<group>"; };
+		925FA6351AB35E47003017A1 /* acroFavorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acroFavorites.swift; path = DataType/acroFavorites.swift; sourceTree = "<group>"; };
+		925FA6361AB35E47003017A1 /* acroHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acroHistory.swift; path = DataType/acroHistory.swift; sourceTree = "<group>"; };
+		925FA6371AB35E47003017A1 /* acroMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acroMain.swift; path = DataType/acroMain.swift; sourceTree = "<group>"; };
+		925FA6391AB35E47003017A1 /* acroSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acroSearch.swift; path = DataType/acroSearch.swift; sourceTree = "<group>"; };
+		D769195F1AC09EB9009FAC43 /* NotFoundController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotFoundController.swift; path = Controllers/NotFoundController.swift; sourceTree = "<group>"; };
+		D76919611AC0A2F0009FAC43 /* GoogleWebController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleWebController.swift; path = Controllers/GoogleWebController.swift; sourceTree = "<group>"; };
+		D7B906AA1ACAFCFE005A3723 /* acrofinder-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "acrofinder-Bridging-Header.h"; sourceTree = "<group>"; };
+		D7B906AD1ACAFE6F005A3723 /* acrofinder.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = acrofinder.plist; sourceTree = "<group>"; };
+		D7C71E7D1ACC1654005BF507 /* IMFLoggerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMFLoggerExtension.swift; sourceTree = "<group>"; };
+		E8BFE5010CFCAE1484EFB990 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F663AA5F1B86BC2700EB9AD5 /* CustomAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomAuth.swift; path = Authentication/CustomAuth.swift; sourceTree = "<group>"; };
+		F663AA611B86BC3600EB9AD5 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticationViewController.swift; path = Authentication/AuthenticationViewController.swift; sourceTree = "<group>"; };
+		F663AA631B86BC5300EB9AD5 /* AboutAcroFinderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutAcroFinderController.swift; path = Controllers/AboutAcroFinderController.swift; sourceTree = "<group>"; };
+		F663AA651B86BC6100EB9AD5 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoritesTableViewCell.swift; path = Controllers/FavoritesTableViewCell.swift; sourceTree = "<group>"; };
+		F663AA671B86BC6B00EB9AD5 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewCell.swift; path = Controllers/HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		F663AA691B86BC7400EB9AD5 /* LegalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LegalViewController.swift; path = Controllers/LegalViewController.swift; sourceTree = "<group>"; };
+		F663AA6B1B86BC7D00EB9AD5 /* MostViewedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MostViewedTableViewCell.swift; path = Controllers/MostViewedTableViewCell.swift; sourceTree = "<group>"; };
+		F663AA6D1B86BC8800EB9AD5 /* NewAcroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewAcroController.swift; path = Controllers/NewAcroController.swift; sourceTree = "<group>"; };
+		F663AA6F1B86BD4700EB9AD5 /* acroPopular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acroPopular.swift; path = DataType/acroPopular.swift; sourceTree = "<group>"; };
+		F663AA711B86BD4F00EB9AD5 /* backgroundMgr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = backgroundMgr.swift; path = DataType/backgroundMgr.swift; sourceTree = "<group>"; };
+		F663AA731B86BD5900EB9AD5 /* AcronymItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AcronymItem.swift; path = DataType/AcronymItem.swift; sourceTree = "<group>"; };
+		F663AA751B86BD6100EB9AD5 /* acroFlag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acroFlag.swift; path = DataType/acroFlag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D00299DCEAA72C2AC6BA5DED /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +126,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		58B6F3AE1AA2560A008254CC /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				58AADFAA1AB48AE400224403 /* favStarBlank.png */,
+				58AADFAB1AB48AE400224403 /* favStarYellow.png */,
+			);
+			name = Images;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		8CAAD1C319FF4C86001A9E8A = {
 			isa = PBXGroup;
 			children = (
 				8CAAD1CE19FF4C86001A9E8A /* AcroFinder */,
 				8CAAD1E619FF4C86001A9E8A /* AcroFinderTests */,
 				8CAAD1CD19FF4C86001A9E8A /* Products */,
+				9A53096801727B9D322EE3C1 /* Frameworks */,
+				E34EC6C920AAB0A47BD47C20 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,13 +159,18 @@
 		8CAAD1CE19FF4C86001A9E8A /* AcroFinder */ = {
 			isa = PBXGroup;
 			children = (
+				D7C71E7F1ACC1D2D005BF507 /* Authentication */,
+				925FA6341AB35E27003017A1 /* DataType */,
+				925FA6331AB35E1A003017A1 /* Controllers */,
 				8CAAD1D119FF4C86001A9E8A /* AppDelegate.swift */,
-				8CAAD1D319FF4C86001A9E8A /* FirstViewController.swift */,
-				8CAAD1D519FF4C86001A9E8A /* SecondViewController.swift */,
-				8CAAD1D719FF4C86001A9E8A /* Main.storyboard */,
-				8CAAD1DA19FF4C86001A9E8A /* Images.xcassets */,
+				4B8172761A41E491008FC2A2 /* Main.storyboard */,
 				8CAAD1DC19FF4C86001A9E8A /* LaunchScreen.xib */,
+				8CB9DCBA1AACF50800A85961 /* AcroFinder.xcdatamodeld */,
+				8CAAD1DA19FF4C86001A9E8A /* Images.xcassets */,
+				58B6F3AE1AA2560A008254CC /* Images */,
+				D7C71E7C1ACC162C005BF507 /* Swift Extensions */,
 				8CAAD1CF19FF4C86001A9E8A /* Supporting Files */,
+				D7B906AA1ACAFCFE005A3723 /* acrofinder-Bridging-Header.h */,
 			);
 			path = AcroFinder;
 			sourceTree = "<group>";
@@ -94,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				8CAAD1D019FF4C86001A9E8A /* Info.plist */,
+				D7B906AD1ACAFE6F005A3723 /* acrofinder.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -102,17 +188,83 @@
 			isa = PBXGroup;
 			children = (
 				8CAAD1E919FF4C86001A9E8A /* AcroFinderTests.swift */,
-				8CAAD1E719FF4C86001A9E8A /* Supporting Files */,
 			);
 			path = AcroFinderTests;
 			sourceTree = "<group>";
 		};
-		8CAAD1E719FF4C86001A9E8A /* Supporting Files */ = {
+		925FA6331AB35E1A003017A1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8CAAD1E819FF4C86001A9E8A /* Info.plist */,
+				925FA61D1AB35E0C003017A1 /* AboutViewController.swift */,
+				F663AA631B86BC5300EB9AD5 /* AboutAcroFinderController.swift */,
+				925FA61E1AB35E0C003017A1 /* BackgroundColorController.swift */,
+				925FA61F1AB35E0C003017A1 /* FavoritesViewController.swift */,
+				F663AA651B86BC6100EB9AD5 /* FavoritesTableViewCell.swift */,
+				8C47A4691AC4AE5B004DB0CE /* HelpViewController.swift */,
+				925FA6201AB35E0C003017A1 /* HistoryViewController.swift */,
+				F663AA671B86BC6B00EB9AD5 /* HistoryTableViewCell.swift */,
+				F663AA691B86BC7400EB9AD5 /* LegalViewController.swift */,
+				925FA6211AB35E0C003017A1 /* MostViewedController.swift */,
+				F663AA6B1B86BC7D00EB9AD5 /* MostViewedTableViewCell.swift */,
+				D769195F1AC09EB9009FAC43 /* NotFoundController.swift */,
+				925FA6221AB35E0C003017A1 /* ResultsTableViewCell.swift */,
+				925FA6231AB35E0C003017A1 /* SearchResultsViewController.swift */,
+				925FA6241AB35E0C003017A1 /* SearchViewController.swift */,
+				925FA6251AB35E0C003017A1 /* SettingsViewController.swift */,
+				925FA6271AB35E0C003017A1 /* WebViewController.swift */,
+				D76919611AC0A2F0009FAC43 /* GoogleWebController.swift */,
+				F663AA6D1B86BC8800EB9AD5 /* NewAcroController.swift */,
 			);
-			name = "Supporting Files";
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		925FA6341AB35E27003017A1 /* DataType */ = {
+			isa = PBXGroup;
+			children = (
+				925FA6351AB35E47003017A1 /* acroFavorites.swift */,
+				F663AA6F1B86BD4700EB9AD5 /* acroPopular.swift */,
+				925FA6361AB35E47003017A1 /* acroHistory.swift */,
+				925FA6371AB35E47003017A1 /* acroMain.swift */,
+				F663AA711B86BD4F00EB9AD5 /* backgroundMgr.swift */,
+				F663AA751B86BD6100EB9AD5 /* acroFlag.swift */,
+				F663AA731B86BD5900EB9AD5 /* AcronymItem.swift */,
+				925FA6391AB35E47003017A1 /* acroSearch.swift */,
+			);
+			name = DataType;
+			sourceTree = "<group>";
+		};
+		9A53096801727B9D322EE3C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73D97C617AD320FE544AB9CC /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7C71E7C1ACC162C005BF507 /* Swift Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D7C71E7D1ACC1654005BF507 /* IMFLoggerExtension.swift */,
+			);
+			name = "Swift Extensions";
+			sourceTree = "<group>";
+		};
+		D7C71E7F1ACC1D2D005BF507 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				F663AA611B86BC3600EB9AD5 /* AuthenticationViewController.swift */,
+				F663AA5F1B86BC2700EB9AD5 /* CustomAuth.swift */,
+			);
+			name = Authentication;
+			sourceTree = "<group>";
+		};
+		E34EC6C920AAB0A47BD47C20 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6408CBC5FE6FCB0DE2586CE7 /* Pods.debug.xcconfig */,
+				E8BFE5010CFCAE1484EFB990 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,9 +274,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8CAAD1ED19FF4C86001A9E8A /* Build configuration list for PBXNativeTarget "AcroFinder" */;
 			buildPhases = (
+				D7B906AB1ACAFDA4005A3723 /* Check Pods Manifest.lock */,
 				8CAAD1C819FF4C86001A9E8A /* Sources */,
 				8CAAD1C919FF4C86001A9E8A /* Frameworks */,
 				8CAAD1CA19FF4C86001A9E8A /* Resources */,
+				D7B906AC1ACAFDD8005A3723 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -160,10 +314,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = SherwinYu;
+				ORGANIZATIONNAME = AcroFinder;
 				TargetAttributes = {
 					8CAAD1CB19FF4C86001A9E8A = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = JD498CZVSU;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					8CAAD1E219FF4C86001A9E8A = {
 						CreatedOnToolsVersion = 6.1;
@@ -195,8 +355,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CAAD1D919FF4C86001A9E8A /* Main.storyboard in Resources */,
-				8CAAD1DE19FF4C86001A9E8A /* LaunchScreen.xib in Resources */,
+				D7661BDB1ACBFCBF0051E471 /* Main.storyboard in Resources */,
+				58AADFAD1AB48AE400224403 /* favStarYellow.png in Resources */,
+				58AADFAC1AB48AE400224403 /* favStarBlank.png in Resources */,
+				D7B906AE1ACAFE6F005A3723 /* acrofinder.plist in Resources */,
 				8CAAD1DB19FF4C86001A9E8A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,14 +372,76 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D7B906AB1ACAFDA4005A3723 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\ncat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\nexit 1\nfi";
+			showEnvVarsInLog = 0;
+		};
+		D7B906AC1ACAFDD8005A3723 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8CAAD1C819FF4C86001A9E8A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CAAD1D619FF4C86001A9E8A /* SecondViewController.swift in Sources */,
+				F663AA6C1B86BC7D00EB9AD5 /* MostViewedTableViewCell.swift in Sources */,
+				925FA62E1AB35E0C003017A1 /* SearchResultsViewController.swift in Sources */,
+				8C47A46A1AC4AE5B004DB0CE /* HelpViewController.swift in Sources */,
+				F663AA6E1B86BC8800EB9AD5 /* NewAcroController.swift in Sources */,
+				925FA62B1AB35E0C003017A1 /* HistoryViewController.swift in Sources */,
+				925FA63C1AB35E47003017A1 /* acroHistory.swift in Sources */,
+				D76919621AC0A2F0009FAC43 /* GoogleWebController.swift in Sources */,
+				D7C71E7E1ACC1654005BF507 /* IMFLoggerExtension.swift in Sources */,
+				F663AA761B86BD6100EB9AD5 /* acroFlag.swift in Sources */,
+				925FA62F1AB35E0C003017A1 /* SearchViewController.swift in Sources */,
+				F663AA681B86BC6B00EB9AD5 /* HistoryTableViewCell.swift in Sources */,
+				925FA63B1AB35E47003017A1 /* acroFavorites.swift in Sources */,
+				F663AA661B86BC6100EB9AD5 /* FavoritesTableViewCell.swift in Sources */,
+				925FA62A1AB35E0C003017A1 /* FavoritesViewController.swift in Sources */,
 				8CAAD1D219FF4C86001A9E8A /* AppDelegate.swift in Sources */,
-				8CAAD1D419FF4C86001A9E8A /* FirstViewController.swift in Sources */,
+				925FA6321AB35E0C003017A1 /* WebViewController.swift in Sources */,
+				D76919601AC09EB9009FAC43 /* NotFoundController.swift in Sources */,
+				8CB9DCBC1AACF50800A85961 /* AcroFinder.xcdatamodeld in Sources */,
+				F663AA701B86BD4700EB9AD5 /* acroPopular.swift in Sources */,
+				F663AA721B86BD4F00EB9AD5 /* backgroundMgr.swift in Sources */,
+				F663AA741B86BD5900EB9AD5 /* AcronymItem.swift in Sources */,
+				925FA62C1AB35E0C003017A1 /* MostViewedController.swift in Sources */,
+				925FA63F1AB35E47003017A1 /* acroSearch.swift in Sources */,
+				F663AA641B86BC5300EB9AD5 /* AboutAcroFinderController.swift in Sources */,
+				925FA6291AB35E0C003017A1 /* BackgroundColorController.swift in Sources */,
+				F663AA6A1B86BC7400EB9AD5 /* LegalViewController.swift in Sources */,
+				F663AA601B86BC2700EB9AD5 /* CustomAuth.swift in Sources */,
+				925FA63D1AB35E47003017A1 /* acroMain.swift in Sources */,
+				F663AA621B86BC3600EB9AD5 /* AuthenticationViewController.swift in Sources */,
+				925FA6301AB35E0C003017A1 /* SettingsViewController.swift in Sources */,
+				925FA6281AB35E0C003017A1 /* AboutViewController.swift in Sources */,
+				925FA62D1AB35E0C003017A1 /* ResultsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,10 +464,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8CAAD1D719FF4C86001A9E8A /* Main.storyboard */ = {
+		4B8172761A41E491008FC2A2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8CAAD1D819FF4C86001A9E8A /* Base */,
+				4B8172771A41E491008FC2A2 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -293,11 +517,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Debug;
 		};
@@ -329,30 +553,49 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		8CAAD1EE19FF4C86001A9E8A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6408CBC5FE6FCB0DE2586CE7 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AcroFinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "AcroFinder/acrofinder-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		8CAAD1EF19FF4C86001A9E8A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8BFE5010CFCAE1484EFB990 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AcroFinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "AcroFinder/acrofinder-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
@@ -409,6 +652,7 @@
 				8CAAD1EF19FF4C86001A9E8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8CAAD1F019FF4C86001A9E8A /* Build configuration list for PBXNativeTarget "AcroFinderTests" */ = {
 			isa = XCConfigurationList;
@@ -417,8 +661,22 @@
 				8CAAD1F219FF4C86001A9E8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8CB9DCBA1AACF50800A85961 /* AcroFinder.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8CB9DCBB1AACF50800A85961 /* AcroFinder.xcdatamodel */,
+			);
+			currentVersion = 8CB9DCBB1AACF50800A85961 /* AcroFinder.xcdatamodel */;
+			path = AcroFinder.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8CAAD1C419FF4C86001A9E8A /* Project object */;
 }

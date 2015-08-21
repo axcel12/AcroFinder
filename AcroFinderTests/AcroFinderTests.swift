@@ -1,9 +1,9 @@
 //
 //  AcroFinderTests.swift
-//  AcroFinderTests
+//  AcroFinder
 //
-//  Created by Sherwin Yu on 10/28/14.
-//  Copyright (c) 2014 SherwinYu. All rights reserved.
+//  Created by AcroFinder Team on 4/29/2015.
+//  Copyright (c) 2015 AcroFinder. All rights reserved.
 //
 
 import UIKit

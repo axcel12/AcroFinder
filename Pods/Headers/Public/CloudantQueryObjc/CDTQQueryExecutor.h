@@ -1,0 +1,1 @@
+../../../CloudantQueryObjc/Pod/Classes/CDTQQueryExecutor.h
