@@ -11,14 +11,19 @@ import CoreData
 
 class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicatorDelegate {
     
-    var userId:String!
+    //var userId:String!
     //Intialize some list items
     var acronymList: [AcronymItem] = []
     var filteredAcronymItems = [AcronymItem]()
     
+    //NEW
+    var itemsAcro = NSMutableArray()
+    var result: [JSON] = []
+    var objects = [String]()
+    
     
     // Cloud sync properties
-    var dbName:String = "acrofinderdb"
+    /*var dbName:String = "acrofinderdb"
     var datastore: CDTStore!
     var remoteStore: CDTStore!
     
@@ -30,7 +35,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
     var pushReplication: CDTPushReplication!
     var pushReplicator: CDTReplicator!
     
-    var doingPullReplication: Bool!
+    var doingPullReplication: Bool!*/
     
     //logger
     let logger = IMFLogger(forName: "AcroFinder")
@@ -306,22 +311,67 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
             activityIndicator.hidden = true
         }
         else{
+            
+            /*
+            //Tried this one several and different ways but did not work
             let url = NSURL(string: "http://acronymfinder.mybluemix.net/api/v1/acronyms/" + self.word)
             
             let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
-                println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
-                println(NSString(data: data, encoding: NSUTF8StringEncoding))
+                println("1)--------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX------------------")
+                
+            let results = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                
+            println(results)
+                
+            let json = JSON(results)
+                
+            println("2)--------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX------------------")
+                
+                for meanings in json[0]["value"]["meanings"].arrayValue {
+                    let name = meanings["name"].stringValue
+                    
+                    self.acronym.insert(name, atIndex: 0)
+                    
+                    println(name)
+                }
             }
             
-            task.resume()
+//Add the results to the datatype
+            //self.acronym.insert(self.acronymList[i].meaning as String, atIndex: 0)
+            
+            task.resume()*/
+            
+            if let url = NSURL(string: "http://acronymfinder.mybluemix.net/api/v1/acronyms/" + self.word) {
+                if let data = NSData(contentsOfURL: url, options: .allZeros, error: nil) {
+                    let json = JSON(data: data)
+                    
+                    println("1)--------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX------------------")
+                    println(json)
+                    
+                    println("2)--------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX------------------")
+                    for meanings in json[0]["value"]["meanings"].arrayValue {
+                        let name = meanings["name"].stringValue
+                        
+                        self.acronym.insert(name, atIndex: 0)
+                        acroSearched.addAcronym(name)
+                        //println(name)
+                    }
+                }
+            }
             
             // Setting up the refresh control
-            refreshControl.addTarget(self, action: Selector("handleRefreshAction") , forControlEvents: UIControlEvents.ValueChanged)
+            /*refreshControl.addTarget(self, action: Selector("handleRefreshAction") , forControlEvents: UIControlEvents.ValueChanged)
             refreshControl.tintColor = UIColor.blueColor()
-            refreshControl.beginRefreshing()
+            refreshControl.beginRefreshing()*/
+            
+//Reload
+            self.searchDidStopLoading(self.searchView)
+            
+//Transition to next viewController
+            self.searchAcro(self.word)
             
             // NOTE: No needed for new version: not direct connection to the db
-            self.setupIMFDatabase(self.dbName)
+            //self.setupIMFDatabase(self.dbName)
         }
     }
     
@@ -397,7 +447,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
     //MARK: - Data Management
     
     //DB Connection
-    func setupIMFDatabase(dbName: NSString) {
+    /*func setupIMFDatabase(dbName: NSString) {
         var dbError:NSError?
         let manager = IMFDataManager.sharedInstance() as IMFDataManager
         
@@ -441,10 +491,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
             }
             
         })
-    }
+    }*/
     
     //Retrieving data: Create index and perform query
-    func listItems(cb:()->Void) {
+    /*func listItems(cb:()->Void) {
         logger.logDebugWithMessages("acronymsItems called")
         
         // The data type to use for the AcronymItem class
@@ -471,31 +521,38 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
             }
             else{
                 //println(results)
+//NOTE
                 self.acronymList = results as! [AcronymItem]
+
                 if(!self.acronymList.isEmpty){
                     for(var i = 0; i < self.acronymList.count; ++i){
+//NOTE
                         self.acronym.insert(self.acronymList[i].meaning as String, atIndex: 0)
                     }
                     println("---------------------------------ACRONYM FOUND-----------------------------")
                 }else{
                     println("---------------------------------ACRONYM NOT FOUND-----------------------------")
                 }
+    
+//NOTE
                 self.reloadLocalTableData()
                 self.searchDidStopLoading(self.searchView)
                 
                 // Add new function to find if acronym is in the
+    
+//NOTE
                 self.searchAcro(self.word)
             }
             cb()
         })
-    }
+    }*/
     //END: DB Connection
     
     //NOTE: Method will change and will connect to Node.js app through routes
     // MARK: - Cloud Sync
     
     //Fetch
-    func pullItems() {
+    /*func pullItems() {
         var error:NSError?
         self.pullReplicator = self.replicatorFactory.oneWay(self.pullReplication, error: &error)
         if(error != nil){
@@ -512,10 +569,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
         if(error != nil){
             self.logger.logErrorWithMessages("Error starting pullReplicator \(error)")
         }
-    }
+    }*/
     
     //Update
-    func pushItems() {
+    /*func pushItems() {
         var error:NSError?
         self.pushReplicator = self.replicatorFactory.oneWay(self.pushReplication, error: &error)
         if(error != nil){
@@ -531,7 +588,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
         if(error != nil){
             self.logger.logErrorWithMessages("Error starting pushReplicator \(error)")
         }
-    }
+    }*/
     //END: of cloud sync
     
     
@@ -541,23 +598,23 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
     /**
     * Called when the replicator changes state.
     */
-    func replicatorDidChangeState(replicator: CDTReplicator!) {
+    /*func replicatorDidChangeState(replicator: CDTReplicator!) {
         self.logger.logInfoWithMessages("replicatorDidChangeState \(CDTReplicator.stringForReplicatorState(replicator.state))")
-    }
+    }*/
     
     /**
     * Called whenever the replicator changes progress
     */
-    func replicatorDidChangeProgress(replicator: CDTReplicator!) {
+    /*func replicatorDidChangeProgress(replicator: CDTReplicator!) {
         self.logger.logInfoWithMessages("replicatorDidChangeProgress \(CDTReplicator.stringForReplicatorState(replicator.state))")
         
-    }
+    }*/
     
     /**
     * Called when a state transition to COMPLETE or STOPPED is
     * completed.
     */
-    func replicatorDidComplete(replicator: CDTReplicator!) {
+    /*func replicatorDidComplete(replicator: CDTReplicator!) {
         self.logger.logInfoWithMessages("replicatorDidComplete \(CDTReplicator.stringForReplicatorState(replicator.state))")
         
         if self.doingPullReplication! {
@@ -571,31 +628,31 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
                 self.searchDidStopLoading(self.searchView)
             })
         }
-    }
+    }*/
     
     /**
     * Called when a state transition to ERROR is completed.
     */
     
-    func replicatorDidError(replicator: CDTReplicator!, info: NSError!) {
+    /*func replicatorDidError(replicator: CDTReplicator!, info: NSError!) {
         self.refreshControl.attributedTitle = NSAttributedString(string: "Error replicating with Cloudant")
         self.logger.logErrorWithMessages("replicatorDidError \(info)")
         self.listItems({ () -> Void in
             self.refreshControl.endRefreshing()
             self.searchDidStopLoading(self.searchView)
         })
-    }
+    }*/
     //END: of replicators
     
     //Sort listItems
-    func reloadLocalTableData() {
+    /*func reloadLocalTableData() {
         self.filteredAcronymItems.sort { (item1: AcronymItem, item2: AcronymItem) -> Bool in
             return item1.meaning.localizedCaseInsensitiveCompare(item2.meaning as String) == .OrderedAscending
         }
-    }
+    }*/
     
     //Refresh: pulls or stop searching
-    func handleRefreshAction(){
+    /*func handleRefreshAction(){
         if (IBM_SYNC_ENABLE) {
             acronym.removeAll(keepCapacity: false)
             
@@ -607,6 +664,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
                 self.searchDidStopLoading(self.searchView)
             })
         }
-    }
+    }*/
+
 }
 

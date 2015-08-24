@@ -13,12 +13,12 @@ import CoreData
 
 class SearchResultsViewController: UITableViewController, UITableViewDataSource, MFMailComposeViewControllerDelegate, CDTReplicatorDelegate {
     
-    var userId:String!
+    //var userId:String!
     //Intialize some list items
     var acronymList: [AcronymItem] = []
     
     // Cloud sync properties
-    var dbName:String = "acrofinderdb"
+    /*var dbName:String = "acrofinderdb"
     
     var datastore: CDTStore!
     var remoteStore: CDTStore!
@@ -31,7 +31,7 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
     var pushReplication: CDTPushReplication!
     var pushReplicator: CDTReplicator!
     
-    var doingPullReplication: Bool!
+    var doingPullReplication: Bool!*/
     
     //logger
     let logger = IMFLogger(forName: "AcroFinder")
@@ -59,17 +59,17 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
         super.viewDidLoad()
         
         //Start Loading Indicator for creation of index: don't needed after first load
-        self.searchDidStartLoading(self.myTableView)
+        //self.searchDidStartLoading(self.myTableView
         
         
         // Setting up the refresh control
-        self.refreshControl = UIRefreshControl()
+        /*self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: Selector("handleRefreshAction") , forControlEvents: UIControlEvents.ValueChanged)
         self.refreshControl?.tintColor = UIColor.blueColor()
-        self.refreshControl?.beginRefreshing()
+        self.refreshControl?.beginRefreshing()*/
         
         //NOTE: No need to connect to the db this way
-        self.setupIMFDatabase(self.dbName)
+        //self.setupIMFDatabase(self.dbName)
         
         
         fetchFavoriteData()
@@ -85,6 +85,14 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
         self.tableView.estimatedRowHeight = 60
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
+        if(!acroSearched.acronyms.isEmpty){
+            for(var i = 0; i < acroSearched.acronyms.count; ++i){
+                self.acronym.append(acroSearched.acronyms[i].name as String)
+            }
+        }
+        self.setUpAcronym()
+        self.labelCounterRefresh()
+        
         //Logging
         self.logger.logInfoWithMessages("this is a info test log in SearchResultsViewController:viewDidLoad")
         
@@ -99,7 +107,7 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
     
     override func viewWillAppear(animated: Bool) {
         
-        if(!acroFlags.flags.isEmpty){
+        /*if(!acroFlags.flags.isEmpty){
             flag = acroFlags.flags[0].value
         }
         
@@ -115,18 +123,18 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
             //Do not need to change the name of the database.
             //self.dbName = self.dbName + "_" + self.userId
         
-            self.setupIMFDatabase(self.dbName)
+            //self.setupIMFDatabase(self.dbName)
         }
         
         acroFlags.removeFlag()
-        flag = "false"
+        flag = "false"*/
         tableView.reloadData()
     }
     
     //NOTE: Will connect to the Node.js app instead
     //MARK: - Data Management
     
-    func setupIMFDatabase(dbName: NSString) {
+    /*func setupIMFDatabase(dbName: NSString) {
         var dbError:NSError?
         let manager = IMFDataManager.sharedInstance() as IMFDataManager
         
@@ -162,8 +170,8 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
             }
             
         })
-    }
-    
+    }*/
+    /*
     func listItems(cb:()->Void) {
         logger.logDebugWithMessages("listItems called")
         
@@ -177,6 +185,7 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
                 self.logger.logErrorWithMessages("AcronymItems failed with error \(error.description)")
             }
             else{
+// POPULATES THE acronymList array.
                 self.acronymList = results as! [AcronymItem]
                 
                 // Sort the array acronymList type AcronymItem with respect of its ranking
@@ -185,23 +194,28 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
                 }
                 
                 // Appending all acronyms found to temporary array for coredata storing
+// POPULATES acronym with acronymList objects
                 if(!self.acronymList.isEmpty){
                     for(var i = 0; i < self.acronymList.count; ++i){
                         self.acronym.append(self.acronymList[i].meaning as String)
                     }
                 }
-                
+//NOTE: NEED
                 self.setUpAcronym()
                 self.labelCounterRefresh()
+    
+                
                 self.reloadLocalTableData()
+            
+//NOTE: NEED ONCE EVERYTHING HAS LOADED
                 self.searchDidStopLoading(self.myTableView)
             }
             cb()
         })
-    }
+    }*/
     
     //Most Popular
-    func updateItem(item: AcronymItem) {
+    /*func updateItem(item: AcronymItem) {
         self.datastore.save(item, completionHandler: { (object, error) -> Void in
             if(error != nil){
                 self.logger.logErrorWithMessages("updateItem failed with error \(error)")
@@ -211,13 +225,13 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
                 })
             }
         })
-    }
+    }*/
     //END: of db connection
     
     //NOTE: Use functions from Node.js app to fetch and update
     // MARK: - Cloud Sync
     
-    func pullItems() {
+    /*func pullItems() {
         var error:NSError?
         self.pullReplicator = self.replicatorFactory.oneWay(self.pullReplication, error: &error)
         if(error != nil){
@@ -252,7 +266,7 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
         if(error != nil){
             self.logger.logErrorWithMessages("Error starting pushReplicator \(error)")
         }
-    }
+    }*/
     //END: Cloud Sync
     
     
@@ -262,22 +276,22 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
     /**
     * Called when the replicator changes state.
     */
-    func replicatorDidChangeState(replicator: CDTReplicator!) {
+    /*func replicatorDidChangeState(replicator: CDTReplicator!) {
         self.logger.logInfoWithMessages("replicatorDidChangeState \(CDTReplicator.stringForReplicatorState(replicator.state))")
-    }
+    }*/
     
     /**
     * Called whenever the replicator changes progress
     */
-    func replicatorDidChangeProgress(replicator: CDTReplicator!) {
+    /*func replicatorDidChangeProgress(replicator: CDTReplicator!) {
         self.logger.logInfoWithMessages("replicatorDidChangeProgress \(CDTReplicator.stringForReplicatorState(replicator.state))")
-    }
+    }*/
     
     /**
     * Called when a state transition to COMPLETE or STOPPED is
     * completed.
     */
-    func replicatorDidComplete(replicator: CDTReplicator!) {
+    /*func replicatorDidComplete(replicator: CDTReplicator!) {
         self.logger.logInfoWithMessages("replicatorDidComplete \(CDTReplicator.stringForReplicatorState(replicator.state))")
         
         if self.doingPullReplication! {
@@ -292,25 +306,26 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
                 self.tableView.reloadData()
             })
         }
-    }
+    }*/
     
     /**
     * Called when a state transition to ERROR is completed.
     */
     
-    func replicatorDidError(replicator: CDTReplicator!, info: NSError!) {
+    /*func replicatorDidError(replicator: CDTReplicator!, info: NSError!) {
         self.refreshControl?.attributedTitle = NSAttributedString(string: "Error replicating with Cloudant")
         self.logger.logErrorWithMessages("replicatorDidError \(info)")
         self.listItems({ () -> Void in
             self.refreshControl?.endRefreshing()
         })
-    }
+    }*/
     //END: of replicators
     
     
     //MARK: CoreData and tableView functions
     
     override func viewDidDisappear(animated: Bool) {
+        self.restartArrays()
     }
     
     func restartArrays(){
@@ -323,6 +338,10 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
             self.acronym.removeAll(keepCapacity: false)
         }
         
+        if(!acroSearched.acronyms.isEmpty){
+            acroSearched.acronyms.removeAll(keepCapacity: false)
+        }
+//Won't need this one anymore
         if(self.acronymList.count > 0){
             self.acronymList.removeAll(keepCapacity: false)
         }
@@ -414,7 +433,8 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.acronymList.count
+//Will need to change
+        return self.acronym.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -453,7 +473,7 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
         
         // Update keyVal for acronym at indexPath by 1
         let item = self.arrayOfAcronyms[indexPath.row] as acroMain
-        self.updateItemFromWikiSearch(item.acroName, pos: indexPath.row)
+        //self.updateItemFromWikiSearch(item.acroName, pos: indexPath.row)
         
         // Push to Wikipedia
         var url = urlForAcronyms(indexPath.row)
@@ -471,7 +491,7 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
         cell.setCell(item.acroName, acroImage: self.getPriorityImage(item.acroKey))
         
         // Update keyVal counter
-        self.updateItemFromFavorites(item.acroName, pos: indexPath!.row)
+        //self.updateItemFromFavorites(item.acroName, pos: indexPath!.row)
         
         
         favoriteAcro(newPriority)
@@ -568,7 +588,7 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
     }
     
     //Most Popular
-    func updateItemFromFavorites(acronym: String, pos: Int){
+    /*func updateItemFromFavorites(acronym: String, pos: Int){
         var item = self.acronymList[pos]
         var hitVal = item.hits.integerValue + 2
         item.hits = hitVal
@@ -589,10 +609,10 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
             self.tableView.reloadData()
         }
         self.tableView.reloadData()
-    }
+    }*/
     
     //Refresh sync with cloud
-    func handleRefreshAction(){
+    /*func handleRefreshAction(){
         if (IBM_SYNC_ENABLE) {
             self.acronymList.removeAll(keepCapacity: false)
             acronym.removeAll(keepCapacity: false)
@@ -611,7 +631,7 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
             })
         }
         self.myTableView.reloadData()
-    }
+    }*/
     
     //New Acronym Segue
     @IBAction func segueToAddAcro(sender: AnyObject) {
@@ -633,9 +653,9 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
     func labelCounterRefresh(){
         //Label Counter
         if(acronym.count == 1){
-            labelCounter.text = "\(self.acronymList.count) acronym found"
+            labelCounter.text = "\(self.acronym.count) acronym found"
         }else{
-            labelCounter.text = "\(self.acronymList.count) acronyms found"
+            labelCounter.text = "\(self.acronym.count) acronyms found"
         }
     }
     

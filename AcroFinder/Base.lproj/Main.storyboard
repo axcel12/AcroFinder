@@ -117,11 +117,6 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="13X-ro-UO7">
-                            <rect key="frame" x="0.0" y="174" width="375" height="37"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="cellFound" selectionStyle="blue" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="AcronymResult" rowHeight="50" id="syt-iY-9LM" customClass="ResultsTableViewCell" customModule="AcroFinder" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -182,7 +177,6 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="13X-ro-UO7" id="ufM-Fn-J9f"/>
                         <outlet property="labelCounter" destination="paX-wD-tGB" id="PXC-fV-Mcn"/>
                         <outlet property="myTableView" destination="E2p-LP-UYr" id="MB9-0s-WwI"/>
                     </connections>

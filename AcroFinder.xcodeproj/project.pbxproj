@@ -46,6 +46,8 @@
 		F663AA721B86BD4F00EB9AD5 /* backgroundMgr.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA711B86BD4F00EB9AD5 /* backgroundMgr.swift */; };
 		F663AA741B86BD5900EB9AD5 /* AcronymItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA731B86BD5900EB9AD5 /* AcronymItem.swift */; };
 		F663AA761B86BD6100EB9AD5 /* acroFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA751B86BD6100EB9AD5 /* acroFlag.swift */; };
+		F6B256B71B8B2EAC007B7509 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B256B61B8B2EAC007B7509 /* SwiftyJSON.swift */; };
+		F6B256B91B8B2FAE007B7509 /* Alamofire in Resources */ = {isa = PBXBuildFile; fileRef = F6B256B81B8B2FAD007B7509 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +107,8 @@
 		F663AA711B86BD4F00EB9AD5 /* backgroundMgr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = backgroundMgr.swift; path = DataType/backgroundMgr.swift; sourceTree = "<group>"; };
 		F663AA731B86BD5900EB9AD5 /* AcronymItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AcronymItem.swift; path = DataType/AcronymItem.swift; sourceTree = "<group>"; };
 		F663AA751B86BD6100EB9AD5 /* acroFlag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acroFlag.swift; path = DataType/acroFlag.swift; sourceTree = "<group>"; };
+		F6B256B61B8B2EAC007B7509 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		F6B256B81B8B2FAD007B7509 /* Alamofire */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Alamofire; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,7 @@
 		8CAAD1C319FF4C86001A9E8A = {
 			isa = PBXGroup;
 			children = (
+				F6B256B81B8B2FAD007B7509 /* Alamofire */,
 				8CAAD1CE19FF4C86001A9E8A /* AcroFinder */,
 				8CAAD1E619FF4C86001A9E8A /* AcroFinderTests */,
 				8CAAD1CD19FF4C86001A9E8A /* Products */,
@@ -163,6 +168,7 @@
 				925FA6341AB35E27003017A1 /* DataType */,
 				925FA6331AB35E1A003017A1 /* Controllers */,
 				8CAAD1D119FF4C86001A9E8A /* AppDelegate.swift */,
+				F6B256B61B8B2EAC007B7509 /* SwiftyJSON.swift */,
 				4B8172761A41E491008FC2A2 /* Main.storyboard */,
 				8CAAD1DC19FF4C86001A9E8A /* LaunchScreen.xib */,
 				8CB9DCBA1AACF50800A85961 /* AcroFinder.xcdatamodeld */,
@@ -201,8 +207,8 @@
 				925FA61F1AB35E0C003017A1 /* FavoritesViewController.swift */,
 				F663AA651B86BC6100EB9AD5 /* FavoritesTableViewCell.swift */,
 				8C47A4691AC4AE5B004DB0CE /* HelpViewController.swift */,
-				925FA6201AB35E0C003017A1 /* HistoryViewController.swift */,
 				F663AA671B86BC6B00EB9AD5 /* HistoryTableViewCell.swift */,
+				925FA6201AB35E0C003017A1 /* HistoryViewController.swift */,
 				F663AA691B86BC7400EB9AD5 /* LegalViewController.swift */,
 				925FA6211AB35E0C003017A1 /* MostViewedController.swift */,
 				F663AA6B1B86BC7D00EB9AD5 /* MostViewedTableViewCell.swift */,
@@ -358,6 +364,7 @@
 				D7661BDB1ACBFCBF0051E471 /* Main.storyboard in Resources */,
 				58AADFAD1AB48AE400224403 /* favStarYellow.png in Resources */,
 				58AADFAC1AB48AE400224403 /* favStarBlank.png in Resources */,
+				F6B256B91B8B2FAE007B7509 /* Alamofire in Resources */,
 				D7B906AE1ACAFE6F005A3723 /* acrofinder.plist in Resources */,
 				8CAAD1DB19FF4C86001A9E8A /* Images.xcassets in Resources */,
 			);
@@ -413,6 +420,7 @@
 				F663AA6C1B86BC7D00EB9AD5 /* MostViewedTableViewCell.swift in Sources */,
 				925FA62E1AB35E0C003017A1 /* SearchResultsViewController.swift in Sources */,
 				8C47A46A1AC4AE5B004DB0CE /* HelpViewController.swift in Sources */,
+				F6B256B71B8B2EAC007B7509 /* SwiftyJSON.swift in Sources */,
 				F663AA6E1B86BC8800EB9AD5 /* NewAcroController.swift in Sources */,
 				925FA62B1AB35E0C003017A1 /* HistoryViewController.swift in Sources */,
 				925FA63C1AB35E47003017A1 /* acroHistory.swift in Sources */,
