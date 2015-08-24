@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		58AADFAC1AB48AE400224403 /* favStarBlank.png in Resources */ = {isa = PBXBuildFile; fileRef = 58AADFAA1AB48AE400224403 /* favStarBlank.png */; };
 		58AADFAD1AB48AE400224403 /* favStarYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 58AADFAB1AB48AE400224403 /* favStarYellow.png */; };
+		741146DC1B8B887C00A26312 /* AFAcronym.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741146DB1B8B887C00A26312 /* AFAcronym.swift */; };
+		741146DE1B8B88C500A26312 /* AFMeaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741146DD1B8B88C500A26312 /* AFMeaning.swift */; };
 		8C47A46A1AC4AE5B004DB0CE /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C47A4691AC4AE5B004DB0CE /* HelpViewController.swift */; };
 		8CAAD1D219FF4C86001A9E8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAAD1D119FF4C86001A9E8A /* AppDelegate.swift */; };
 		8CAAD1DB19FF4C86001A9E8A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CAAD1DA19FF4C86001A9E8A /* Images.xcassets */; };
@@ -66,6 +68,8 @@
 		58AADFAB1AB48AE400224403 /* favStarYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favStarYellow.png; path = AcroFinder/images/favStarYellow.png; sourceTree = "<group>"; };
 		6408CBC5FE6FCB0DE2586CE7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		73D97C617AD320FE544AB9CC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		741146DB1B8B887C00A26312 /* AFAcronym.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFAcronym.swift; sourceTree = "<group>"; };
+		741146DD1B8B88C500A26312 /* AFMeaning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFMeaning.swift; sourceTree = "<group>"; };
 		8C47A4691AC4AE5B004DB0CE /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpViewController.swift; path = Controllers/HelpViewController.swift; sourceTree = "<group>"; };
 		8CAAD1CC19FF4C86001A9E8A /* AcroFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AcroFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CAAD1D019FF4C86001A9E8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -235,6 +239,8 @@
 				F663AA751B86BD6100EB9AD5 /* acroFlag.swift */,
 				F663AA731B86BD5900EB9AD5 /* AcronymItem.swift */,
 				925FA6391AB35E47003017A1 /* acroSearch.swift */,
+				741146DB1B8B887C00A26312 /* AFAcronym.swift */,
+				741146DD1B8B88C500A26312 /* AFMeaning.swift */,
 			);
 			name = DataType;
 			sourceTree = "<group>";
@@ -440,6 +446,7 @@
 				F663AA721B86BD4F00EB9AD5 /* backgroundMgr.swift in Sources */,
 				F663AA741B86BD5900EB9AD5 /* AcronymItem.swift in Sources */,
 				925FA62C1AB35E0C003017A1 /* MostViewedController.swift in Sources */,
+				741146DE1B8B88C500A26312 /* AFMeaning.swift in Sources */,
 				925FA63F1AB35E47003017A1 /* acroSearch.swift in Sources */,
 				F663AA641B86BC5300EB9AD5 /* AboutAcroFinderController.swift in Sources */,
 				925FA6291AB35E0C003017A1 /* BackgroundColorController.swift in Sources */,
@@ -449,6 +456,7 @@
 				F663AA621B86BC3600EB9AD5 /* AuthenticationViewController.swift in Sources */,
 				925FA6301AB35E0C003017A1 /* SettingsViewController.swift in Sources */,
 				925FA6281AB35E0C003017A1 /* AboutViewController.swift in Sources */,
+				741146DC1B8B887C00A26312 /* AFAcronym.swift in Sources */,
 				925FA62D1AB35E0C003017A1 /* ResultsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
