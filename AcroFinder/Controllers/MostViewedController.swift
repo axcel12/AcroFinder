@@ -9,7 +9,7 @@
 import UIKit
 
 class MostViewedController: UITableViewController, UITableViewDelegate {
-    
+    /*
     var userId:String!
     //Intialize some list items
     var acroPopList: [AcronymItem] = []
@@ -29,6 +29,7 @@ class MostViewedController: UITableViewController, UITableViewDelegate {
     var pushReplicator: CDTReplicator!
     
     var doingPullReplication: Bool!
+    */
     
     //logger
     let logger = IMFLogger(forName: "AcroFinder")
@@ -46,14 +47,16 @@ class MostViewedController: UITableViewController, UITableViewDelegate {
         //Set tableView color
         self.popularView.backgroundColor = UIColorFromHex(acroBack.colors[0].colorViewController)
         
+        /*
         // Setting up the refresh control
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: Selector("handleRefreshAction") , forControlEvents: UIControlEvents.ValueChanged)
         self.refreshControl?.tintColor = UIColor.blueColor()
         self.refreshControl?.beginRefreshing()
+        */
         
         //DB Connection
-        self.setupIMFDatabase(self.dbName)
+        //self.setupIMFDatabase(self.dbName)
         
         //Logging
         self.logger.logInfoWithMessages("this is a info test log in MostPopularViewController:viewDidLoad")
@@ -86,7 +89,7 @@ class MostViewedController: UITableViewController, UITableViewDelegate {
         self.tableView.reloadData()
     }
     
-    
+    /*
     //NOTE: No needed in Node.js app
     //MARK: - Data Management
     
@@ -258,6 +261,7 @@ class MostViewedController: UITableViewController, UITableViewDelegate {
         })
     }
     //END: of replicators
+    */
     
     //MARK: TableView functions
     
@@ -271,11 +275,15 @@ class MostViewedController: UITableViewController, UITableViewDelegate {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //Use new array with content from db
+        /*
         if(self.acroPopList.count < 21){
             return self.acroPopList.count
         }else{
             return 20
         }
+        */
+        return 1
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -316,12 +324,10 @@ class MostViewedController: UITableViewController, UITableViewDelegate {
     }
     
     func reloadLocalTableData() {
-        if self.tableView != nil {
-            self.tableView.reloadData()
-        }
         self.tableView.reloadData()
     }
     
+    /*
     func handleRefreshAction(){
         if (IBM_SYNC_ENABLE) {
             self.pullItems()
@@ -334,6 +340,7 @@ class MostViewedController: UITableViewController, UITableViewDelegate {
         }
         self.tableView.reloadData()
     }
+    */
     
     func searchDidStartLoading(myTableView: UITableView!){
         activityIndicator.hidden = false

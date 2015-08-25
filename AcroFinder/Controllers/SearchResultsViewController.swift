@@ -13,31 +13,9 @@ import CoreData
 
 class SearchResultsViewController: UITableViewController, UITableViewDataSource, MFMailComposeViewControllerDelegate, CDTReplicatorDelegate {
     
-    //var userId:String!
-    //Intialize some list items
-    var acronymList: [AcronymItem] = []
-    
-    // Cloud sync properties
-    /*var dbName:String = "acrofinderdb"
-    
-    var datastore: CDTStore!
-    var remoteStore: CDTStore!
-    
-    var replicatorFactory: CDTReplicatorFactory!
-    
-    var pullReplication: CDTPullReplication!
-    var pullReplicator: CDTReplicator!
-    
-    var pushReplication: CDTPushReplication!
-    var pushReplicator: CDTReplicator!
-    
-    var doingPullReplication: Bool!*/
-    
-    //logger
+    //Logger
     let logger = IMFLogger(forName: "AcroFinder")
 
-    
-    
     @IBOutlet var myTableView: UITableView!
     @IBOutlet weak var labelCounter: UILabel!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
@@ -60,17 +38,6 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
         
         //Start Loading Indicator for creation of index: don't needed after first load
         //self.searchDidStartLoading(self.myTableView
-        
-        
-        // Setting up the refresh control
-        /*self.refreshControl = UIRefreshControl()
-        self.refreshControl?.addTarget(self, action: Selector("handleRefreshAction") , forControlEvents: UIControlEvents.ValueChanged)
-        self.refreshControl?.tintColor = UIColor.blueColor()
-        self.refreshControl?.beginRefreshing()*/
-        
-        //NOTE: No need to connect to the db this way
-        //self.setupIMFDatabase(self.dbName)
-        
         
         fetchFavoriteData()
         
@@ -107,220 +74,20 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
     
     override func viewWillAppear(animated: Bool) {
         
-        /*if(!acroFlags.flags.isEmpty){
+        /*
+        if(!acroFlags.flags.isEmpty){
             flag = acroFlags.flags[0].value
         }
         
         if(flag == "true"){
             self.restartArrays()
-        
-            // Setting up the refresh control
-            self.refreshControl = UIRefreshControl()
-            self.refreshControl?.addTarget(self, action: Selector("handleRefreshAction") , forControlEvents: UIControlEvents.ValueChanged)
-            self.refreshControl?.tintColor = UIColor.blueColor()
-            self.refreshControl?.beginRefreshing()
-        
-            //Do not need to change the name of the database.
-            //self.dbName = self.dbName + "_" + self.userId
-        
-            //self.setupIMFDatabase(self.dbName)
         }
         
         acroFlags.removeFlag()
-        flag = "false"*/
+        flag = "false"
+        */
         tableView.reloadData()
     }
-    
-    //NOTE: Will connect to the Node.js app instead
-    //MARK: - Data Management
-    
-    /*func setupIMFDatabase(dbName: NSString) {
-        var dbError:NSError?
-        let manager = IMFDataManager.sharedInstance() as IMFDataManager
-        
-        self.datastore = manager.localStore(dbName as String, error: &dbError)
-        
-        if ((dbError) != nil) {
-            self.logger.logErrorWithMessages("Error creating local data store \(dbError)")
-        }
-        
-        self.datastore.mapper.setDataType("AcronymItem", forClassName: NSStringFromClass(AcronymItem.classForCoder()))
-        
-        if (!IBM_SYNC_ENABLE) {
-            self.listItems({ () -> Void in
-                self.logger.logDebugWithMessages("Done refreshing we are not using cloud")
-                self.refreshControl?.endRefreshing()
-            })
-            return
-        }
-        manager.remoteStore(dbName as String, completionHandler: { (store, error) -> Void in
-            if (error != nil) {
-                self.logger.logErrorWithMessages("Error creating remote data store \(error)")
-            } else {
-                self.remoteStore = store
-                manager.setCurrentUserPermissions(DB_ACCESS_GROUP_MEMBERS, forStoreName: dbName as String, completionHander: { (success, error) -> Void in
-                    if (error != nil) {
-                        self.logger.logErrorWithMessages("Error setting permissions for user with error \(error)")
-                    }
-                    self.replicatorFactory = manager.replicatorFactory
-                    self.pullReplication = manager.pullReplicationForStore(dbName as String)
-                    self.pushReplication = manager.pushReplicationForStore(dbName as String)
-                    self.pullItems()
-                })
-            }
-            
-        })
-    }*/
-    /*
-    func listItems(cb:()->Void) {
-        logger.logDebugWithMessages("listItems called")
-        
-        //Create query for search in database
-        var queryPredicate: NSPredicate = NSPredicate(format: "acronym = %@", word)
-        
-        //Perform query
-        var query:CDTCloudantQuery = CDTCloudantQuery(dataType: "AcronymItem", withPredicate: queryPredicate)
-        self.datastore.performQuery(query, completionHandler: { (results, error) -> Void in
-            if((error) != nil) {
-                self.logger.logErrorWithMessages("AcronymItems failed with error \(error.description)")
-            }
-            else{
-// POPULATES THE acronymList array.
-                self.acronymList = results as! [AcronymItem]
-                
-                // Sort the array acronymList type AcronymItem with respect of its ranking
-                self.acronymList.sort { (item1: AcronymItem, item2: AcronymItem) -> Bool in
-                    return item1.key.compare(item2.key) == .OrderedDescending
-                }
-                
-                // Appending all acronyms found to temporary array for coredata storing
-// POPULATES acronym with acronymList objects
-                if(!self.acronymList.isEmpty){
-                    for(var i = 0; i < self.acronymList.count; ++i){
-                        self.acronym.append(self.acronymList[i].meaning as String)
-                    }
-                }
-//NOTE: NEED
-                self.setUpAcronym()
-                self.labelCounterRefresh()
-    
-                
-                self.reloadLocalTableData()
-            
-//NOTE: NEED ONCE EVERYTHING HAS LOADED
-                self.searchDidStopLoading(self.myTableView)
-            }
-            cb()
-        })
-    }*/
-    
-    //Most Popular
-    /*func updateItem(item: AcronymItem) {
-        self.datastore.save(item, completionHandler: { (object, error) -> Void in
-            if(error != nil){
-                self.logger.logErrorWithMessages("updateItem failed with error \(error)")
-            } else {
-                self.listItems({ () -> Void in
-                    self.logger.logInfoWithMessages("Item succesfuly update")
-                })
-            }
-        })
-    }*/
-    //END: of db connection
-    
-    //NOTE: Use functions from Node.js app to fetch and update
-    // MARK: - Cloud Sync
-    
-    /*func pullItems() {
-        var error:NSError?
-        self.pullReplicator = self.replicatorFactory.oneWay(self.pullReplication, error: &error)
-        if(error != nil){
-            self.logger.logErrorWithMessages("Error creating oneWay pullReplicator \(error)")
-        }
-        
-        self.pullReplicator.delegate = self
-        self.doingPullReplication = true
-        self.refreshControl?.attributedTitle = NSAttributedString(string: "Pull Items from Cloudant")
-        
-        error = nil
-        println("Replicating data with NoSQL Database on the cloud")
-        self.pullReplicator.startWithError(&error)
-        if(error != nil){
-            self.logger.logErrorWithMessages("Error starting pullReplicator \(error)")
-        }
-    }
-    
-    func pushItems() {
-        var error:NSError?
-        self.pushReplicator = self.replicatorFactory.oneWay(self.pushReplication, error: &error)
-        if(error != nil){
-            self.logger.logErrorWithMessages("Error creating oneWay pullReplicator \(error)")
-        }
-        
-        self.pushReplicator.delegate = self
-        self.doingPullReplication = false
-        self.refreshControl?.attributedTitle = NSAttributedString(string: "Pushing Items to Cloudant")
-        
-        error = nil
-        self.pushReplicator.startWithError(&error)
-        if(error != nil){
-            self.logger.logErrorWithMessages("Error starting pushReplicator \(error)")
-        }
-    }*/
-    //END: Cloud Sync
-    
-    
-    //NOTE: No need of replicators
-    // MARK: - CDTReplicator delegate methods
-    
-    /**
-    * Called when the replicator changes state.
-    */
-    /*func replicatorDidChangeState(replicator: CDTReplicator!) {
-        self.logger.logInfoWithMessages("replicatorDidChangeState \(CDTReplicator.stringForReplicatorState(replicator.state))")
-    }*/
-    
-    /**
-    * Called whenever the replicator changes progress
-    */
-    /*func replicatorDidChangeProgress(replicator: CDTReplicator!) {
-        self.logger.logInfoWithMessages("replicatorDidChangeProgress \(CDTReplicator.stringForReplicatorState(replicator.state))")
-    }*/
-    
-    /**
-    * Called when a state transition to COMPLETE or STOPPED is
-    * completed.
-    */
-    /*func replicatorDidComplete(replicator: CDTReplicator!) {
-        self.logger.logInfoWithMessages("replicatorDidComplete \(CDTReplicator.stringForReplicatorState(replicator.state))")
-        
-        if self.doingPullReplication! {
-            //done doing pull, lets start push
-            self.pushItems()
-        } else {
-            //doing push, push is done read items from local data store and end the refresh UI
-            self.listItems({ () -> Void in
-                self.logger.logDebugWithMessages("Done refreshing table after replication")
-                self.refreshControl?.endRefreshing()
-                self.myTableView.reloadData()
-                self.tableView.reloadData()
-            })
-        }
-    }*/
-    
-    /**
-    * Called when a state transition to ERROR is completed.
-    */
-    
-    /*func replicatorDidError(replicator: CDTReplicator!, info: NSError!) {
-        self.refreshControl?.attributedTitle = NSAttributedString(string: "Error replicating with Cloudant")
-        self.logger.logErrorWithMessages("replicatorDidError \(info)")
-        self.listItems({ () -> Void in
-            self.refreshControl?.endRefreshing()
-        })
-    }*/
-    //END: of replicators
-    
     
     //MARK: CoreData and tableView functions
     
@@ -340,10 +107,6 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
         
         if(!acroSearched.acronyms.isEmpty){
             acroSearched.acronyms.removeAll(keepCapacity: false)
-        }
-//Won't need this one anymore
-        if(self.acronymList.count > 0){
-            self.acronymList.removeAll(keepCapacity: false)
         }
     }
     
@@ -433,7 +196,6 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//Will need to change
         return self.acronym.count
     }
     
@@ -473,6 +235,7 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
         
         // Update keyVal for acronym at indexPath by 1
         let item = self.arrayOfAcronyms[indexPath.row] as acroMain
+        // Update keyVal counter: Will need to be using the route for the Node.js app
         //self.updateItemFromWikiSearch(item.acroName, pos: indexPath.row)
         
         // Push to Wikipedia
@@ -490,7 +253,7 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
         item.acroKey = newPriority
         cell.setCell(item.acroName, acroImage: self.getPriorityImage(item.acroKey))
         
-        // Update keyVal counter
+        // Update keyVal counter: Will need to be using the route for the Node.js app
         //self.updateItemFromFavorites(item.acroName, pos: indexPath!.row)
         
         
@@ -587,7 +350,7 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
         self.tableView.reloadData()
     }
     
-    //Most Popular
+    //Most Popular: Will need to change it to update in the Node.js app
     /*func updateItemFromFavorites(acronym: String, pos: Int){
         var item = self.acronymList[pos]
         var hitVal = item.hits.integerValue + 2
@@ -603,35 +366,7 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
         
         self.updateItem(item)
     }
-    
-    func reloadLocalTableData() {
-        if self.tableView != nil {
-            self.tableView.reloadData()
-        }
-        self.tableView.reloadData()
-    }*/
-    
-    //Refresh sync with cloud
-    /*func handleRefreshAction(){
-        if (IBM_SYNC_ENABLE) {
-            self.acronymList.removeAll(keepCapacity: false)
-            acronym.removeAll(keepCapacity: false)
-            
-            labelCounter.text = "Loading..."
-            
-            arrayOfAcronyms = []
-            
-            self.pullItems()
-        } else {
-            self.listItems({ () -> Void in
-                self.logger.logDebugWithMessages("Done refreshing table in handleRefreshAction")
-                self.refreshControl?.endRefreshing()
-                self.myTableView.reloadData()
-                self.tableView.reloadData()
-            })
-        }
-        self.myTableView.reloadData()
-    }*/
+    */
     
     //New Acronym Segue
     @IBAction func segueToAddAcro(sender: AnyObject) {
