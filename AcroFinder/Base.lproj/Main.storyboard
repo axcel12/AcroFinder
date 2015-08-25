@@ -831,11 +831,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="zdc-Zt-sNA">
-                            <rect key="frame" x="0.0" y="130" width="375" height="37"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MostPopularResult" rowHeight="50" id="U0M-1T-nU1" customClass="MostViewedTableViewCell" customModule="AcroFinder" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -879,7 +874,6 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="zdc-Zt-sNA" id="zBR-eR-FNR"/>
                         <outlet property="popularView" destination="Tmy-0C-ith" id="bbI-4N-QrX"/>
                     </connections>
                 </tableViewController>
@@ -2416,7 +2410,7 @@ Sherwin Yu</string>
         <image name="settings" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dHG-OL-O7c"/>
+        <segue reference="oA5-9I-gvl"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

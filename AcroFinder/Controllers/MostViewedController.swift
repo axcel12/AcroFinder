@@ -42,7 +42,7 @@ class MostViewedController: UITableViewController, UITableViewDelegate {
         super.viewDidLoad()
         
         //Start Loading Indicator for creation of index: don't needed after first load
-        self.searchDidStartLoading(self.popularView)
+        //self.searchDidStartLoading(self.popularView)
         
         //Set tableView color
         self.popularView.backgroundColor = UIColorFromHex(acroBack.colors[0].colorViewController)
@@ -289,10 +289,10 @@ class MostViewedController: UITableViewController, UITableViewDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: MostViewedTableViewCell = self.popularView.dequeueReusableCellWithIdentifier("MostPopularResult", forIndexPath: indexPath) as! MostViewedTableViewCell
         
-        let acroPop = self.acroPopList[indexPath.row]
-        cell.setCell(acroPop.meaning as String)
+        //let acroPop = self.acroPopList[indexPath.row]
+        cell.setCell("TEMP")
         cell.popularLabel.hidden = false
-        cell.popularLabel.text = acroPop.meaning as String
+        cell.popularLabel.text = "TEMP"
         cell.popularLabel.sizeToFit()
         cell.selectionStyle = UITableViewCellSelectionStyle.Blue
         //Set cells color
@@ -311,7 +311,7 @@ class MostViewedController: UITableViewController, UITableViewDelegate {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        var acronymMeaning = acroPopList[indexPath.row].meaning as String
+        var acronymMeaning = "TEMP"
         
         var url = urlForAcronyms(acronymMeaning)
         
@@ -342,7 +342,7 @@ class MostViewedController: UITableViewController, UITableViewDelegate {
     }
     */
     
-    func searchDidStartLoading(myTableView: UITableView!){
+    /*func searchDidStartLoading(myTableView: UITableView!){
         activityIndicator.hidden = false
         activityIndicator.startAnimating()
     }
@@ -350,7 +350,7 @@ class MostViewedController: UITableViewController, UITableViewDelegate {
     func searchDidStopLoading(myTableView: UITableView!){
         activityIndicator.stopAnimating()
         activityIndicator.hidden = true
-    }
+    }*/
     
     func UIColorFromHex(rgbValue:UInt32)->UIColor{
         let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
