@@ -9,6 +9,7 @@ import UIKit
 
 class NewAcroController: UIViewController, CDTReplicatorDelegate{
     
+    /*
     var userId:String!
     //Intialize some list items
     var acronymList: [AcronymItem] = []
@@ -28,6 +29,7 @@ class NewAcroController: UIViewController, CDTReplicatorDelegate{
     var pushReplicator: CDTReplicator!
     
     var doingPullReplication: Bool!
+    */
     
     //logger
     let logger = IMFLogger(forName: "AcroFinder")
@@ -64,7 +66,7 @@ class NewAcroController: UIViewController, CDTReplicatorDelegate{
         refreshControl.beginRefreshing()
         
         //DB Connection
-        self.setupIMFDatabase(self.dbName)
+        //self.setupIMFDatabase(self.dbName)
         
         //Logging
         self.logger.logInfoWithMessages("this is a info test log in newAcroView:viewDidLoad")
@@ -116,7 +118,7 @@ class NewAcroController: UIViewController, CDTReplicatorDelegate{
         if(self.meaningTextField.text! != "" && count(self.meaningTextField.text!) > 4){
             searchDidStartLoading(self.newAcroView)
             self.saveBarButton.enabled = false
-            self.addItemFromtextField(word, meaning: meaningTextField.text!, keyVal: 0, hitVal: 0)
+            //self.addItemFromtextField(word, meaning: meaningTextField.text!, keyVal: 0, hitVal: 0)
         }
     
         self.savedLabel.hidden = false
@@ -152,7 +154,7 @@ class NewAcroController: UIViewController, CDTReplicatorDelegate{
     
     //NOTE: db connection
     //MARK: - Data Management
-    
+    /*
     func setupIMFDatabase(dbName: NSString) {
         var dbError:NSError?
         let manager = IMFDataManager.sharedInstance() as IMFDataManager
@@ -350,4 +352,5 @@ class NewAcroController: UIViewController, CDTReplicatorDelegate{
             })
         }
     }
+    */
 }

@@ -172,7 +172,6 @@ class BackgroundColorController: UITableViewController {
         }
     }
     
-    
     func preferredContentSizeChanged(notification: NSNotification) {
         defaultColorLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         lightBlueLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)

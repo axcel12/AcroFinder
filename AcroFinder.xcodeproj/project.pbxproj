@@ -36,8 +36,6 @@
 		D76919621AC0A2F0009FAC43 /* GoogleWebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76919611AC0A2F0009FAC43 /* GoogleWebController.swift */; };
 		D7B906AE1ACAFE6F005A3723 /* acrofinder.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7B906AD1ACAFE6F005A3723 /* acrofinder.plist */; };
 		D7C71E7E1ACC1654005BF507 /* IMFLoggerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C71E7D1ACC1654005BF507 /* IMFLoggerExtension.swift */; };
-		F663AA601B86BC2700EB9AD5 /* CustomAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA5F1B86BC2700EB9AD5 /* CustomAuth.swift */; };
-		F663AA621B86BC3600EB9AD5 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA611B86BC3600EB9AD5 /* AuthenticationViewController.swift */; };
 		F663AA641B86BC5300EB9AD5 /* AboutAcroFinderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA631B86BC5300EB9AD5 /* AboutAcroFinderController.swift */; };
 		F663AA661B86BC6100EB9AD5 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA651B86BC6100EB9AD5 /* FavoritesTableViewCell.swift */; };
 		F663AA681B86BC6B00EB9AD5 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA671B86BC6B00EB9AD5 /* HistoryTableViewCell.swift */; };
@@ -49,7 +47,6 @@
 		F663AA741B86BD5900EB9AD5 /* AcronymItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA731B86BD5900EB9AD5 /* AcronymItem.swift */; };
 		F663AA761B86BD6100EB9AD5 /* acroFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA751B86BD6100EB9AD5 /* acroFlag.swift */; };
 		F6B256B71B8B2EAC007B7509 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B256B61B8B2EAC007B7509 /* SwiftyJSON.swift */; };
-		F6B256B91B8B2FAE007B7509 /* Alamofire in Resources */ = {isa = PBXBuildFile; fileRef = F6B256B81B8B2FAD007B7509 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,8 +96,6 @@
 		D7B906AD1ACAFE6F005A3723 /* acrofinder.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = acrofinder.plist; sourceTree = "<group>"; };
 		D7C71E7D1ACC1654005BF507 /* IMFLoggerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMFLoggerExtension.swift; sourceTree = "<group>"; };
 		E8BFE5010CFCAE1484EFB990 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		F663AA5F1B86BC2700EB9AD5 /* CustomAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomAuth.swift; path = Authentication/CustomAuth.swift; sourceTree = "<group>"; };
-		F663AA611B86BC3600EB9AD5 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticationViewController.swift; path = Authentication/AuthenticationViewController.swift; sourceTree = "<group>"; };
 		F663AA631B86BC5300EB9AD5 /* AboutAcroFinderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutAcroFinderController.swift; path = Controllers/AboutAcroFinderController.swift; sourceTree = "<group>"; };
 		F663AA651B86BC6100EB9AD5 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoritesTableViewCell.swift; path = Controllers/FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		F663AA671B86BC6B00EB9AD5 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewCell.swift; path = Controllers/HistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -112,7 +107,6 @@
 		F663AA731B86BD5900EB9AD5 /* AcronymItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AcronymItem.swift; path = DataType/AcronymItem.swift; sourceTree = "<group>"; };
 		F663AA751B86BD6100EB9AD5 /* acroFlag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acroFlag.swift; path = DataType/acroFlag.swift; sourceTree = "<group>"; };
 		F6B256B61B8B2EAC007B7509 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		F6B256B81B8B2FAD007B7509 /* Alamofire */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Alamofire; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +141,6 @@
 		8CAAD1C319FF4C86001A9E8A = {
 			isa = PBXGroup;
 			children = (
-				F6B256B81B8B2FAD007B7509 /* Alamofire */,
 				8CAAD1CE19FF4C86001A9E8A /* AcroFinder */,
 				8CAAD1E619FF4C86001A9E8A /* AcroFinderTests */,
 				8CAAD1CD19FF4C86001A9E8A /* Products */,
@@ -168,17 +161,16 @@
 		8CAAD1CE19FF4C86001A9E8A /* AcroFinder */ = {
 			isa = PBXGroup;
 			children = (
-				D7C71E7F1ACC1D2D005BF507 /* Authentication */,
 				925FA6341AB35E27003017A1 /* DataType */,
 				925FA6331AB35E1A003017A1 /* Controllers */,
 				8CAAD1D119FF4C86001A9E8A /* AppDelegate.swift */,
 				F6B256B61B8B2EAC007B7509 /* SwiftyJSON.swift */,
+				D7C71E7D1ACC1654005BF507 /* IMFLoggerExtension.swift */,
 				4B8172761A41E491008FC2A2 /* Main.storyboard */,
 				8CAAD1DC19FF4C86001A9E8A /* LaunchScreen.xib */,
 				8CB9DCBA1AACF50800A85961 /* AcroFinder.xcdatamodeld */,
 				8CAAD1DA19FF4C86001A9E8A /* Images.xcassets */,
 				58B6F3AE1AA2560A008254CC /* Images */,
-				D7C71E7C1ACC162C005BF507 /* Swift Extensions */,
 				8CAAD1CF19FF4C86001A9E8A /* Supporting Files */,
 				D7B906AA1ACAFCFE005A3723 /* acrofinder-Bridging-Header.h */,
 			);
@@ -251,23 +243,6 @@
 				73D97C617AD320FE544AB9CC /* libPods.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D7C71E7C1ACC162C005BF507 /* Swift Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				D7C71E7D1ACC1654005BF507 /* IMFLoggerExtension.swift */,
-			);
-			name = "Swift Extensions";
-			sourceTree = "<group>";
-		};
-		D7C71E7F1ACC1D2D005BF507 /* Authentication */ = {
-			isa = PBXGroup;
-			children = (
-				F663AA611B86BC3600EB9AD5 /* AuthenticationViewController.swift */,
-				F663AA5F1B86BC2700EB9AD5 /* CustomAuth.swift */,
-			);
-			name = Authentication;
 			sourceTree = "<group>";
 		};
 		E34EC6C920AAB0A47BD47C20 /* Pods */ = {
@@ -370,7 +345,6 @@
 				D7661BDB1ACBFCBF0051E471 /* Main.storyboard in Resources */,
 				58AADFAD1AB48AE400224403 /* favStarYellow.png in Resources */,
 				58AADFAC1AB48AE400224403 /* favStarBlank.png in Resources */,
-				F6B256B91B8B2FAE007B7509 /* Alamofire in Resources */,
 				D7B906AE1ACAFE6F005A3723 /* acrofinder.plist in Resources */,
 				8CAAD1DB19FF4C86001A9E8A /* Images.xcassets in Resources */,
 			);
@@ -451,9 +425,7 @@
 				F663AA641B86BC5300EB9AD5 /* AboutAcroFinderController.swift in Sources */,
 				925FA6291AB35E0C003017A1 /* BackgroundColorController.swift in Sources */,
 				F663AA6A1B86BC7400EB9AD5 /* LegalViewController.swift in Sources */,
-				F663AA601B86BC2700EB9AD5 /* CustomAuth.swift in Sources */,
 				925FA63D1AB35E47003017A1 /* acroMain.swift in Sources */,
-				F663AA621B86BC3600EB9AD5 /* AuthenticationViewController.swift in Sources */,
 				925FA6301AB35E0C003017A1 /* SettingsViewController.swift in Sources */,
 				925FA6281AB35E0C003017A1 /* AboutViewController.swift in Sources */,
 				741146DC1B8B887C00A26312 /* AFAcronym.swift in Sources */,

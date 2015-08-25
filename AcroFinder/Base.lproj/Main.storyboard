@@ -463,63 +463,6 @@
             </objects>
             <point key="canvasLocation" x="-310.5" y="274.5"/>
         </scene>
-        <!--Authentication-->
-        <scene sceneID="tsJ-7s-Jaa">
-            <objects>
-                <viewController title="Authentication" id="ErF-CB-FkZ" customClass="AuthenticationViewController" customModule="AcroFinder" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qqB-LN-58o"/>
-                        <viewControllerLayoutGuide type="bottom" id="hCH-pO-3Td"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2uW-Ml-1Io">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XVb-SY-5jj">
-                                <rect key="frame" x="67" y="428" width="241" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="241" id="HlR-ay-Qxc"/>
-                                    <constraint firstAttribute="height" constant="128" id="vFq-pD-OsE"/>
-                                </constraints>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="JbL-mR-aHh">
-                                <rect key="frame" x="169" y="315" width="37" height="37"/>
-                                <color key="color" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authenticating" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOU-GP-b0o">
-                                <rect key="frame" x="135" y="384" width="105" height="20"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="XVb-SY-5jj" secondAttribute="centerX" id="2rT-U4-sIc"/>
-                            <constraint firstAttribute="centerY" secondItem="JbL-mR-aHh" secondAttribute="centerY" id="I6M-wq-4Ed"/>
-                            <constraint firstItem="hCH-pO-3Td" firstAttribute="top" secondItem="XVb-SY-5jj" secondAttribute="bottom" constant="111" id="LBU-nC-FRr"/>
-                            <constraint firstAttribute="centerY" secondItem="KOU-GP-b0o" secondAttribute="centerY" constant="-60.5" id="aGx-Vv-AWe"/>
-                            <constraint firstAttribute="centerY" secondItem="XVb-SY-5jj" secondAttribute="centerY" constant="-158.5" id="b4p-k6-7B5"/>
-                            <constraint firstAttribute="centerX" secondItem="JbL-mR-aHh" secondAttribute="centerX" id="dgf-jp-0U3"/>
-                            <constraint firstAttribute="centerX" secondItem="KOU-GP-b0o" secondAttribute="centerX" id="riM-pK-2VN"/>
-                            <constraint firstItem="XVb-SY-5jj" firstAttribute="leading" secondItem="2uW-Ml-1Io" secondAttribute="leadingMargin" constant="51" id="zyj-95-Xac"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="aW4-BR-HGd"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="errorTextView" destination="XVb-SY-5jj" id="uRA-Wh-T7U"/>
-                        <outlet property="progressLabel" destination="KOU-GP-b0o" id="Poa-TA-nDL"/>
-                        <segue destination="49e-Tb-3d3" kind="presentation" identifier="authenticationSegue" modalTransitionStyle="crossDissolve" id="APL-pQ-JIE"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gJG-n6-IaZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3436.5" y="-1592.5"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -2273,25 +2216,6 @@ Cg
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oBG-Kb-mGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2100.5" y="-1768.5"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="J8H-Zw-V9g">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tVq-La-bxO" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gh7-MK-YUf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ErF-CB-FkZ" kind="relationship" relationship="rootViewController" id="DFp-Vd-Ulm"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DrZ-gf-xDB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3839.5" y="-1592.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zkc-6J-bjR">
