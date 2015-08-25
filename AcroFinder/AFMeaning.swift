@@ -8,7 +8,11 @@
 
 import Foundation
 
-class AFMeaning:NSObject {
+let kMeaningNameKey = "name"
+let kMeaningRelevanceKey = "relevance"
+let kMeaningHitsKey = "hits"
+
+class AFMeaning:NSObject, NSCoding {
     var name:String
     var relevance:Int
     var hits:Int
@@ -17,5 +21,17 @@ class AFMeaning:NSObject {
         self.name = name
         self.relevance = relevance
         self.hits = hits
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        self.name = aDecoder.decodeObjectForKey(kMeaningNameKey) as! String
+        self.relevance = aDecoder.decodeObjectForKey(kMeaningRelevanceKey) as! Int
+        self.hits = aDecoder.decodeObjectForKey(kMeaningHitsKey) as! Int
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(self.name, forKey: kMeaningNameKey)
+        aCoder.encodeInteger(self.relevance, forKey: kMeaningRelevanceKey)
+        aCoder.encodeInteger(self.hits, forKey: kMeaningHitsKey)
     }
 }
