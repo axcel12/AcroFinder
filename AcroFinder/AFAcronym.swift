@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ASAcronym:NSObject {
+class AFAcronym:NSObject {
     var id:String
     var rev:String
     var acronym:String

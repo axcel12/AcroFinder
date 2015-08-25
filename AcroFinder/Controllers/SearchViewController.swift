@@ -349,12 +349,30 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
                     println(json)
                     
                     println("2)--------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX------------------")
-                    for meanings in json[0]["value"]["meanings"].arrayValue {
-                        let name = meanings["name"].stringValue
+                    var meaningsArray:[AFMeaning] = []
+                    for meaning in json[0]["value"]["meanings"].arrayValue {
+                        if let meaningName = meaning["name"].string,
+                            let meaningRelevance = meaning["key"].int,
+                            let meaningHits = meaning["hits"].int {
+                                let meaning = AFMeaning(name: meaningName, relevance: meaningRelevance, hits: meaningHits)
+                                meaningsArray.append(meaning)
+                        }
+                        else
+                        {
+                            println(meaning["name"].error)
+                            println(meaning["key"].error)
+                            println(meaning["hits"].error)
+                        }
+                        let name = meaning["name"].stringValue
                         
                         self.acronym.insert(name, atIndex: 0)
                         acroSearched.addAcronym(name)
                         //println(name)
+                    }
+                    if let acronymName = json[0]["value"]["acronym"].string,
+                        let id = json[0]["value"]["_id"].string,
+                        let rev = json[0]["value"]["_rev"].string {
+                            let acronym:AFAcronym = AFAcronym(id: id, rev: rev, acronym: acronymName, meanings: meaningsArray)
                     }
                 }
             }
