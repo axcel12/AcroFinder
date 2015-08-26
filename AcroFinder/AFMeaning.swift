@@ -25,8 +25,8 @@ class AFMeaning:NSObject, NSCoding {
     
     required init(coder aDecoder: NSCoder) {
         self.name = aDecoder.decodeObjectForKey(kMeaningNameKey) as! String
-        self.relevance = aDecoder.decodeObjectForKey(kMeaningRelevanceKey) as! Int
-        self.hits = aDecoder.decodeObjectForKey(kMeaningHitsKey) as! Int
+        self.relevance  = aDecoder.decodeIntegerForKey(kMeaningRelevanceKey)
+        self.hits = aDecoder.decodeIntegerForKey(kMeaningHitsKey)
     }
     
     func encodeWithCoder(aCoder: NSCoder) {

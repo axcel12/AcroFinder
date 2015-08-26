@@ -42,6 +42,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //Request will have a lot of data... not going to print that out yet.
             //println(results)
             let json = JSON(data: data)
+            /*
+            for (index, object) in json {
+                let name = object["id"].stringValue
+                println(name)
+            }
+            */
+            //let json = JSON(data)
+            //println(json[0]["id"].error)
+            //let acronym = json[0]
             if let acronymsArray = json.array {
                 for acronym in acronymsArray {
                     if let acronymID: String = acronym["id"].string,
@@ -272,7 +281,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             items.addObject(item)
             println("Saving acronym \(acronym.id)")
         }
-        NSKeyedArchiver.archiveRootObject(items, toFile: "Library/Caches/")
+        NSKeyedArchiver.archiveRootObject(items, toFile: "Library/Caches/acronyms.json")
     }
     
 }

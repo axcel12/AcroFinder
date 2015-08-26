@@ -27,6 +27,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
     var favAcronyms = [NSManagedObject]()
     var background = [NSManagedObject]()
     
+    var cachedAcronyms:[AFAcronym] = []
+    
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var searchView: UIView!
     @IBOutlet var searchTextField: UITextField!
@@ -79,6 +81,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
         
         //Logging
         self.logger.logInfoWithMessages("this is a info test log in main search view controller: SearchViewController")
+        
+        loadAllCachedAcronyms()
     }
     
     //MARK: More TableView Functions
@@ -266,6 +270,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
 
     @IBAction func searchAction(textField: UITextField) {
         //Stores input from textField into searchAcro
+        loadAllCachedAcronyms()
+        
         searchAcro = textField.text.uppercaseString
         self.searchTextField.resignFirstResponder()
         searchDidStartLoading(self.searchView)
@@ -314,6 +320,16 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
             
             task.resume()
             */
+            if cachedAcronyms.count > 0 {
+                println("Cached Acronyms available, search here")
+                var filtered = self.cachedAcronyms.filter { $0.acronym == self.word }
+                if filtered.count > 0 {
+                    println("Used fast search")
+                    self.acronym.insert(filtered[0].acronym, atIndex: 0)
+                    acroSearched.addAcronym(filtered[0].acronym)
+                }
+            }
+            else{
             
             if let url = NSURL(string: "http://acronymfinder.mybluemix.net/api/v1/acronyms/" + self.word) {
                 if let data = NSData(contentsOfURL: url, options: .allZeros, error: nil) {
@@ -350,7 +366,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
                     }
                 }
             }
-            
+            }
 //Reload
             self.searchDidStopLoading(self.searchView)
             
@@ -430,6 +446,32 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
         let blue = CGFloat(rgbValue & 0xFF)/256.0
         
         return UIColor(red:red, green:green, blue:blue, alpha:1.0)
+    }
+    
+    func loadAllCachedAcronyms() {
+        println("Loading cached acronyms")
+        if (cachedAcronyms.count == 0)
+        {
+            println("Clearing existing array")
+            cachedAcronyms = []
+            
+            if let objects = NSKeyedUnarchiver.unarchiveObjectWithFile("Library/Caches/acronyms.json") as? NSMutableArray {
+                for savedItem in objects {
+                    println("Decoding acronym")
+                    if let acronym = NSKeyedUnarchiver.unarchiveObjectWithData(savedItem as! NSData) as? AFAcronym {
+                        cachedAcronyms.append(acronym)
+                        println("Adding cached acronym: \(acronym.acronym)")
+                    }
+                    else {
+                        println("Error decoding acronym")
+                    }
+                }
+                println("Cached acronyms set")
+            }
+            else {
+                println("problem reading from archive")
+            }
+        }
     }
 }
 
