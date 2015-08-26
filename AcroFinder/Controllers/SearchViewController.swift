@@ -87,6 +87,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
         self.searchView.backgroundColor = UIColorFromHex(acroBack.colors[0].colorViewController)
         navigationController?.navigationBar.barTintColor = UIColorFromHex(acroBack.colors[0].colorNavigator)
         tabBarController?.tabBar.barTintColor = UIColor.whiteColor()
+        
+        self.restartArrays()
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -414,6 +416,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
                     self.saveHistoryAcronym(wordHist)
                 }
             }
+        }
+    }
+    func restartArrays(){
+        if(!acroSearched.acronyms.isEmpty){
+            acroSearched.acronyms.removeAll(keepCapacity: false)
         }
     }
     
