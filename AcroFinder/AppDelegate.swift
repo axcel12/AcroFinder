@@ -11,6 +11,7 @@ import CoreData
 import Security
 
 let IBM_SYNC_ENABLE = true
+let kSavedAcronymsKey = "savedAcronyms"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var firstIndex = NSIndexPath(forRow: 0, inSection: 0)
     var navigationBarAppearace = UINavigationBar.appearance()
     var tabBarAppearance = UITabBar.appearance()
+    var acronyms: [AFAcronym] = []
 
     /*func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool{
             return FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
@@ -30,6 +32,62 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        //Request to get all acronyms:
+        let url = NSURL(string: "http://acronymfinder.mybluemix.net/api/v1/acronyms/")
+        
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+            
+            //let results = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+            
+            //Request will have a lot of data... not going to print that out yet.
+            //println(results)
+            let json = JSON(data: data)
+            if let acronymsArray = json.array {
+                for acronym in acronymsArray {
+                    if let acronymID: String = acronym["id"].string,
+                        let acronymRev: String = acronym["doc"]["_rev"].string,
+                        let acronymAbbreviation: String = acronym["doc"]["acronym"].string,
+                        let meaningsArray = acronym["doc"]["meanings"].array {
+                            var acronymMeanings:[AFMeaning] = []
+                            for meaning in meaningsArray {
+                                if let meaningName = meaning["name"].string,
+                                    let meaningRelevance = meaning["key"].int,
+                                    let meaningHits = meaning["hits"].int {
+                                        let meaning = AFMeaning(name: meaningName, relevance: meaningRelevance, hits: meaningHits)
+                                        acronymMeanings.append(meaning)
+                                }
+                                else
+                                {
+                                    println("Error getting meaning info")
+                                    println(meaning["name"].error)
+                                    println(meaning["key"].error)
+                                    println(meaning["hits"].error)
+                                }
+                            }
+                            let currentAcronym:AFAcronym = AFAcronym(id: acronymID, rev: acronymRev, acronym: acronymAbbreviation, meanings: acronymMeanings)
+                            self.acronyms.append(currentAcronym)
+                            println("Add acronym: \(currentAcronym.id)")
+                    }
+                    else
+                    {
+                        println("Error getting acronym info")
+                        println(acronym["id"].error)
+                        println(acronym["doc"]["_rev"].error)
+                        println(acronym["doc"]["acronym"].error)
+                        println(acronym["doc"]["meanings"].error)
+                    }
+                }
+                self.saveAllAFAcronyms()
+            }
+            else
+            {
+                println("Error getting json array")
+                println(json.error)
+            }
+            
+        }
+        
+        task.resume()
         
         // Read the applicationId from the acrofinder.plist.
         let configurationPath = NSBundle.mainBundle().pathForResource("acrofinder", ofType: "plist")
@@ -205,6 +263,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 abort()
             }
         }
+    }
+    
+    func saveAllAFAcronyms() {
+        var items = NSMutableArray()
+        for acronym in acronyms {
+            let item = NSKeyedArchiver.archivedDataWithRootObject(acronym)
+            items.addObject(item)
+            println("Saving acronym \(acronym.id)")
+        }
+        NSKeyedArchiver.archiveRootObject(items, toFile: "Library/Caches/")
     }
     
 }
