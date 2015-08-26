@@ -74,7 +74,7 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
     
     override func viewWillAppear(animated: Bool) {
         
-        /*
+        //Will keep using this for now
         if(!acroFlags.flags.isEmpty){
             flag = acroFlags.flags[0].value
         }
@@ -85,14 +85,14 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
         
         acroFlags.removeFlag()
         flag = "false"
-        */
+
         tableView.reloadData()
     }
     
     //MARK: CoreData and tableView functions
     
     override func viewDidDisappear(animated: Bool) {
-        self.restartArrays()
+        //Nothing here
     }
     
     func restartArrays(){
@@ -103,10 +103,6 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
         
         if(self.acronym.count > 0){
             self.acronym.removeAll(keepCapacity: false)
-        }
-        
-        if(!acroSearched.acronyms.isEmpty){
-            acroSearched.acronyms.removeAll(keepCapacity: false)
         }
     }
     
