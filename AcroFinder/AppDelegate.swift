@@ -10,16 +10,16 @@ import UIKit
 import CoreData
 import Security
 
-let IBM_SYNC_ENABLE = true
+//let IBM_SYNC_ENABLE = true
 let kSavedAcronymsKey = "savedAcronyms"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var logger:IMFLogger?
+    //var logger:IMFLogger?
     var tags = [String]()
-    var isUserAuthenticated = false
+    //var isUserAuthenticated = false
     
     var firstIndex = NSIndexPath(forRow: 0, inSection: 0)
     var navigationBarAppearace = UINavigationBar.appearance()
@@ -98,6 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         task.resume()
         
+        /*
         // Read the applicationId from the acrofinder.plist.
         let configurationPath = NSBundle.mainBundle().pathForResource("acrofinder", ofType: "plist")
         let configuration = NSDictionary(contentsOfFile: configurationPath!)
@@ -127,7 +128,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         logger?.logDebugWithMessages("This is a log message from AcroFinder: App Launch")
         IMFLogger.send()
-        
+        */
         
         //Assign values to colorMessenger
         
@@ -173,11 +174,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Perhaps [IMFLogger send]; should only happen when the end-user presses a button to do so, for example.
         // CAUTION: the URL receiving the uploaded log and analytics payload is auth-protected, so these calls
         // should only be made after authentication, otherwise your end-user will receive a random auth prompt!
+        /*
         if isUserAuthenticated {
             IMFLogger.send() // send all IMFLogger logged data to the server
             IMFAnalytics.sharedInstance().sendPersistedLogs() // send all analytics data to the server
         }
-        
+        */
     }
     
     func applicationWillEnterForeground(application: UIApplication) {

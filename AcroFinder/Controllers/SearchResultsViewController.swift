@@ -11,10 +11,10 @@ import UIKit
 import MessageUI
 import CoreData
 
-class SearchResultsViewController: UITableViewController, UITableViewDataSource, MFMailComposeViewControllerDelegate, CDTReplicatorDelegate {
+class SearchResultsViewController: UITableViewController, UITableViewDataSource, MFMailComposeViewControllerDelegate {
     
     //Logger
-    let logger = IMFLogger(forName: "AcroFinder")
+    //let logger = IMFLogger(forName: "AcroFinder")
 
     @IBOutlet var myTableView: UITableView!
     @IBOutlet weak var labelCounter: UILabel!
@@ -61,7 +61,7 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
         self.labelCounterRefresh()
         
         //Logging
-        self.logger.logInfoWithMessages("this is a info test log in SearchResultsViewController:viewDidLoad")
+        //self.logger.logInfoWithMessages("this is a info test log in SearchResultsViewController:viewDidLoad")
         
         
         self.myTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellFound")
