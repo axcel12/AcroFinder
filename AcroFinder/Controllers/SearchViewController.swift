@@ -436,11 +436,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
             
             if let objects = NSKeyedUnarchiver.unarchiveObjectWithFile("Library/Caches/acronyms.json") as? NSMutableArray {
                 for savedItem in objects {
-                    println("Decoding acronym")
+                    //println("Decoding acronym")
                     if let acronym = NSKeyedUnarchiver.unarchiveObjectWithData(savedItem as! NSData) as? AFAcronym {
                         cachedAcronyms.append(acronym)
                         //println("----------------------------------------------MEANINGS:\(acronym.meanings.count)")
-                        println("Adding cached acronym: \(acronym.acronym)")
+                        //println("Adding cached acronym: \(acronym.acronym)")
                     }
                     else {
                         println("Error decoding acronym")

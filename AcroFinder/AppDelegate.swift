@@ -96,7 +96,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
-        task.resume()
+        var checkValidation = NSFileManager.defaultManager()
+        
+        if (checkValidation.fileExistsAtPath("Library/Caches/acronyms.json")){
+            //TODO: Implement update system in the future.
+            //We have the file, no need to send request.
+        }
+        else {
+            task.resume()
+        }
         
         // Read the applicationId from the acrofinder.plist.
         let configurationPath = NSBundle.mainBundle().pathForResource("acrofinder", ofType: "plist")

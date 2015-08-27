@@ -149,9 +149,15 @@
                                         <constraint firstItem="dJP-ep-mBh" firstAttribute="top" secondItem="J2S-v7-5P5" secondAttribute="top" constant="15" id="A8K-Lt-1Ks"/>
                                         <constraint firstAttribute="bottom" secondItem="dJP-ep-mBh" secondAttribute="bottom" constant="15" id="Pjf-uw-gId"/>
                                         <constraint firstItem="gat-gb-a2D" firstAttribute="top" secondItem="J2S-v7-5P5" secondAttribute="top" constant="13" id="Yfo-7E-avp"/>
+                                        <constraint firstAttribute="centerY" secondItem="gat-gb-a2D" secondAttribute="centerY" id="mgs-Ju-IrS"/>
                                         <constraint firstItem="gat-gb-a2D" firstAttribute="leading" secondItem="dJP-ep-mBh" secondAttribute="trailing" constant="8" id="och-2M-sbp"/>
                                         <constraint firstAttribute="trailing" secondItem="gat-gb-a2D" secondAttribute="trailing" id="rUO-1v-YDM"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="Yfo-7E-avp"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES"/>
