@@ -293,44 +293,22 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
             activityIndicator.hidden = true
         }
         else{
-            
-            /*
-            //Tried this one several and different ways but did not work
-            let url = NSURL(string: "http://acronymfinder.mybluemix.net/api/v1/acronyms/" + self.word)
-            
-            let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
-                println("1)--------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX------------------")
-                
-            let results = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-                
-            println(results)
-                
-            let json = JSON(results)
-                
-            println("2)--------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX------------------")
-                
-                for meanings in json[0]["value"]["meanings"].arrayValue {
-                    let name = meanings["name"].stringValue
-                    
-                    self.acronym.insert(name, atIndex: 0)
-                    
-                    println(name)
-                }
-            }
-            
-            task.resume()
-            */
+            println("----------------------------Cached acronyms total: \(cachedAcronyms.count)----------------------------")
+            //This just adds the acronym not the meanings
             if cachedAcronyms.count > 0 {
                 println("Cached Acronyms available, search here")
                 var filtered = self.cachedAcronyms.filter { $0.acronym == self.word }
                 if filtered.count > 0 {
                     println("Used fast search")
-                    self.acronym.insert(filtered[0].acronym, atIndex: 0)
-                    acroSearched.addAcronym(filtered[0].acronym)
+                    for meanings in filtered[0].meanings{
+                        self.acronym.insert(meanings.name, atIndex: 0)
+                        acroSearched.addAcronym(meanings.name)
+                        println("-----------------------------------Meaning:\(meanings.name)---------------------------")
+                    }
                 }
             }
             else{
-            
+            println("Cached Acronyms not available, search in db")
             if let url = NSURL(string: "http://acronymfinder.mybluemix.net/api/v1/acronyms/" + self.word) {
                 if let data = NSData(contentsOfURL: url, options: .allZeros, error: nil) {
                     let json = JSON(data: data)
@@ -353,11 +331,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
                             println(meaning["key"].error)
                             println(meaning["hits"].error)
                         }
-                        let name = meaning["name"].stringValue
+                        let meanings = meaning["name"].stringValue
                         
-                        self.acronym.insert(name, atIndex: 0)
-                        acroSearched.addAcronym(name)
-                        //println(name)
+                        self.acronym.insert(meanings, atIndex: 0)
+                        acroSearched.addAcronym(meanings)
+                        println("-----------------------------------Meaning:\(meanings)---------------------------")
                     }
                     if let acronymName = json[0]["value"]["acronym"].string,
                         let id = json[0]["value"]["_id"].string,
@@ -434,6 +412,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
             }
         }
     }
+    
     func restartArrays(){
         if(!acroSearched.acronyms.isEmpty){
             acroSearched.acronyms.removeAll(keepCapacity: false)
@@ -460,6 +439,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
                     println("Decoding acronym")
                     if let acronym = NSKeyedUnarchiver.unarchiveObjectWithData(savedItem as! NSData) as? AFAcronym {
                         cachedAcronyms.append(acronym)
+                        //println("----------------------------------------------MEANINGS:\(acronym.meanings.count)")
                         println("Adding cached acronym: \(acronym.acronym)")
                     }
                     else {
