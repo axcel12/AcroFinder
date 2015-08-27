@@ -1,6 +1,0 @@
-framework module IMFData {
-  umbrella header "IMFData.h"
-
-  export *
-  module * { export * }
-}

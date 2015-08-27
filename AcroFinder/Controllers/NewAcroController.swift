@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class NewAcroController: UIViewController, CDTReplicatorDelegate{
+class NewAcroController: UIViewController {
     
     /*
     var userId:String!
@@ -32,7 +32,7 @@ class NewAcroController: UIViewController, CDTReplicatorDelegate{
     */
     
     //logger
-    let logger = IMFLogger(forName: "AcroFinder")
+    //let logger = IMFLogger(forName: "AcroFinder")
     
     var refreshControl = UIRefreshControl()
     
@@ -60,16 +60,18 @@ class NewAcroController: UIViewController, CDTReplicatorDelegate{
         
         word = controllerTitle
         
+        /*
         // Setting up the refresh control
         refreshControl.addTarget(self, action: Selector("handleRefreshAction") , forControlEvents: UIControlEvents.ValueChanged)
         refreshControl.tintColor = UIColor.blueColor()
         refreshControl.beginRefreshing()
-        
+        */
+
         //DB Connection
         //self.setupIMFDatabase(self.dbName)
         
         //Logging
-        self.logger.logInfoWithMessages("this is a info test log in newAcroView:viewDidLoad")
+        //self.logger.logInfoWithMessages("this is a info test log in newAcroView:viewDidLoad")
     }
     
     override func viewDidDisappear(animated: Bool) {

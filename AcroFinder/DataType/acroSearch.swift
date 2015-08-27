@@ -18,6 +18,6 @@ class acroSearch: NSString {
     }
     
     func addAcronym(name: String){
-        acronyms.insert(acronym(name:name), atIndex: 0)
+        acronyms.append(acronym(name:name))
     }
 }

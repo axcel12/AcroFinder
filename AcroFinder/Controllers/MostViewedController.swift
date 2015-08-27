@@ -32,7 +32,7 @@ class MostViewedController: UITableViewController, UITableViewDelegate {
     */
     
     //logger
-    let logger = IMFLogger(forName: "AcroFinder")
+    //let logger = IMFLogger(forName: "AcroFinder")
     
     @IBOutlet var popularView: UITableView!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
@@ -59,7 +59,7 @@ class MostViewedController: UITableViewController, UITableViewDelegate {
         //self.setupIMFDatabase(self.dbName)
         
         //Logging
-        self.logger.logInfoWithMessages("this is a info test log in MostPopularViewController:viewDidLoad")
+        //self.logger.logInfoWithMessages("this is a info test log in MostPopularViewController:viewDidLoad")
         
         
         self.popularView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellPopular")

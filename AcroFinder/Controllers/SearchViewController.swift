@@ -9,12 +9,12 @@
 import UIKit
 import CoreData
 
-class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicatorDelegate {
+class SearchViewController: UIViewController, UITextFieldDelegate {
     
     //Logger
-    let logger = IMFLogger(forName: "AcroFinder")
+    //let logger = IMFLogger(forName: "AcroFinder")
     
-    var refreshControl = UIRefreshControl()
+    //var refreshControl = UIRefreshControl()
     
     var acronym = [String]()
     var word: String = ""
@@ -80,7 +80,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CDTReplicator
         
         
         //Logging
-        self.logger.logInfoWithMessages("this is a info test log in main search view controller: SearchViewController")
+        //self.logger.logInfoWithMessages("this is a info test log in main search view controller: SearchViewController")
         
         loadAllCachedAcronyms()
     }

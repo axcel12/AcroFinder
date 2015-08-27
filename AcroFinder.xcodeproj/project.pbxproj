@@ -30,12 +30,10 @@
 		925FA63C1AB35E47003017A1 /* acroHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6361AB35E47003017A1 /* acroHistory.swift */; };
 		925FA63D1AB35E47003017A1 /* acroMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6371AB35E47003017A1 /* acroMain.swift */; };
 		925FA63F1AB35E47003017A1 /* acroSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6391AB35E47003017A1 /* acroSearch.swift */; };
-		D00299DCEAA72C2AC6BA5DED /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D97C617AD320FE544AB9CC /* libPods.a */; };
 		D7661BDB1ACBFCBF0051E471 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B8172761A41E491008FC2A2 /* Main.storyboard */; };
 		D76919601AC09EB9009FAC43 /* NotFoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D769195F1AC09EB9009FAC43 /* NotFoundController.swift */; };
 		D76919621AC0A2F0009FAC43 /* GoogleWebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76919611AC0A2F0009FAC43 /* GoogleWebController.swift */; };
 		D7B906AE1ACAFE6F005A3723 /* acrofinder.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7B906AD1ACAFE6F005A3723 /* acrofinder.plist */; };
-		D7C71E7E1ACC1654005BF507 /* IMFLoggerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C71E7D1ACC1654005BF507 /* IMFLoggerExtension.swift */; };
 		F663AA641B86BC5300EB9AD5 /* AboutAcroFinderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA631B86BC5300EB9AD5 /* AboutAcroFinderController.swift */; };
 		F663AA661B86BC6100EB9AD5 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA651B86BC6100EB9AD5 /* FavoritesTableViewCell.swift */; };
 		F663AA681B86BC6B00EB9AD5 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA671B86BC6B00EB9AD5 /* HistoryTableViewCell.swift */; };
@@ -44,7 +42,6 @@
 		F663AA6E1B86BC8800EB9AD5 /* NewAcroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA6D1B86BC8800EB9AD5 /* NewAcroController.swift */; };
 		F663AA701B86BD4700EB9AD5 /* acroPopular.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA6F1B86BD4700EB9AD5 /* acroPopular.swift */; };
 		F663AA721B86BD4F00EB9AD5 /* backgroundMgr.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA711B86BD4F00EB9AD5 /* backgroundMgr.swift */; };
-		F663AA741B86BD5900EB9AD5 /* AcronymItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA731B86BD5900EB9AD5 /* AcronymItem.swift */; };
 		F663AA761B86BD6100EB9AD5 /* acroFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA751B86BD6100EB9AD5 /* acroFlag.swift */; };
 		F6B256B71B8B2EAC007B7509 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B256B61B8B2EAC007B7509 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
@@ -63,8 +60,6 @@
 		4B8172771A41E491008FC2A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		58AADFAA1AB48AE400224403 /* favStarBlank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favStarBlank.png; path = AcroFinder/images/favStarBlank.png; sourceTree = "<group>"; };
 		58AADFAB1AB48AE400224403 /* favStarYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favStarYellow.png; path = AcroFinder/images/favStarYellow.png; sourceTree = "<group>"; };
-		6408CBC5FE6FCB0DE2586CE7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		73D97C617AD320FE544AB9CC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		741146DB1B8B887C00A26312 /* AFAcronym.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFAcronym.swift; sourceTree = "<group>"; };
 		741146DD1B8B88C500A26312 /* AFMeaning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFMeaning.swift; sourceTree = "<group>"; };
 		8C47A4691AC4AE5B004DB0CE /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpViewController.swift; path = Controllers/HelpViewController.swift; sourceTree = "<group>"; };
@@ -92,10 +87,7 @@
 		925FA6391AB35E47003017A1 /* acroSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acroSearch.swift; path = DataType/acroSearch.swift; sourceTree = "<group>"; };
 		D769195F1AC09EB9009FAC43 /* NotFoundController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotFoundController.swift; path = Controllers/NotFoundController.swift; sourceTree = "<group>"; };
 		D76919611AC0A2F0009FAC43 /* GoogleWebController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleWebController.swift; path = Controllers/GoogleWebController.swift; sourceTree = "<group>"; };
-		D7B906AA1ACAFCFE005A3723 /* acrofinder-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "acrofinder-Bridging-Header.h"; sourceTree = "<group>"; };
 		D7B906AD1ACAFE6F005A3723 /* acrofinder.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = acrofinder.plist; sourceTree = "<group>"; };
-		D7C71E7D1ACC1654005BF507 /* IMFLoggerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMFLoggerExtension.swift; sourceTree = "<group>"; };
-		E8BFE5010CFCAE1484EFB990 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F663AA631B86BC5300EB9AD5 /* AboutAcroFinderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutAcroFinderController.swift; path = Controllers/AboutAcroFinderController.swift; sourceTree = "<group>"; };
 		F663AA651B86BC6100EB9AD5 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoritesTableViewCell.swift; path = Controllers/FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		F663AA671B86BC6B00EB9AD5 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewCell.swift; path = Controllers/HistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -104,7 +96,6 @@
 		F663AA6D1B86BC8800EB9AD5 /* NewAcroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewAcroController.swift; path = Controllers/NewAcroController.swift; sourceTree = "<group>"; };
 		F663AA6F1B86BD4700EB9AD5 /* acroPopular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acroPopular.swift; path = DataType/acroPopular.swift; sourceTree = "<group>"; };
 		F663AA711B86BD4F00EB9AD5 /* backgroundMgr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = backgroundMgr.swift; path = DataType/backgroundMgr.swift; sourceTree = "<group>"; };
-		F663AA731B86BD5900EB9AD5 /* AcronymItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AcronymItem.swift; path = DataType/AcronymItem.swift; sourceTree = "<group>"; };
 		F663AA751B86BD6100EB9AD5 /* acroFlag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acroFlag.swift; path = DataType/acroFlag.swift; sourceTree = "<group>"; };
 		F6B256B61B8B2EAC007B7509 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,7 +105,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D00299DCEAA72C2AC6BA5DED /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,8 +134,6 @@
 				8CAAD1CE19FF4C86001A9E8A /* AcroFinder */,
 				8CAAD1E619FF4C86001A9E8A /* AcroFinderTests */,
 				8CAAD1CD19FF4C86001A9E8A /* Products */,
-				9A53096801727B9D322EE3C1 /* Frameworks */,
-				E34EC6C920AAB0A47BD47C20 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -165,14 +153,12 @@
 				925FA6331AB35E1A003017A1 /* Controllers */,
 				8CAAD1D119FF4C86001A9E8A /* AppDelegate.swift */,
 				F6B256B61B8B2EAC007B7509 /* SwiftyJSON.swift */,
-				D7C71E7D1ACC1654005BF507 /* IMFLoggerExtension.swift */,
 				4B8172761A41E491008FC2A2 /* Main.storyboard */,
 				8CAAD1DC19FF4C86001A9E8A /* LaunchScreen.xib */,
 				8CB9DCBA1AACF50800A85961 /* AcroFinder.xcdatamodeld */,
 				8CAAD1DA19FF4C86001A9E8A /* Images.xcassets */,
 				58B6F3AE1AA2560A008254CC /* Images */,
 				8CAAD1CF19FF4C86001A9E8A /* Supporting Files */,
-				D7B906AA1ACAFCFE005A3723 /* acrofinder-Bridging-Header.h */,
 			);
 			path = AcroFinder;
 			sourceTree = "<group>";
@@ -229,29 +215,11 @@
 				925FA6371AB35E47003017A1 /* acroMain.swift */,
 				F663AA711B86BD4F00EB9AD5 /* backgroundMgr.swift */,
 				F663AA751B86BD6100EB9AD5 /* acroFlag.swift */,
-				F663AA731B86BD5900EB9AD5 /* AcronymItem.swift */,
 				925FA6391AB35E47003017A1 /* acroSearch.swift */,
 				741146DB1B8B887C00A26312 /* AFAcronym.swift */,
 				741146DD1B8B88C500A26312 /* AFMeaning.swift */,
 			);
 			name = DataType;
-			sourceTree = "<group>";
-		};
-		9A53096801727B9D322EE3C1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				73D97C617AD320FE544AB9CC /* libPods.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E34EC6C920AAB0A47BD47C20 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6408CBC5FE6FCB0DE2586CE7 /* Pods.debug.xcconfig */,
-				E8BFE5010CFCAE1484EFB990 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,11 +229,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8CAAD1ED19FF4C86001A9E8A /* Build configuration list for PBXNativeTarget "AcroFinder" */;
 			buildPhases = (
-				D7B906AB1ACAFDA4005A3723 /* Check Pods Manifest.lock */,
 				8CAAD1C819FF4C86001A9E8A /* Sources */,
 				8CAAD1C919FF4C86001A9E8A /* Frameworks */,
 				8CAAD1CA19FF4C86001A9E8A /* Resources */,
-				D7B906AC1ACAFDD8005A3723 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -308,7 +274,7 @@
 						DevelopmentTeam = JD498CZVSU;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -359,39 +325,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		D7B906AB1ACAFDA4005A3723 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\ncat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\nexit 1\nfi";
-			showEnvVarsInLog = 0;
-		};
-		D7B906AC1ACAFDD8005A3723 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		8CAAD1C819FF4C86001A9E8A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -405,7 +338,6 @@
 				925FA62B1AB35E0C003017A1 /* HistoryViewController.swift in Sources */,
 				925FA63C1AB35E47003017A1 /* acroHistory.swift in Sources */,
 				D76919621AC0A2F0009FAC43 /* GoogleWebController.swift in Sources */,
-				D7C71E7E1ACC1654005BF507 /* IMFLoggerExtension.swift in Sources */,
 				F663AA761B86BD6100EB9AD5 /* acroFlag.swift in Sources */,
 				925FA62F1AB35E0C003017A1 /* SearchViewController.swift in Sources */,
 				F663AA681B86BC6B00EB9AD5 /* HistoryTableViewCell.swift in Sources */,
@@ -418,7 +350,6 @@
 				8CB9DCBC1AACF50800A85961 /* AcroFinder.xcdatamodeld in Sources */,
 				F663AA701B86BD4700EB9AD5 /* acroPopular.swift in Sources */,
 				F663AA721B86BD4F00EB9AD5 /* backgroundMgr.swift in Sources */,
-				F663AA741B86BD5900EB9AD5 /* AcronymItem.swift in Sources */,
 				925FA62C1AB35E0C003017A1 /* MostViewedController.swift in Sources */,
 				741146DE1B8B88C500A26312 /* AFMeaning.swift in Sources */,
 				925FA63F1AB35E47003017A1 /* acroSearch.swift in Sources */,
@@ -551,7 +482,6 @@
 		};
 		8CAAD1EE19FF4C86001A9E8A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6408CBC5FE6FCB0DE2586CE7 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
@@ -563,14 +493,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "AcroFinder/acrofinder-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		8CAAD1EF19FF4C86001A9E8A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8BFE5010CFCAE1484EFB990 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
@@ -582,7 +510,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "AcroFinder/acrofinder-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
