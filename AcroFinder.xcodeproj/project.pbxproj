@@ -11,6 +11,17 @@
 		58AADFAD1AB48AE400224403 /* favStarYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 58AADFAB1AB48AE400224403 /* favStarYellow.png */; };
 		741146DC1B8B887C00A26312 /* AFAcronym.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741146DB1B8B887C00A26312 /* AFAcronym.swift */; };
 		741146DE1B8B88C500A26312 /* AFMeaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741146DD1B8B88C500A26312 /* AFMeaning.swift */; };
+		741146E11B90A4FC00A26312 /* Q4M.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741146E01B90A4FC00A26312 /* Q4M.framework */; };
+		741146E81B90A59200A26312 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741146E61B90A57200A26312 /* Security.framework */; };
+		741146E91B90A59A00A26312 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741146E41B90A56500A26312 /* AssetsLibrary.framework */; };
+		741146EA1B90A5A300A26312 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741146E21B90A55A00A26312 /* CoreTelephony.framework */; };
+		741146ED1B90A5C400A26312 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741146EB1B90A5B100A26312 /* SystemConfiguration.framework */; };
+		741146F81B90A68500A26312 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741146EE1B90A5ED00A26312 /* CoreLocation.framework */; };
+		741146F91B90A69200A26312 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741146F01B90A61100A26312 /* AudioToolbox.framework */; };
+		741146FA1B90A69B00A26312 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741146F21B90A61D00A26312 /* QuartzCore.framework */; };
+		741146FB1B90A6A500A26312 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741146F41B90A62800A26312 /* CoreText.framework */; };
+		741146FC1B90A6AF00A26312 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741146F61B90A63200A26312 /* CoreMotion.framework */; };
+		741147061B90AC2400A26312 /* MQAExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 741147051B90AC2400A26312 /* MQAExceptionHandler.m */; };
 		8C47A46A1AC4AE5B004DB0CE /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C47A4691AC4AE5B004DB0CE /* HelpViewController.swift */; };
 		8CAAD1D219FF4C86001A9E8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAAD1D119FF4C86001A9E8A /* AppDelegate.swift */; };
 		8CAAD1DB19FF4C86001A9E8A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CAAD1DA19FF4C86001A9E8A /* Images.xcassets */; };
@@ -62,6 +73,19 @@
 		58AADFAB1AB48AE400224403 /* favStarYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favStarYellow.png; path = AcroFinder/images/favStarYellow.png; sourceTree = "<group>"; };
 		741146DB1B8B887C00A26312 /* AFAcronym.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFAcronym.swift; sourceTree = "<group>"; };
 		741146DD1B8B88C500A26312 /* AFMeaning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFMeaning.swift; sourceTree = "<group>"; };
+		741146E01B90A4FC00A26312 /* Q4M.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Q4M.framework; path = ../../../../Downloads/Q4M.framework; sourceTree = "<group>"; };
+		741146E21B90A55A00A26312 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		741146E41B90A56500A26312 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		741146E61B90A57200A26312 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		741146EB1B90A5B100A26312 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		741146EE1B90A5ED00A26312 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		741146F01B90A61100A26312 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		741146F21B90A61D00A26312 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		741146F41B90A62800A26312 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		741146F61B90A63200A26312 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		741146FE1B90A8E500A26312 /* MQAExceptionHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQAExceptionHandler.h; sourceTree = "<group>"; };
+		741147041B90A9DD00A26312 /* AcroFinder-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AcroFinder-Bridging-Header.h"; sourceTree = "<group>"; };
+		741147051B90AC2400A26312 /* MQAExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQAExceptionHandler.m; sourceTree = "<group>"; };
 		8C47A4691AC4AE5B004DB0CE /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpViewController.swift; path = Controllers/HelpViewController.swift; sourceTree = "<group>"; };
 		8CAAD1CC19FF4C86001A9E8A /* AcroFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AcroFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CAAD1D019FF4C86001A9E8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,6 +129,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				741146FC1B90A6AF00A26312 /* CoreMotion.framework in Frameworks */,
+				741146FB1B90A6A500A26312 /* CoreText.framework in Frameworks */,
+				741146FA1B90A69B00A26312 /* QuartzCore.framework in Frameworks */,
+				741146F91B90A69200A26312 /* AudioToolbox.framework in Frameworks */,
+				741146F81B90A68500A26312 /* CoreLocation.framework in Frameworks */,
+				741146ED1B90A5C400A26312 /* SystemConfiguration.framework in Frameworks */,
+				741146EA1B90A5A300A26312 /* CoreTelephony.framework in Frameworks */,
+				741146E91B90A59A00A26312 /* AssetsLibrary.framework in Frameworks */,
+				741146E81B90A59200A26312 /* Security.framework in Frameworks */,
+				741146E11B90A4FC00A26312 /* Q4M.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +162,23 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		741146DF1B90A4D700A26312 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				741146F61B90A63200A26312 /* CoreMotion.framework */,
+				741146F41B90A62800A26312 /* CoreText.framework */,
+				741146F21B90A61D00A26312 /* QuartzCore.framework */,
+				741146F01B90A61100A26312 /* AudioToolbox.framework */,
+				741146EE1B90A5ED00A26312 /* CoreLocation.framework */,
+				741146EB1B90A5B100A26312 /* SystemConfiguration.framework */,
+				741146E61B90A57200A26312 /* Security.framework */,
+				741146E41B90A56500A26312 /* AssetsLibrary.framework */,
+				741146E21B90A55A00A26312 /* CoreTelephony.framework */,
+				741146E01B90A4FC00A26312 /* Q4M.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8CAAD1C319FF4C86001A9E8A = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +200,7 @@
 		8CAAD1CE19FF4C86001A9E8A /* AcroFinder */ = {
 			isa = PBXGroup;
 			children = (
+				741146DF1B90A4D700A26312 /* Frameworks */,
 				925FA6341AB35E27003017A1 /* DataType */,
 				925FA6331AB35E1A003017A1 /* Controllers */,
 				8CAAD1D119FF4C86001A9E8A /* AppDelegate.swift */,
@@ -159,6 +211,7 @@
 				8CAAD1DA19FF4C86001A9E8A /* Images.xcassets */,
 				58B6F3AE1AA2560A008254CC /* Images */,
 				8CAAD1CF19FF4C86001A9E8A /* Supporting Files */,
+				741147041B90A9DD00A26312 /* AcroFinder-Bridging-Header.h */,
 			);
 			path = AcroFinder;
 			sourceTree = "<group>";
@@ -166,8 +219,10 @@
 		8CAAD1CF19FF4C86001A9E8A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				741147051B90AC2400A26312 /* MQAExceptionHandler.m */,
 				8CAAD1D019FF4C86001A9E8A /* Info.plist */,
 				D7B906AD1ACAFE6F005A3723 /* acrofinder.plist */,
+				741146FE1B90A8E500A26312 /* MQAExceptionHandler.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -358,6 +413,7 @@
 				F663AA6A1B86BC7400EB9AD5 /* LegalViewController.swift in Sources */,
 				925FA63D1AB35E47003017A1 /* acroMain.swift in Sources */,
 				925FA6301AB35E0C003017A1 /* SettingsViewController.swift in Sources */,
+				741147061B90AC2400A26312 /* MQAExceptionHandler.m in Sources */,
 				925FA6281AB35E0C003017A1 /* AboutViewController.swift in Sources */,
 				741146DC1B8B887C00A26312 /* AFAcronym.swift in Sources */,
 				925FA62D1AB35E0C003017A1 /* ResultsTableViewCell.swift in Sources */,
@@ -485,14 +541,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/michaelramos/Downloads,
+				);
 				INFOPLIST_FILE = AcroFinder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "AcroFinder/AcroFinder-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "AcroFinder/AcroFinder-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -502,14 +566,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/michaelramos/Downloads,
+				);
 				INFOPLIST_FILE = AcroFinder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "AcroFinder/AcroFinder-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "AcroFinder/AcroFinder-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
