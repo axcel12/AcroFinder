@@ -39,10 +39,12 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         
         fetchHistoryData()
         
-        if(acroHist.histories.isEmpty){
+        //Right now it is just saving strings in core data. Need to figure out how to save NSObjects
+        if(historyAcronym.histories.isEmpty){
             for(var i = 0; i < histAcronyms.count; ++i){
                 let item = histAcronyms[i]
-                acroHist.addAcronym((item.valueForKey("acronym") as? String)!)
+                //Cannot just add a String in the AFHistory -> might have to filter the cached acronyms again or figure out how to save an NSObject in core data
+                historyAcronym.addAcronym((item.valueForKey("acronym") as? String)!)
             }
             println("History Loaded")
         }
@@ -94,6 +96,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: CoreData Functions
     
+    //Just storing a String
     func saveHistoryAcronym(acronym: String){
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext!
@@ -110,6 +113,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         histAcronyms.insert(item, atIndex: 0)
     }
     
+    /*
+    //No need for this one
     func removeHistoryAcronym(index:NSIndexPath){
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let context = appDelegate.managedObjectContext!
@@ -124,7 +129,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             fetchHistoryData()
         }
     }
+    */
     
+    //Deletes all the contents in the array and re-saves it back
     func removeHistoryData(){
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let context = appDelegate.managedObjectContext!
@@ -340,14 +347,16 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             self.searchDidStopLoading(self.searchView)
             
             //Transition to next viewController
-            self.searchAcro(self.word)
+            self.searchAcro(self.foundAcronyms[0])
         }
     }
     
-    func searchAcro(acronymSearched: String){
+    func searchAcro(foundAcro: AFAcronym){
+        
+        var acronymSearched = foundAcro.acronym
         
         if(self.foundAcronyms.count > 0){
-            addHistory(acronymSearched)
+            addHistory(foundAcro)
             
             self.view.endEditing(true)
             self.searchTextField.text = ""
@@ -355,6 +364,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             if(self.activityIndicator.hidden){
                 var resultViewController = storyboard?.instantiateViewControllerWithIdentifier("SearchResultsViewController") as! SearchResultsViewController
                 resultViewController.word = acronymSearched
+                //Set the AFAcronym var in resultViewController to be the found acronym in this controller
                 resultViewController.foundAcronyms.append(self.foundAcronyms[0])
                 navigationController?.pushViewController(resultViewController, animated: true)
             }
@@ -378,28 +388,32 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         //If searched acronym is not null
         if(wordHist != " "){
             //Base case: if array is empty
-            //if(acroHist.histories.isEmpty){
-            if(acroHistory.histories.isEmpty){
+            if(historyAcronym.histories.isEmpty){
                 println("AFHISTORY ARRAY IS EMPTY")
-                acroHist.addAcronym(wordHist)
+                //Add acronym object to AFHistory
+                historyAcronym.addAcronym(foundAcro)
+                //This part saves in core data ->Will be hard to save an NSObject in core data
                 self.saveHistoryAcronym(wordHist)
             }
             //Otherwise: other cases > 1
             else{
                 var firstIndex:NSIndexPath = NSIndexPath(forRow: 0, inSection: 0)
-                for(var i = (acroHist.histories.count - 1); i >= 0 ; --i){
-                    if(acroHist.histories[i].name == wordHist){
+                for(var i = (historyAcronym.histories.count - 1); i >= 0 ; --i){
+                    if(historyAcronym.histories[i].acronym == wordHist){
                         firstIndex = NSIndexPath(forRow: i, inSection: 0)
-                        acroHist.histories.removeAtIndex(i)
+                        historyAcronym.histories.removeAtIndex(i)
+                        //This part updates the array in core data ->Will be hard to save/remove an NSObject in core data
                         self.removeHistoryData()
                     }
                 }
-                acroHist.addAcronym(wordHist)
+                historyAcronym.addAcronym(foundAcro)
                 if(histAcronyms.count == 0){
-                    for(var i = acroHist.histories.count - 1; i >= 0; --i){
-                        self.saveHistoryAcronym(acroHist.histories[i].name)
+                    for(var i = historyAcronym.histories.count - 1; i >= 0; --i){
+                        //This part saves in core data ->Will be hard to save an NSObject in core data
+                        self.saveHistoryAcronym(historyAcronym.histories[i].acronym)
                     }
                 }else{
+                    //This part saves in core data ->Will be hard to save an NSObject in core data
                     self.saveHistoryAcronym(wordHist)
                 }
             }

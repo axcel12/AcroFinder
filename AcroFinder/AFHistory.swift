@@ -8,7 +8,7 @@
 
 import UIKit
 
-var acroHistory: AFHistory = AFHistory()
+var historyAcronym: AFHistory = AFHistory()
 
 class AFHistory: NSObject {
     var histories = [AFAcronym]()
@@ -17,3 +17,21 @@ class AFHistory: NSObject {
         histories.insert(acronym, atIndex: 0)
     }
 }
+
+/*
+import UIKit
+
+var acroHist: acroHistory = acroHistory()
+
+class acroHistory: NSString {
+    var histories = [history]()
+    
+    struct history{
+        var name = "Un-Named"
+    }
+    
+    func addAcronym(name: String){
+        histories.insert(history(name:name), atIndex: 0)
+    }
+}
+*/
