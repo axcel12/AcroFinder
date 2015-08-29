@@ -29,7 +29,6 @@
 		925FA63B1AB35E47003017A1 /* acroFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6351AB35E47003017A1 /* acroFavorites.swift */; };
 		925FA63C1AB35E47003017A1 /* acroHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6361AB35E47003017A1 /* acroHistory.swift */; };
 		925FA63D1AB35E47003017A1 /* acroMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6371AB35E47003017A1 /* acroMain.swift */; };
-		925FA63F1AB35E47003017A1 /* acroSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6391AB35E47003017A1 /* acroSearch.swift */; };
 		D7661BDB1ACBFCBF0051E471 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B8172761A41E491008FC2A2 /* Main.storyboard */; };
 		D76919601AC09EB9009FAC43 /* NotFoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D769195F1AC09EB9009FAC43 /* NotFoundController.swift */; };
 		D76919621AC0A2F0009FAC43 /* GoogleWebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76919611AC0A2F0009FAC43 /* GoogleWebController.swift */; };
@@ -84,7 +83,6 @@
 		925FA6351AB35E47003017A1 /* acroFavorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acroFavorites.swift; path = DataType/acroFavorites.swift; sourceTree = "<group>"; };
 		925FA6361AB35E47003017A1 /* acroHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acroHistory.swift; path = DataType/acroHistory.swift; sourceTree = "<group>"; };
 		925FA6371AB35E47003017A1 /* acroMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acroMain.swift; path = DataType/acroMain.swift; sourceTree = "<group>"; };
-		925FA6391AB35E47003017A1 /* acroSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acroSearch.swift; path = DataType/acroSearch.swift; sourceTree = "<group>"; };
 		D769195F1AC09EB9009FAC43 /* NotFoundController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotFoundController.swift; path = Controllers/NotFoundController.swift; sourceTree = "<group>"; };
 		D76919611AC0A2F0009FAC43 /* GoogleWebController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleWebController.swift; path = Controllers/GoogleWebController.swift; sourceTree = "<group>"; };
 		D7B906AD1ACAFE6F005A3723 /* acrofinder.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = acrofinder.plist; sourceTree = "<group>"; };
@@ -215,7 +213,6 @@
 				925FA6371AB35E47003017A1 /* acroMain.swift */,
 				F663AA711B86BD4F00EB9AD5 /* backgroundMgr.swift */,
 				F663AA751B86BD6100EB9AD5 /* acroFlag.swift */,
-				925FA6391AB35E47003017A1 /* acroSearch.swift */,
 				741146DB1B8B887C00A26312 /* AFAcronym.swift */,
 				741146DD1B8B88C500A26312 /* AFMeaning.swift */,
 			);
@@ -352,7 +349,6 @@
 				F663AA721B86BD4F00EB9AD5 /* backgroundMgr.swift in Sources */,
 				925FA62C1AB35E0C003017A1 /* MostViewedController.swift in Sources */,
 				741146DE1B8B88C500A26312 /* AFMeaning.swift in Sources */,
-				925FA63F1AB35E47003017A1 /* acroSearch.swift in Sources */,
 				F663AA641B86BC5300EB9AD5 /* AboutAcroFinderController.swift in Sources */,
 				925FA6291AB35E0C003017A1 /* BackgroundColorController.swift in Sources */,
 				F663AA6A1B86BC7400EB9AD5 /* LegalViewController.swift in Sources */,

@@ -13,14 +13,10 @@ import CoreData
 
 class SearchResultsViewController: UITableViewController, UITableViewDataSource, MFMailComposeViewControllerDelegate {
     
-    //Logger
-    //let logger = IMFLogger(forName: "AcroFinder")
-
     @IBOutlet var myTableView: UITableView!
     @IBOutlet weak var labelCounter: UILabel!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
-    var acronym = [String]()
     var flag: String = "false"
     var word: String = " "
     var wordHist: String = " "
@@ -33,11 +29,10 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
     
     var favAcronyms = [NSManagedObject]()
     
+    var foundAcronyms:[AFAcronym] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Start Loading Indicator for creation of index: don't needed after first load
-        //self.searchDidStartLoading(self.myTableView
         
         fetchFavoriteData()
         
@@ -52,17 +47,8 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
         self.tableView.estimatedRowHeight = 60
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
-        if(!acroSearched.acronyms.isEmpty){
-            for(var i = 0; i < acroSearched.acronyms.count; ++i){
-                self.acronym.append(acroSearched.acronyms[i].name as String)
-            }
-        }
         self.setUpAcronym()
         self.labelCounterRefresh()
-        
-        //Logging
-        //self.logger.logInfoWithMessages("this is a info test log in SearchResultsViewController:viewDidLoad")
-        
         
         self.myTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellFound")
         self.myTableView.reloadData()
@@ -85,7 +71,7 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
         
         acroFlags.removeFlag()
         flag = "false"
-
+        
         tableView.reloadData()
     }
     
@@ -101,8 +87,8 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
             self.arrayOfAcronyms.removeAll(keepCapacity: false)
         }
         
-        if(self.acronym.count > 0){
-            self.acronym.removeAll(keepCapacity: false)
+        if(self.foundAcronyms.count > 0){
+            self.foundAcronyms.removeAll(keepCapacity: false)
         }
     }
     
@@ -192,7 +178,7 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.acronym.count
+        return self.foundAcronyms[0].meanings.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -211,8 +197,7 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
     }
     
     func urlForAcronyms(index: Int)-> NSURL{
-        //Replaces spaces with "_"
-        var safeString: String = self.acronym[index].stringByReplacingOccurrencesOfString(" ", withString: "_", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
+        var safeString: String = self.foundAcronyms[0].meanings[index].name.stringByReplacingOccurrencesOfString(" ", withString: "_", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
         var urlString: String = "http://en.wikipedia.org/wiki/" + safeString
         var url:NSURL? = NSURL(string: urlString)
         return url!
@@ -221,7 +206,7 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        acro = acronym[indexPath.row]
+        acro = self.foundAcronyms[0].meanings[indexPath.row].name
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! ResultsTableViewCell
         self.changePriorityForCell(cell)
     }
@@ -285,22 +270,22 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
     //Update favorites array
     func setUpAcronym(){
         if(acroFav.favorites.isEmpty){
-            for(var i = 0; i < acronym.count; i++){
-                var acronym = acroMain(acroName: self.acronym[i], acroKey: 0, acroImage: lowImage)
+            for(var i = 0; i < self.foundAcronyms[0].meanings.count; i++){
+                var acronym = acroMain(acroName: self.foundAcronyms[0].meanings[i].name, acroKey: 0, acroImage: lowImage)
                 arrayOfAcronyms.append(acronym)
             }
         }
         else{
-            for(var i = 0; i < self.acronym.count; i++){
+            for(var i = 0; i < self.foundAcronyms[0].meanings.count; i++){
                 for(var j = (acroFav.favorites.count - 1); j >= 0 ; --j){
-                    if(self.acronym[i] == acroFav.favorites[j].name){
-                        var acronymFound = acroMain(acroName: self.acronym[i], acroKey: 1, acroImage: mediumImage)
+                    if(self.foundAcronyms[0].meanings[i].name == acroFav.favorites[j].name){
+                        var acronymFound = acroMain(acroName: self.foundAcronyms[0].meanings[i].name, acroKey: 1, acroImage: mediumImage)
                         arrayOfAcronyms.append(acronymFound)
                         break
                     }
                     else{
                         if(j == 0){
-                            var acronymNotFound = acroMain(acroName: self.acronym[i], acroKey: 0, acroImage: lowImage)
+                            var acronymNotFound = acroMain(acroName: self.foundAcronyms[0].meanings[i].name, acroKey: 0, acroImage: lowImage)
                             arrayOfAcronyms.append(acronymNotFound)
                         }
                     }
@@ -331,7 +316,7 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
                 }
                 self.saveFavoriteAcronym(acro)
             }
-
+            
         }
         else{
             for(var j = (acroFav.favorites.count - 1); j >= 0 ; --j){
@@ -339,30 +324,12 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
                     acroFav.favorites.removeAtIndex(j)
                     firstIndex = NSIndexPath(forRow: j, inSection: 0)
                     self.removeFavoriteAcronym(firstIndex)
-
+                    
                 }
             }
         }
         self.tableView.reloadData()
     }
-    
-    //Most Popular: Will need to change it to update in the Node.js app
-    /*func updateItemFromFavorites(acronym: String, pos: Int){
-        var item = self.acronymList[pos]
-        var hitVal = item.hits.integerValue + 2
-        item.hits = hitVal
-        
-        self.updateItem(item)
-    }
-    
-    func updateItemFromWikiSearch(acronym: String, pos: Int){
-        var item = self.acronymList[pos]
-        var hitVal = item.hits.integerValue + 1
-        item.hits = hitVal
-        
-        self.updateItem(item)
-    }
-    */
     
     //New Acronym Segue
     @IBAction func segueToAddAcro(sender: AnyObject) {
@@ -383,10 +350,10 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
     
     func labelCounterRefresh(){
         //Label Counter
-        if(acronym.count == 1){
-            labelCounter.text = "\(self.acronym.count) acronym found"
+        if(self.foundAcronyms[0].meanings.count == 1){
+            labelCounter.text = "\(self.foundAcronyms[0].meanings.count) acronym found"
         }else{
-            labelCounter.text = "\(self.acronym.count) acronyms found"
+            labelCounter.text = "\(self.foundAcronyms[0].meanings.count) acronyms found"
         }
     }
     
