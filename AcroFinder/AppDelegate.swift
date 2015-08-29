@@ -32,6 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        //MQA setup
+        MQALogger.settings().mode = MQAMode.QA
+        MQALogger.settings().defaultUser = MQAAnonymousUser
+        MQALogger.startNewSessionWithApplicationKey("1ga0a6615b4fe41ea6bf49e2e1242bf556744dd6c8g0g1g3e570d4f")
+        NSSetUncaughtExceptionHandler(exceptionHandlerPointer)
+        
         //Request to get all acronyms:
         let url = NSURL(string: "http://acronymfinder.mybluemix.net/api/v1/acronyms/")
         
