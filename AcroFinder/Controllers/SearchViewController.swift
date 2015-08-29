@@ -370,13 +370,21 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func addHistory(wordHist: String){
-        //Search Results View Controllers stuff
+    //func addHistory(wordHist: String){
+    func addHistory(foundAcro: AFAcronym){
+        
+        var wordHist = foundAcro.acronym
+        
+        //If searched acronym is not null
         if(wordHist != " "){
-            if(acroHist.histories.isEmpty){
+            //Base case: if array is empty
+            //if(acroHist.histories.isEmpty){
+            if(acroHistory.histories.isEmpty){
+                println("AFHISTORY ARRAY IS EMPTY")
                 acroHist.addAcronym(wordHist)
                 self.saveHistoryAcronym(wordHist)
             }
+            //Otherwise: other cases > 1
             else{
                 var firstIndex:NSIndexPath = NSIndexPath(forRow: 0, inSection: 0)
                 for(var i = (acroHist.histories.count - 1); i >= 0 ; --i){
