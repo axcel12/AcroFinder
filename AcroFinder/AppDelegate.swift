@@ -25,10 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var navigationBarAppearace = UINavigationBar.appearance()
     var tabBarAppearance = UITabBar.appearance()
     var acronyms: [AFAcronym] = []
-
-    /*func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool{
-            return FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
-    }*/
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -112,40 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             task.resume()
         }
         
-        /*
-        // Read the applicationId from the acrofinder.plist.
-        let configurationPath = NSBundle.mainBundle().pathForResource("acrofinder", ofType: "plist")
-        let configuration = NSDictionary(contentsOfFile: configurationPath!)
-        let applicationId = configuration?["applicationId"] as! String
-        let applicationRoute = configuration?["applicationRoute"] as! String
-        println("Intializing IMFCLient")
-        println("applicationRoute " + applicationRoute)
-        println("applicationId " + applicationId)
-        IMFClient.sharedInstance().initializeWithBackendRoute(applicationRoute, backendGUID: applicationId)
-        //Force it
-        self.isUserAuthenticated = true
-        
-        /*
-        /*Authentication is required to connect to backend services*/
-        IMFFacebookAuthenticationHandler.sharedInstance().registerWithDefaultDelegate()
-        let customAuthenticationRealm = NSBundle.mainBundle().objectForInfoDictionaryKey("CustomAuthenticationRealm") as! String;
-        IMFClient.sharedInstance().registerAuthenticationDelegate(CustomAuth(), forRealm: customAuthenticationRealm)
-        */
-        
-        //Analytics and Monitoring
-        IMFLogger.captureUncaughtExceptions() // capture and record uncaught exceptions (crashes)
-        IMFLogger.setLogLevel(IMFLogLevel.Error) // setting the verbosity filter. Change to Info to get more logging output
-        IMFAnalytics.sharedInstance().startRecordingApplicationLifecycleEvents() // automatically record app startup times and foreground/background events
-        IMFLogger.setLogLevel(IMFLogLevel.Debug)
-        
-        logger = IMFLogger(forName: "AcroFinder")
-        
-        logger?.logDebugWithMessages("This is a log message from AcroFinder: App Launch")
-        IMFLogger.send()
-        */
-        
         //Assign values to colorMessenger
-        
         if(acroBack.colors.isEmpty){
             acroBack.changeColor(0x254B95, colorViewController: 0xFFFFFF, colorLabel: 0x00CFA6, colorSettings: 0xF1F1F7, backKey: firstIndex, colorWhite: 0xFFFFFF)
         }
@@ -188,12 +151,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Perhaps [IMFLogger send]; should only happen when the end-user presses a button to do so, for example.
         // CAUTION: the URL receiving the uploaded log and analytics payload is auth-protected, so these calls
         // should only be made after authentication, otherwise your end-user will receive a random auth prompt!
-        /*
-        if isUserAuthenticated {
-            IMFLogger.send() // send all IMFLogger logged data to the server
-            IMFAnalytics.sharedInstance().sendPersistedLogs() // send all analytics data to the server
-        }
-        */
     }
     
     func applicationWillEnterForeground(application: UIApplication) {
