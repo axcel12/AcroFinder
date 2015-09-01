@@ -133,8 +133,9 @@ class HistoryViewController: UITableViewController, UITableViewDelegate {
         
         var searchResultsViewController = storyboard?.instantiateViewControllerWithIdentifier("SearchResultsViewController") as! SearchResultsViewController
         searchResultsViewController.word = acronymMeaning
-        searchResultsViewController.foundAcronyms.removeAll(keepCapacity: false)
-        searchResultsViewController.foundAcronyms.append(historyAcronym.histories[indexPath.row])
+        //searchResultsViewController.foundAcronyms.removeAll(keepCapacity: false)
+        //searchResultsViewController.foundAcronyms.append(historyAcronym.histories[indexPath.row])
+        searchResultsViewController.searchedAcronym = historyAcronym.histories[indexPath.row]
         navigationController?.pushViewController(searchResultsViewController, animated: true)
         
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
