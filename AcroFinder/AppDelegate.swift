@@ -103,10 +103,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if (checkValidation.fileExistsAtPath("Library/Caches/acronyms.json")){
             //TODO: Implement update system in the future.
             //We have the file, no need to send request.
+            println("Cached acronyms file exists. Not pulling in acronyms.")
+            MQALogger.log("Cached acronyms file exists. Not pulling in acronyms.")
         }
         else {
+            MQALogger.log("Sending request to pull in cached acronyms")
             task.resume()
         }
+        
         
         //Assign values to colorMessenger
         if(acroBack.colors.isEmpty){

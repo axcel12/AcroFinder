@@ -44,6 +44,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         
         //Right now it is just saving strings in core data. Need to figure out how to save NSObjects
         if(historyAcronym.histories.isEmpty){
+<<<<<<< HEAD
         for(var i = 0; i < histAcronyms.count; ++i){
         let item = histAcronyms[i]
         //Cannot just add a String in the AFHistory -> might have to filter the cached acronyms again or figure out how to save an NSObject in core data
@@ -52,6 +53,19 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         historyAcronym.addAcronym(foundAcronyms[0])
         }
         println("History Loaded")
+=======
+            for(var i = 0; i < histAcronyms.count; ++i){
+                let item = histAcronyms[i]
+                //Cannot just add a String in the AFHistory -> might have to filter the cached acronyms again or figure out how to save an NSObject in core data
+                //historyAcronym.addAcronym((item.valueForKey("acronym") as? String)!)
+<<<<<<< HEAD
+=======
+                // histAcronyms should have just AFAcronym items -> right now it is just saving strings
+                historyAcronym.addAcronym(foundAcronyms[0])
+>>>>>>> b5b90d1a4a8c3a283939e30650ae6afea18c8894
+            }
+            println("History Loaded")
+>>>>>>> origin/AcroFinder
         }
         */
         
@@ -264,10 +278,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func searchAction(textField: UITextField) {
-        searchDidStartLoading(self.searchView)
+        searchDidStartLoading(self.searchView) //Shows spinner
         
         //Stores input from textField into searchAcro
-        loadAllCachedAcronyms()
+        loadAllCachedAcronyms() //Reads from cached acronyms array
         
         searchAcro = textField.text.uppercaseString
         self.searchTextField.resignFirstResponder()
@@ -277,6 +291,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         
         self.word = trimmedAcro
         
+        //Alert for when no text is entered
         if (textField.text.isEmpty || trimmedAcro == "") {
             
             let alert = UIAlertView()
@@ -292,18 +307,23 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             println("----------------------------Cached acronyms total: \(cachedAcronyms.count)----------------------------")
             //self.cached = "cached Acronyms"
             //This just adds the acronym not the meanings
+            //Using the cached acronym array
             if cachedAcronyms.count > 0 {
                 println("Cached Acronyms available, search here")
+                //Filter the array to only the acronym matching the searched acronym
                 var filtered = self.cachedAcronyms.filter { $0.acronym == self.word }
+                //If one is found...
                 if filtered.count > 0 {
                     println("Used fast search")
                     //We will not need this loop anymore
+                    //Add meanings in a loop? Why not just add the acronym
                     for meanings in filtered[0].meanings{
                         self.foundAcronyms.append(filtered[0])
                         println("-----------------------------------Meaning:\(meanings.name)---------------------------")
                     }
                 }
             }
+            //No cache, send a request to search
             else{
                 println("Cached Acronyms not available, search in db")
                 //self.cached = "not cached Acronyms"
@@ -314,6 +334,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                         println("1)--------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX------------------")
                         println(json)
                         
+<<<<<<< HEAD
                         println("2)--------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX------------------ \(json.array!.count)")
                         if json.array!.count > 0 {
                             println("json array contains something")
@@ -334,8 +355,26 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                                 let meanings = meaning["name"].stringValue
                                 
                                 println("-----------------------------------Meaning:\(meanings)---------------------------")
+=======
+                        println("2)--------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX------------------")
+                        var meaningsArray:[AFMeaning] = []
+                        //Construct the array of meanings
+                        for meaning in json[0]["value"]["meanings"].arrayValue {
+                            if let meaningName = meaning["name"].string,
+                                let meaningRelevance = meaning["key"].int,
+                                let meaningHits = meaning["hits"].int {
+                                    let meaning = AFMeaning(name: meaningName, relevance: meaningRelevance, hits: meaningHits)
+                                    meaningsArray.append(meaning)
+                            }
+                            else
+                            {
+                                println(meaning["name"].error)
+                                println(meaning["key"].error)
+                                println(meaning["hits"].error)
+>>>>>>> origin/AcroFinder
                             }
                             
+<<<<<<< HEAD
                             if let acronymName = json[0]["value"]["acronym"].string,
                                 let id = json[0]["value"]["_id"].string,
                                 let rev = json[0]["value"]["_rev"].string {
@@ -344,14 +383,25 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                             }
                         }else{
                             println("json array does not contain anything: acronym not found")
+=======
+                            println("-----------------------------------Meaning:\(meanings)---------------------------")
+                        }
+                        //Construct the acronym
+                        if let acronymName = json[0]["value"]["acronym"].string,
+                            let id = json[0]["value"]["_id"].string,
+                            let rev = json[0]["value"]["_rev"].string {
+                                let acronym:AFAcronym = AFAcronym(id: id, rev: rev, acronym: acronymName, meanings: meaningsArray)
+                                self.foundAcronyms.append(acronym) //Add acronym to found acronyms... Why?
+>>>>>>> origin/AcroFinder
                         }
                     }
                 }
             }
-            //Reload
+            //Hide spinner
             self.searchDidStopLoading(self.searchView)
             
             //Transition to next viewController
+<<<<<<< HEAD
             self.searchAcro(self.word)
         }
     }
@@ -361,10 +411,22 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         
         if(self.foundAcronyms.count > 0){
             addHistory(self.foundAcronyms[0])
+=======
+            self.searchAcro(self.foundAcronyms.first)
+        }
+    }
+    
+    //Changed this method to accept an optional since an acronym might not be found.
+    //This needs to be cleaned up some more to support not found acronyms.
+    //Current it does not transition to the next screen
+    func searchAcro(foundAcro: AFAcronym?){
+        
+        if (foundAcro != nil){
+>>>>>>> origin/AcroFinder
             
-            self.view.endEditing(true)
-            self.searchTextField.text = ""
+            var acronymSearched = foundAcro!.acronym
             
+<<<<<<< HEAD
             if(self.activityIndicator.hidden){
                 var resultViewController = storyboard?.instantiateViewControllerWithIdentifier("SearchResultsViewController") as! SearchResultsViewController
                 resultViewController.word = acronymSearched
@@ -374,14 +436,43 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                 resultViewController.foundAcronyms.removeAll(keepCapacity: false)
                 resultViewController.foundAcronyms.append(self.foundAcronyms[0])
                 navigationController?.pushViewController(resultViewController, animated: true)
+=======
+            //Why do we have this array?
+            if(self.foundAcronyms.count > 0){
+                addHistory(foundAcro!)
+                
+                self.view.endEditing(true)
+                self.searchTextField.text = ""
+                
+                if(self.activityIndicator.hidden){
+                    var resultViewController = storyboard?.instantiateViewControllerWithIdentifier("SearchResultsViewController") as! SearchResultsViewController
+                    resultViewController.word = acronymSearched
+                    resultViewController.searchedAcronym = foundAcro! //Saving the actual acronym
+                    //Set the AFAcronym var in resultViewController to be the found acronym in this controller
+                    resultViewController.foundAcronyms.removeAll(keepCapacity: false)
+                    resultViewController.foundAcronyms.append(self.foundAcronyms[0])
+                    navigationController?.pushViewController(resultViewController, animated: true)
+                }
+>>>>>>> origin/AcroFinder
             }
-        }else{
+            else {
+                self.view.endEditing(true)
+                self.searchTextField.text = ""
+                
+                if(self.activityIndicator.hidden){
+                    var notFoundController = storyboard?.instantiateViewControllerWithIdentifier("NotFoundController") as! NotFoundController
+                    notFoundController.word = self.word
+                    navigationController?.pushViewController(notFoundController, animated: true)
+                }
+            }
+        }
+        else {
             self.view.endEditing(true)
             self.searchTextField.text = ""
             
             if(self.activityIndicator.hidden){
                 var notFoundController = storyboard?.instantiateViewControllerWithIdentifier("NotFoundController") as! NotFoundController
-                notFoundController.word = acronymSearched
+                notFoundController.word = self.word
                 navigationController?.pushViewController(notFoundController, animated: true)
             }
         }
@@ -455,8 +546,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         {
             println("Clearing existing array")
             cachedAcronyms = []
+            MQALogger.log("Loading cached acronyms from file")
             
             if let objects = NSKeyedUnarchiver.unarchiveObjectWithFile("Library/Caches/acronyms.json") as? NSMutableArray {
+                MQALogger.log("Read file, decoding acronyms")
                 for savedItem in objects {
                     //println("Decoding acronym")
                     if let acronym = NSKeyedUnarchiver.unarchiveObjectWithData(savedItem as! NSData) as? AFAcronym {
@@ -469,6 +562,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                 println("Cached acronyms set")
             }
             else {
+                MQALogger.log("Problem reading from archive")
                 println("problem reading from archive")
             }
         }
