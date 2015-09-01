@@ -26,6 +26,8 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
     let mediumImage = "favStarYellow.png"
     var currentKey = 0
     
+    //var cached: String = ""
+    
     var favAcronyms = [NSManagedObject]()
     
     var foundAcronyms:[AFAcronym] = []
@@ -335,6 +337,8 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
     }
     
     func labelCounterRefresh(){
+        
+        //self.labelCounter.text = self.cached
         //Label Counter
         if(self.foundAcronyms[0].meanings.count == 1){
             labelCounter.text = "\(self.foundAcronyms[0].meanings.count) acronym found"
