@@ -43,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             //Request will have a lot of data... not going to print that out yet.
             //println(results)
+            MQALogger.log("Saving cached acronyms from request")
             let json = JSON(data: data)
             /*
             for (index, object) in json {
@@ -69,6 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                 }
                                 else
                                 {
+                                    MQALogger.log("Error getting meaning info")
                                     println("Error getting meaning info")
                                     println(meaning["name"].error)
                                     println(meaning["key"].error)
@@ -81,6 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                     else
                     {
+                        MQALogger.log("Error getting acronym info")
                         println("Error getting acronym info")
                         println(acronym["id"].error)
                         println(acronym["doc"]["_rev"].error)
@@ -92,6 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             else
             {
+                MQALogger.log("Error getting json array")
                 println("Error getting json array")
                 println(json.error)
             }
@@ -100,15 +104,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var checkValidation = NSFileManager.defaultManager()
         
-        if (checkValidation.fileExistsAtPath("Library/Caches/acronyms.json")){
-            //TODO: Implement update system in the future.
-            //We have the file, no need to send request.
-            println("Cached acronyms file exists. Not pulling in acronyms.")
-            MQALogger.log("Cached acronyms file exists. Not pulling in acronyms.")
-        }
-        else {
-            MQALogger.log("Sending request to pull in cached acronyms")
-            task.resume()
+        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        if let path = paths[0] as? String {
+            var fullPath = path + "/acronyms.json"
+            if (checkValidation.fileExistsAtPath(fullPath)){
+                //TODO: Implement update system in the future.
+                //We have the file, no need to send request.
+                println("Cached acronyms file exists. Not pulling in acronyms.")
+                MQALogger.log("Cached acronyms file exists. Not pulling in acronyms.")
+            }
+            else {
+                MQALogger.log("Sending request to pull in cached acronyms")
+                task.resume()
+            }
         }
         
         
@@ -258,7 +266,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             items.addObject(item)
             println("Saving acronym \(acronym.id)")
         }
-        NSKeyedArchiver.archiveRootObject(items, toFile: "Library/Caches/acronyms.json")
+        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        if let path = paths[0] as? String {
+            var fullPath = path + "/acronyms.json"
+            println("Current path: \(fullPath)")
+            let success = NSKeyedArchiver.archiveRootObject(items, toFile: fullPath)
+            //let success = NSKeyedArchiver.archiveRootObject(items, toFile: "Library/Caches/acronyms.json")
+            if success {
+                println("Saving cache successful")
+            }
+            else {
+                println("Saving cache unsuccessful")
+            }
+        }
     }
     
 }

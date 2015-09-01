@@ -444,23 +444,27 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             println("Clearing existing array")
             cachedAcronyms = []
             MQALogger.log("Loading cached acronyms from file")
+            let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+            if let path = paths[0] as? String {
+                var fullPath = path + "/acronyms.json"
             
-            if let objects = NSKeyedUnarchiver.unarchiveObjectWithFile("Library/Caches/acronyms.json") as? NSMutableArray {
-                MQALogger.log("Read file, decoding acronyms")
-                for savedItem in objects {
-                    //println("Decoding acronym")
-                    if let acronym = NSKeyedUnarchiver.unarchiveObjectWithData(savedItem as! NSData) as? AFAcronym {
-                        cachedAcronyms.append(acronym)
+                if let objects = NSKeyedUnarchiver.unarchiveObjectWithFile(fullPath) as? NSMutableArray {
+                    MQALogger.log("Read file, decoding acronyms")
+                    for savedItem in objects {
+                        //println("Decoding acronym")
+                        if let acronym = NSKeyedUnarchiver.unarchiveObjectWithData(savedItem as! NSData) as? AFAcronym {
+                            cachedAcronyms.append(acronym)
+                        }
+                        else {
+                            println("Error decoding acronym")
+                        }
                     }
-                    else {
-                        println("Error decoding acronym")
-                    }
+                    println("Cached acronyms set")
                 }
-                println("Cached acronyms set")
-            }
-            else {
-                MQALogger.log("Problem reading from archive")
-                println("problem reading from archive")
+                else {
+                    MQALogger.log("Problem reading from archive")
+                    println("problem reading from archive")
+                }
             }
         }
     }
