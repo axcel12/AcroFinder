@@ -377,7 +377,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                 if(self.activityIndicator.hidden){
                     var resultViewController = storyboard?.instantiateViewControllerWithIdentifier("SearchResultsViewController") as! SearchResultsViewController
                     resultViewController.word = acronymSearched
+                    resultViewController.searchedAcronym = foundAcro! //Saving the actual acronym
                     //Set the AFAcronym var in resultViewController to be the found acronym in this controller
+                    resultViewController.foundAcronyms.removeAll(keepCapacity: false)
                     resultViewController.foundAcronyms.append(self.foundAcronyms[0])
                     navigationController?.pushViewController(resultViewController, animated: true)
                 }
@@ -387,12 +389,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                 self.searchTextField.text = ""
                 
                 if(self.activityIndicator.hidden){
-                    var resultViewController = storyboard?.instantiateViewControllerWithIdentifier("SearchResultsViewController") as! SearchResultsViewController
-                    resultViewController.word = acronymSearched
-                    //Set the AFAcronym var in resultViewController to be the found acronym in this controller
-                    resultViewController.foundAcronyms.removeAll(keepCapacity: false)
-                    resultViewController.foundAcronyms.append(self.foundAcronyms[0])
-                    navigationController?.pushViewController(resultViewController, animated: true)
+                    var notFoundController = storyboard?.instantiateViewControllerWithIdentifier("NotFoundController") as! NotFoundController
+                    notFoundController.word = self.word
+                    navigationController?.pushViewController(notFoundController, animated: true)
                 }
             }
         }

@@ -30,6 +30,8 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
     
     var foundAcronyms:[AFAcronym] = []
     
+    var searchedAcronym:AFAcronym! //Use this variable instead of foundAcronyms array
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
