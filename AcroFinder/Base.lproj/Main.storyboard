@@ -132,7 +132,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gat-gb-a2D">
+                                        <imageView multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gat-gb-a2D">
                                             <rect key="frame" x="303" y="13" width="25" height="25"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" none="YES" image="YES" selected="YES"/>
@@ -483,7 +483,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="x2X-xN-C0q" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="kVp-tA-cFe" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="u6s-yQ-bdf" kind="relationship" relationship="viewControllers" id="B6d-1q-ejq"/>
                         <segue destination="UMw-Ox-SQs" kind="relationship" relationship="viewControllers" id="cgA-nb-YX8"/>
                     </connections>
@@ -709,9 +708,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHg-IF-9rA">
-                                <rect key="frame" x="109" y="191" width="156" height="24"/>
+                                <rect key="frame" x="87" y="191" width="200" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="156" id="I9S-nU-5Sh"/>
+                                    <constraint firstAttribute="width" constant="200" id="v5t-Ni-6qa"/>
                                     <constraint firstAttribute="height" constant="24" id="xGK-36-NUU"/>
                                 </constraints>
                                 <attributedString key="attributedText">
@@ -2416,7 +2415,7 @@ Sherwin Yu</string>
         <image name="settings" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oA5-9I-gvl"/>
+        <segue reference="dHG-OL-O7c"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

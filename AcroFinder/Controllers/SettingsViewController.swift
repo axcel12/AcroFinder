@@ -135,11 +135,11 @@ class SettingsViewController: UITableViewController, UITableViewDelegate, UITabl
                 
                 var yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default) {
                     UIAlertAction in
-                    if(!acroHist.histories.isEmpty){
-                        acroHist.histories = []
-                    }else if(!self.histAcronyms.isEmpty){
-                        self.removeHistoryData()
+                    if(!historyAcronym.histories.isEmpty){
+                        historyAcronym.histories.removeAll(keepCapacity: false)
                     }
+                    
+                    self.saveAllHistoryAFAcronyms()
                 }
                 
                 // Add the actions
@@ -276,6 +276,17 @@ class SettingsViewController: UITableViewController, UITableViewDelegate, UITabl
         let blue = CGFloat(rgbValue & 0xFF)/256.0
         
         return UIColor(red:red, green:green, blue:blue, alpha:1.0)
+    }
+    
+    func saveAllHistoryAFAcronyms() {
+        var items = NSMutableArray()
+        for acronym in historyAcronym.histories {
+            let item = NSKeyedArchiver.archivedDataWithRootObject(acronym)
+            items.addObject(item)
+            println("Saving acronym \(acronym.id)")
+        }
+        //Change path
+        NSKeyedArchiver.archiveRootObject(items, toFile: "Library/Caches/history.json")
     }
     
     

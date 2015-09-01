@@ -38,7 +38,8 @@ class NotFoundController: UIViewController, MFMailComposeViewControllerDelegate 
     override func viewWillAppear(animated: Bool) {
         self.tabBarController?.tabBar.hidden = true
         self.reloadInputViews()
-        
+
+    /*
         if(!acroFlags.flags.isEmpty){
             flag = acroFlags.flags[0].value
         }
@@ -49,6 +50,7 @@ class NotFoundController: UIViewController, MFMailComposeViewControllerDelegate 
         
         acroFlags.removeFlag()
         flag = "false"
+    */
     }
     
     @IBAction func googleSearchAction(sender: UIButton) {

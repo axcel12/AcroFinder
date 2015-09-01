@@ -25,6 +25,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     
     var foundAcronyms:[AFAcronym] = []
     
+    var foundHistory: [AFAcronym] = []
+    
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var searchView: UIView!
     @IBOutlet var searchTextField: UITextField!
@@ -36,7 +38,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         activityIndicator.hidden = true
         
         // Core Data Load
-        
+        /*
         fetchHistoryData()
         
         //Right now it is just saving strings in core data. Need to figure out how to save NSObjects
@@ -44,10 +46,13 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             for(var i = 0; i < histAcronyms.count; ++i){
                 let item = histAcronyms[i]
                 //Cannot just add a String in the AFHistory -> might have to filter the cached acronyms again or figure out how to save an NSObject in core data
-                historyAcronym.addAcronym((item.valueForKey("acronym") as? String)!)
+                //historyAcronym.addAcronym((item.valueForKey("acronym") as? String)!)
+                // histAcronyms should have just AFAcronym items -> right now it is just saving strings
+                historyAcronym.addAcronym(foundAcronyms[0])
             }
             println("History Loaded")
         }
+        */
         
         fetchFavoriteData()
         
@@ -77,6 +82,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         searchTextField.autocorrectionType = UITextAutocorrectionType.No
         
         loadAllCachedAcronyms()
+        loadAllCachedHistory()
     }
     
     //MARK: More TableView Functions
@@ -96,7 +102,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: CoreData Functions
     
+    /*
     //Just storing a String
+    //func saveHistoryAcronym(acronym: AFAcronym){
     func saveHistoryAcronym(acronym: String){
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext!
@@ -112,25 +120,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         }
         histAcronyms.insert(item, atIndex: 0)
     }
-    
-    /*
-    //No need for this one
-    func removeHistoryAcronym(index:NSIndexPath){
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let context = appDelegate.managedObjectContext!
-        
-        context.deleteObject(histAcronyms[histAcronyms.count - (index.row+1)])
-        
-        var error: NSError? = nil
-        if !context.save(&error){
-            println("Inside error: \(error)")
-            abort()
-        }else{
-            fetchHistoryData()
-        }
-    }
     */
     
+    /*
     //Deletes all the contents in the array and re-saves it back
     func removeHistoryData(){
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -148,7 +140,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             fetchHistoryData()
         }
     }
+    */
     
+    /*
     func fetchHistoryData(){
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext!
@@ -163,6 +157,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             println("Inside error: Could not fetch \(error), \(error!.userInfo)")
         }
     }
+    */
     
     func fetchFavoriteData(){
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -365,6 +360,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                 var resultViewController = storyboard?.instantiateViewControllerWithIdentifier("SearchResultsViewController") as! SearchResultsViewController
                 resultViewController.word = acronymSearched
                 //Set the AFAcronym var in resultViewController to be the found acronym in this controller
+                resultViewController.foundAcronyms.removeAll(keepCapacity: false)
                 resultViewController.foundAcronyms.append(self.foundAcronyms[0])
                 navigationController?.pushViewController(resultViewController, animated: true)
             }
@@ -380,12 +376,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    //func addHistory(wordHist: String){
     func addHistory(foundAcro: AFAcronym){
         
         var wordHist = foundAcro.acronym
         
-        //If searched acronym is not null
+        //If searched acronym is not null: This will never happen because now we are looking for an AFAcronym
         if(wordHist != " "){
             //Base case: if array is empty
             if(historyAcronym.histories.isEmpty){
@@ -393,7 +388,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                 //Add acronym object to AFHistory
                 historyAcronym.addAcronym(foundAcro)
                 //This part saves in core data ->Will be hard to save an NSObject in core data
-                self.saveHistoryAcronym(wordHist)
+                //self.saveHistoryAcronym(wordHist)
             }
             //Otherwise: other cases > 1
             else{
@@ -403,10 +398,16 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                         firstIndex = NSIndexPath(forRow: i, inSection: 0)
                         historyAcronym.histories.removeAtIndex(i)
                         //This part updates the array in core data ->Will be hard to save/remove an NSObject in core data
-                        self.removeHistoryData()
+                        //self.removeHistoryData()
                     }
                 }
                 historyAcronym.addAcronym(foundAcro)
+                
+                //Save back to file: override file
+                self.saveAllHistoryAFAcronyms()
+                
+                //Code Data save methods
+                /*
                 if(histAcronyms.count == 0){
                     for(var i = historyAcronym.histories.count - 1; i >= 0; --i){
                         //This part saves in core data ->Will be hard to save an NSObject in core data
@@ -416,6 +417,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                     //This part saves in core data ->Will be hard to save an NSObject in core data
                     self.saveHistoryAcronym(wordHist)
                 }
+                */
             }
         }
     }
@@ -457,6 +459,42 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                 println("problem reading from archive")
             }
         }
+    }
+    
+    func loadAllCachedHistory() {
+        println("Loading cached history")
+        if (historyAcronym.histories.count == 0)
+        {
+            println("Clearing existing array")
+            historyAcronym.histories.removeAll(keepCapacity: false)
+            
+            // It will not be the same file address
+            if let objects = NSKeyedUnarchiver.unarchiveObjectWithFile("Library/Caches/history.json") as? NSMutableArray {
+                for savedItem in objects {
+                    if let acronym = NSKeyedUnarchiver.unarchiveObjectWithData(savedItem as! NSData) as? AFAcronym {
+                        historyAcronym.histories.append(acronym)
+                    }
+                    else {
+                        println("Error decoding acronym")
+                    }
+                }
+                println("Cached history set")
+            }
+            else {
+                println("problem reading from archive")
+            }
+        }
+    }
+    
+    func saveAllHistoryAFAcronyms() {
+        var items = NSMutableArray()
+        for acronym in historyAcronym.histories {
+            let item = NSKeyedArchiver.archivedDataWithRootObject(acronym)
+            items.addObject(item)
+            println("Saving acronym \(acronym.id)")
+        }
+        //Change path
+        NSKeyedArchiver.archiveRootObject(items, toFile: "Library/Caches/history.json")
     }
 }
 

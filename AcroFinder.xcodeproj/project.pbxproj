@@ -38,22 +38,19 @@
 		925FA6301AB35E0C003017A1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6251AB35E0C003017A1 /* SettingsViewController.swift */; };
 		925FA6321AB35E0C003017A1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6271AB35E0C003017A1 /* WebViewController.swift */; };
 		925FA63B1AB35E47003017A1 /* acroFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6351AB35E47003017A1 /* acroFavorites.swift */; };
-		925FA63C1AB35E47003017A1 /* acroHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6361AB35E47003017A1 /* acroHistory.swift */; };
 		925FA63D1AB35E47003017A1 /* acroMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FA6371AB35E47003017A1 /* acroMain.swift */; };
 		D7661BDB1ACBFCBF0051E471 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B8172761A41E491008FC2A2 /* Main.storyboard */; };
 		D76919601AC09EB9009FAC43 /* NotFoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D769195F1AC09EB9009FAC43 /* NotFoundController.swift */; };
 		D76919621AC0A2F0009FAC43 /* GoogleWebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76919611AC0A2F0009FAC43 /* GoogleWebController.swift */; };
 		D7B906AE1ACAFE6F005A3723 /* acrofinder.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7B906AD1ACAFE6F005A3723 /* acrofinder.plist */; };
-		F64FFF321B91E076007909D4 /* AFHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64FFF311B91E076007909D4 /* AFHistory.swift */; };
 		F663AA641B86BC5300EB9AD5 /* AboutAcroFinderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA631B86BC5300EB9AD5 /* AboutAcroFinderController.swift */; };
 		F663AA661B86BC6100EB9AD5 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA651B86BC6100EB9AD5 /* FavoritesTableViewCell.swift */; };
 		F663AA681B86BC6B00EB9AD5 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA671B86BC6B00EB9AD5 /* HistoryTableViewCell.swift */; };
 		F663AA6A1B86BC7400EB9AD5 /* LegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA691B86BC7400EB9AD5 /* LegalViewController.swift */; };
 		F663AA6C1B86BC7D00EB9AD5 /* MostViewedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA6B1B86BC7D00EB9AD5 /* MostViewedTableViewCell.swift */; };
 		F663AA6E1B86BC8800EB9AD5 /* NewAcroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA6D1B86BC8800EB9AD5 /* NewAcroController.swift */; };
-		F663AA701B86BD4700EB9AD5 /* acroPopular.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA6F1B86BD4700EB9AD5 /* acroPopular.swift */; };
 		F663AA721B86BD4F00EB9AD5 /* backgroundMgr.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA711B86BD4F00EB9AD5 /* backgroundMgr.swift */; };
-		F663AA761B86BD6100EB9AD5 /* acroFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663AA751B86BD6100EB9AD5 /* acroFlag.swift */; };
+		F677DE6C1B95D9B400213729 /* AFHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677DE6B1B95D9B400213729 /* AFHistory.swift */; };
 		F6B256B71B8B2EAC007B7509 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B256B61B8B2EAC007B7509 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
@@ -106,21 +103,18 @@
 		925FA6251AB35E0C003017A1 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Controllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		925FA6271AB35E0C003017A1 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = Controllers/WebViewController.swift; sourceTree = "<group>"; };
 		925FA6351AB35E47003017A1 /* acroFavorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acroFavorites.swift; path = DataType/acroFavorites.swift; sourceTree = "<group>"; };
-		925FA6361AB35E47003017A1 /* acroHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acroHistory.swift; path = DataType/acroHistory.swift; sourceTree = "<group>"; };
 		925FA6371AB35E47003017A1 /* acroMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acroMain.swift; path = DataType/acroMain.swift; sourceTree = "<group>"; };
 		D769195F1AC09EB9009FAC43 /* NotFoundController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotFoundController.swift; path = Controllers/NotFoundController.swift; sourceTree = "<group>"; };
 		D76919611AC0A2F0009FAC43 /* GoogleWebController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleWebController.swift; path = Controllers/GoogleWebController.swift; sourceTree = "<group>"; };
 		D7B906AD1ACAFE6F005A3723 /* acrofinder.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = acrofinder.plist; sourceTree = "<group>"; };
-		F64FFF311B91E076007909D4 /* AFHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFHistory.swift; sourceTree = "<group>"; };
 		F663AA631B86BC5300EB9AD5 /* AboutAcroFinderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutAcroFinderController.swift; path = Controllers/AboutAcroFinderController.swift; sourceTree = "<group>"; };
 		F663AA651B86BC6100EB9AD5 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoritesTableViewCell.swift; path = Controllers/FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		F663AA671B86BC6B00EB9AD5 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewCell.swift; path = Controllers/HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		F663AA691B86BC7400EB9AD5 /* LegalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LegalViewController.swift; path = Controllers/LegalViewController.swift; sourceTree = "<group>"; };
 		F663AA6B1B86BC7D00EB9AD5 /* MostViewedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MostViewedTableViewCell.swift; path = Controllers/MostViewedTableViewCell.swift; sourceTree = "<group>"; };
 		F663AA6D1B86BC8800EB9AD5 /* NewAcroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewAcroController.swift; path = Controllers/NewAcroController.swift; sourceTree = "<group>"; };
-		F663AA6F1B86BD4700EB9AD5 /* acroPopular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acroPopular.swift; path = DataType/acroPopular.swift; sourceTree = "<group>"; };
 		F663AA711B86BD4F00EB9AD5 /* backgroundMgr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = backgroundMgr.swift; path = DataType/backgroundMgr.swift; sourceTree = "<group>"; };
-		F663AA751B86BD6100EB9AD5 /* acroFlag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acroFlag.swift; path = DataType/acroFlag.swift; sourceTree = "<group>"; };
+		F677DE6B1B95D9B400213729 /* AFHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFHistory.swift; sourceTree = "<group>"; };
 		F6B256B61B8B2EAC007B7509 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -265,14 +259,11 @@
 			isa = PBXGroup;
 			children = (
 				925FA6351AB35E47003017A1 /* acroFavorites.swift */,
-				F663AA6F1B86BD4700EB9AD5 /* acroPopular.swift */,
-				925FA6361AB35E47003017A1 /* acroHistory.swift */,
 				925FA6371AB35E47003017A1 /* acroMain.swift */,
 				F663AA711B86BD4F00EB9AD5 /* backgroundMgr.swift */,
-				F663AA751B86BD6100EB9AD5 /* acroFlag.swift */,
 				741146DB1B8B887C00A26312 /* AFAcronym.swift */,
 				741146DD1B8B88C500A26312 /* AFMeaning.swift */,
-				F64FFF311B91E076007909D4 /* AFHistory.swift */,
+				F677DE6B1B95D9B400213729 /* AFHistory.swift */,
 			);
 			name = DataType;
 			sourceTree = "<group>";
@@ -388,13 +379,10 @@
 				F663AA6C1B86BC7D00EB9AD5 /* MostViewedTableViewCell.swift in Sources */,
 				925FA62E1AB35E0C003017A1 /* SearchResultsViewController.swift in Sources */,
 				8C47A46A1AC4AE5B004DB0CE /* HelpViewController.swift in Sources */,
-				F64FFF321B91E076007909D4 /* AFHistory.swift in Sources */,
 				F6B256B71B8B2EAC007B7509 /* SwiftyJSON.swift in Sources */,
 				F663AA6E1B86BC8800EB9AD5 /* NewAcroController.swift in Sources */,
 				925FA62B1AB35E0C003017A1 /* HistoryViewController.swift in Sources */,
-				925FA63C1AB35E47003017A1 /* acroHistory.swift in Sources */,
 				D76919621AC0A2F0009FAC43 /* GoogleWebController.swift in Sources */,
-				F663AA761B86BD6100EB9AD5 /* acroFlag.swift in Sources */,
 				925FA62F1AB35E0C003017A1 /* SearchViewController.swift in Sources */,
 				F663AA681B86BC6B00EB9AD5 /* HistoryTableViewCell.swift in Sources */,
 				925FA63B1AB35E47003017A1 /* acroFavorites.swift in Sources */,
@@ -404,7 +392,6 @@
 				925FA6321AB35E0C003017A1 /* WebViewController.swift in Sources */,
 				D76919601AC09EB9009FAC43 /* NotFoundController.swift in Sources */,
 				8CB9DCBC1AACF50800A85961 /* AcroFinder.xcdatamodeld in Sources */,
-				F663AA701B86BD4700EB9AD5 /* acroPopular.swift in Sources */,
 				F663AA721B86BD4F00EB9AD5 /* backgroundMgr.swift in Sources */,
 				925FA62C1AB35E0C003017A1 /* MostViewedController.swift in Sources */,
 				741146DE1B8B88C500A26312 /* AFMeaning.swift in Sources */,
@@ -417,6 +404,7 @@
 				925FA6281AB35E0C003017A1 /* AboutViewController.swift in Sources */,
 				741146DC1B8B887C00A26312 /* AFAcronym.swift in Sources */,
 				925FA62D1AB35E0C003017A1 /* ResultsTableViewCell.swift in Sources */,
+				F677DE6C1B95D9B400213729 /* AFHistory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
