@@ -17,7 +17,6 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
     @IBOutlet weak var labelCounter: UILabel!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
-    var flag: String = "false"
     var word: String = " "
     var wordHist: String = " "
     var duplicate: Int = 0
@@ -59,20 +58,7 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
     }
     
     override func viewWillAppear(animated: Bool) {
-        
-        //Will keep using this for now
-        if(!acroFlags.flags.isEmpty){
-            flag = acroFlags.flags[0].value
-        }
-        
-        if(flag == "true"){
-            self.restartArrays()
-        }
-        
-        acroFlags.removeFlag()
-        flag = "false"
-        
-        tableView.reloadData()
+        //No need of doing anything here because there is not a newacronymviewcontroller
     }
     
     //MARK: CoreData and tableView functions

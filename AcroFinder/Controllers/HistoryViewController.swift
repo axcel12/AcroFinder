@@ -20,7 +20,7 @@ class HistoryViewController: UITableViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchData()
+        //fetchData()
         
         //Set historyView with color
         self.historyAcronyms.backgroundColor = UIColorFromHex(acroBack.colors[0].colorViewController)
@@ -35,7 +35,7 @@ class HistoryViewController: UITableViewController, UITableViewDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
-        fetchData()
+        //fetchData()
         historyAcronyms.reloadData();
         
         NSNotificationCenter.defaultCenter().addObserver(self,
@@ -53,6 +53,12 @@ class HistoryViewController: UITableViewController, UITableViewDelegate {
         self.tableView.reloadData()
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        //Re-save all history acronyms: in case any of them was deleted
+        self.saveAllHistoryAFAcronyms()
+    }
+    
+    /*
     func removeAcronym(index:NSIndexPath){
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let context = appDelegate.managedObjectContext!
@@ -67,7 +73,9 @@ class HistoryViewController: UITableViewController, UITableViewDelegate {
             fetchData()
         }
     }
+    */
     
+    /*
     func fetchData(){
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext!
@@ -82,17 +90,18 @@ class HistoryViewController: UITableViewController, UITableViewDelegate {
             println("Inside error: Could not fetch \(error), \(error!.userInfo)")
         }
     }
+    */
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return acroHist.histories.count;
+        return historyAcronym.histories.count;
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:HistoryTableViewCell = self.historyAcronyms.dequeueReusableCellWithIdentifier("HistoryResult", forIndexPath: indexPath) as! HistoryTableViewCell
         
-        cell.setCell(acroHist.histories[indexPath.row].name)
+        cell.setCell(historyAcronym.histories[indexPath.row].acronym)
         cell.histLabel.hidden = false
-        cell.histLabel.text = acroHist.histories[indexPath.row].name
+        cell.histLabel.text = historyAcronym.histories[indexPath.row].acronym
         cell.histLabel.sizeToFit()
         cell.selectionStyle = UITableViewCellSelectionStyle.Blue
         //Set cells with color
@@ -109,8 +118,8 @@ class HistoryViewController: UITableViewController, UITableViewDelegate {
         
         var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
             
-            acroHist.histories.removeAtIndex(indexPath.row)
-            self.removeAcronym(indexPath)
+            historyAcronym.histories.removeAtIndex(indexPath.row)
+            //self.removeAcronym(indexPath)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         })
 
@@ -120,10 +129,12 @@ class HistoryViewController: UITableViewController, UITableViewDelegate {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        var acronymMeaning = acroHist.histories[indexPath.row].name
+        var acronymMeaning = historyAcronym.histories[indexPath.row].acronym
         
         var searchResultsViewController = storyboard?.instantiateViewControllerWithIdentifier("SearchResultsViewController") as! SearchResultsViewController
         searchResultsViewController.word = acronymMeaning
+        searchResultsViewController.foundAcronyms.removeAll(keepCapacity: false)
+        searchResultsViewController.foundAcronyms.append(historyAcronym.histories[indexPath.row])
         navigationController?.pushViewController(searchResultsViewController, animated: true)
         
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -143,5 +154,16 @@ class HistoryViewController: UITableViewController, UITableViewDelegate {
         if(historyLabel != nil){
             historyLabel!.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         }
+    }
+    
+    func saveAllHistoryAFAcronyms() {
+        var items = NSMutableArray()
+        for acronym in historyAcronym.histories {
+            let item = NSKeyedArchiver.archivedDataWithRootObject(acronym)
+            items.addObject(item)
+            println("Saving acronym \(acronym.id)")
+        }
+        //Change path
+        NSKeyedArchiver.archiveRootObject(items, toFile: "Library/Caches/history.json")
     }
 }

@@ -135,7 +135,7 @@ class NewAcroController: UIViewController {
             self.savedLabel.hidden = true
             searchDidStopLoading(self.newAcroView)
             
-            acroFlags.addFlag("true")
+            //acroFlags.addFlag("true")
             
             navigationController?.popViewControllerAnimated(true)
         }else{

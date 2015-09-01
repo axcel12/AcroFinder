@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14C1510" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Background" syncable="YES">
         <attribute name="key" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
@@ -8,10 +8,18 @@
     </entity>
     <entity name="History" syncable="YES">
         <attribute name="acronym" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="meanings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Meanings" inverseName="history" inverseEntity="Meanings" syncable="YES"/>
+    </entity>
+    <entity name="Meanings" syncable="YES">
+        <attribute name="hits" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="meanings" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="relevance" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="history" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="History" inverseName="meanings" inverseEntity="History" syncable="YES"/>
     </entity>
     <elements>
         <element name="Background" positionX="-9" positionY="45" width="128" height="60"/>
         <element name="Favorite" positionX="-36" positionY="18" width="128" height="58"/>
-        <element name="History" positionX="-63" positionY="-18" width="128" height="58"/>
+        <element name="History" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Meanings" positionX="-36" positionY="18" width="128" height="105"/>
     </elements>
 </model>
