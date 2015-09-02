@@ -27,6 +27,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     var foundAcronyms:[AFAcronym] = []
     
     var foundHistory: [AFAcronym] = []
+    var kbHeight: CGFloat!
     
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var searchView: UIView!
