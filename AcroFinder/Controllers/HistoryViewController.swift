@@ -164,7 +164,18 @@ class HistoryViewController: UITableViewController, UITableViewDelegate {
             items.addObject(item)
             println("Saving acronym \(acronym.id)")
         }
-        //Change path
-        NSKeyedArchiver.archiveRootObject(items, toFile: "Library/Caches/history.json")
+        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        if let path = paths[0] as? String {
+            var fullPath = path + "/history.json"
+            println("Current path: \(fullPath)")
+            let success = NSKeyedArchiver.archiveRootObject(items, toFile: fullPath)
+
+            if success {
+                println("Saving cache successful")
+            }
+            else {
+                println("Saving cache unsuccessful")
+            }
+        }
     }
 }

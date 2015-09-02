@@ -291,11 +291,12 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                     println("Used fast search")
                     //We will not need this loop anymore
                     //Add meanings in a loop? Why not just add the acronym
+                    //My bad I did not mean to add it here
                     for meanings in filtered[0].meanings{
                         //self.foundAcronyms.append(filtered[0])
                         println("-----------------------------------Meaning:\(meanings.name)---------------------------")
                     }
-*/
+                    */
                 }
             }
             //No cache, send a request to search
@@ -358,8 +359,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                 resultViewController.word = foundAcronym.acronym
                 resultViewController.searchedAcronym = foundAcronym //Saving the actual acronym
                 //Set the AFAcronym var in resultViewController to be the found acronym in this controller
-                //resultViewController.foundAcronyms.removeAll(keepCapacity: false)
-                //resultViewController.foundAcronyms.append(self.foundAcronyms[0])
                 navigationController?.pushViewController(resultViewController, animated: true)
             }
         }
@@ -470,26 +469,33 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     func loadAllCachedHistory() {
-        println("Loading cached history")
+        println("Loading cached history acronyms")
         if (historyAcronym.histories.count == 0)
         {
             println("Clearing existing array")
             historyAcronym.histories.removeAll(keepCapacity: false)
-            
-            // It will not be the same file address
-            if let objects = NSKeyedUnarchiver.unarchiveObjectWithFile("Library/Caches/history.json") as? NSMutableArray {
-                for savedItem in objects {
-                    if let acronym = NSKeyedUnarchiver.unarchiveObjectWithData(savedItem as! NSData) as? AFAcronym {
-                        historyAcronym.histories.append(acronym)
+            MQALogger.log("Loading cached history acronyms from file")
+            let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+            if let path = paths[0] as? String {
+                var fullPath = path + "/history.json"
+                
+                if let objects = NSKeyedUnarchiver.unarchiveObjectWithFile(fullPath) as? NSMutableArray {
+                    MQALogger.log("Read file, decoding history acronyms")
+                    for savedItem in objects {
+                        //println("Decoding acronym")
+                        if let acronym = NSKeyedUnarchiver.unarchiveObjectWithData(savedItem as! NSData) as? AFAcronym {
+                            historyAcronym.histories.append(acronym)
+                        }
+                        else {
+                            println("Error decoding acronym")
+                        }
                     }
-                    else {
-                        println("Error decoding acronym")
-                    }
+                    println("Cached acronyms set")
                 }
-                println("Cached history set")
-            }
-            else {
-                println("problem reading from archive")
+                else {
+                    MQALogger.log("Problem reading from archive")
+                    println("problem reading from archive")
+                }
             }
         }
     }
@@ -501,8 +507,20 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             items.addObject(item)
             println("Saving acronym \(acronym.id)")
         }
-        //Change path
-        NSKeyedArchiver.archiveRootObject(items, toFile: "Library/Caches/history.json")
+        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        if let path = paths[0] as? String {
+            var fullPath = path + "/history.json"
+            println("Current path: \(fullPath)")
+            let success = NSKeyedArchiver.archiveRootObject(items, toFile: fullPath)
+            
+            if success {
+                println("Saving cache successful")
+            }
+            else {
+                println("Saving cache unsuccessful")
+            }
+        }
     }
+
 }
 
