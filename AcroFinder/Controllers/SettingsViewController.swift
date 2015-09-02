@@ -101,55 +101,50 @@ class SettingsViewController: UITableViewController, UITableViewDelegate, UITabl
             switch indexPath.row{
             
             case 0:
-                var alertFavoritesController = UIAlertController(title: "Are you sure?", message: nil, preferredStyle: .Alert)
-                // Create the actions
-                var cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) {
-                    UIAlertAction in
-                }
-                var yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default) {
-                    UIAlertAction in
+                
+                
+                var alert:UIAlertController = UIAlertController(title: "Clear Favorites", message: nil, preferredStyle: .ActionSheet)
+                
+                var defaultAction: UIAlertAction = UIAlertAction(title: "Clear Favorites", style: .Destructive) { (defaultAction) -> Void in
                     if(!acroFav.favorites.isEmpty){
                         acroFav.favorites.removeAll(keepCapacity: false)
                     }else if(!self.favAcronyms.isEmpty){
                         self.removeFavoriteData()
                     }
+                    return
                 }
-                // Add the actions
-                alertFavoritesController.addAction(cancelAction)
-                alertFavoritesController.addAction(yesAction)
+                alert.addAction(defaultAction)
                 
-                // Present the controller
-                self.presentViewController(alertFavoritesController, animated: true, completion: nil)
+                var cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { (cancelAction) -> Void in
+                    self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                }
+                alert.addAction(cancelAction)
+                //alert.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem //Needed for iPad support?
                 
-                //Deselecting
+                self.presentViewController(alert, animated: true, completion: nil)
                 self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
                 
             case 1:
-                var alertHistoryController = UIAlertController(title: "Are you sure?", message: nil, preferredStyle: .Alert)
                 
-                // Create the actions
-              
-                var cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) {
-                    UIAlertAction in
-                }
+                var alert:UIAlertController = UIAlertController(title: "Clear History", message: nil, preferredStyle: .ActionSheet)
                 
-                var yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default) {
-                    UIAlertAction in
-                    if(!historyAcronym.histories.isEmpty){
-                        historyAcronym.histories.removeAll(keepCapacity: false)
+                var defaultAction: UIAlertAction = UIAlertAction(title: "Clear History", style: .Destructive) { (defaultAction) -> Void in
+                    if(!acroFav.favorites.isEmpty){
+                        acroFav.favorites.removeAll(keepCapacity: false)
+                    }else if(!self.favAcronyms.isEmpty){
+                        self.removeFavoriteData()
                     }
-                    
-                    self.saveAllHistoryAFAcronyms()
+                    return
                 }
+                alert.addAction(defaultAction)
                 
-                // Add the actions
-                alertHistoryController.addAction(cancelAction)
-                alertHistoryController.addAction(yesAction)
+                var cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { (cancelAction) -> Void in
+                    self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                }
+                alert.addAction(cancelAction)
+                //alert.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem //Needed for iPad support?
                 
-                // Present the controller
-                self.presentViewController(alertHistoryController, animated: true, completion: nil)
-                
-                //Deselecting
+                self.presentViewController(alert, animated: true, completion: nil)
                 self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
     
