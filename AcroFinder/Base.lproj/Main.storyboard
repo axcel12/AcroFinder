@@ -132,7 +132,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gat-gb-a2D">
+                                        <imageView multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gat-gb-a2D">
                                             <rect key="frame" x="303" y="13" width="25" height="25"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" none="YES" image="YES" selected="YES"/>
@@ -708,7 +708,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHg-IF-9rA">
-                                <rect key="frame" x="87" y="191" width="200" height="24"/>
+                                <rect key="frame" x="16" y="191" width="343" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="v5t-Ni-6qa"/>
                                     <constraint firstAttribute="height" constant="24" id="xGK-36-NUU"/>
@@ -723,6 +723,11 @@
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="v5t-Ni-6qa"/>
+                                    </mask>
+                                </variation>
                             </label>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="notFound" translatesAutoresizingMaskIntoConstraints="NO" id="1Tj-9r-8Tw">
                                 <rect key="frame" x="124" y="223" width="126" height="153"/>
@@ -789,22 +794,25 @@
                         <constraints>
                             <constraint firstItem="OfK-Y9-ZEQ" firstAttribute="leading" secondItem="xLw-eH-E5q" secondAttribute="leadingMargin" constant="-16" id="AS2-nt-qYq"/>
                             <constraint firstAttribute="centerX" secondItem="QrN-IL-eGi" secondAttribute="centerX" constant="0.5" id="B99-Va-eRZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XHg-IF-9rA" secondAttribute="trailing" id="JX6-oe-Mwh"/>
                             <constraint firstItem="HtW-0U-1HO" firstAttribute="top" secondItem="1Tj-9r-8Tw" secondAttribute="bottom" constant="8" id="Q4o-wQ-uP5"/>
                             <constraint firstAttribute="centerX" secondItem="OfK-Y9-ZEQ" secondAttribute="centerX" id="RVS-kn-do1"/>
                             <constraint firstItem="QrN-IL-eGi" firstAttribute="top" secondItem="OfK-Y9-ZEQ" secondAttribute="bottom" constant="8" id="UWY-yE-Gy5"/>
                             <constraint firstAttribute="centerX" secondItem="1Tj-9r-8Tw" secondAttribute="centerX" constant="0.5" id="cxc-df-zQp"/>
                             <constraint firstItem="1Tj-9r-8Tw" firstAttribute="top" secondItem="XHg-IF-9rA" secondAttribute="bottom" constant="8" id="dhG-5I-doU"/>
+                            <constraint firstItem="XHg-IF-9rA" firstAttribute="leading" secondItem="xLw-eH-E5q" secondAttribute="leadingMargin" id="eoX-Y1-esn"/>
                             <constraint firstItem="XHg-IF-9rA" firstAttribute="top" secondItem="QrN-IL-eGi" secondAttribute="bottom" constant="8" id="osM-CG-DBi"/>
                             <constraint firstAttribute="centerX" secondItem="HtW-0U-1HO" secondAttribute="centerX" constant="0.5" id="pfF-MS-7HS"/>
                             <constraint firstAttribute="centerX" secondItem="6Uk-8n-djT" secondAttribute="centerX" constant="0.5" id="pz9-BI-kvo"/>
                             <constraint firstItem="OfK-Y9-ZEQ" firstAttribute="width" secondItem="xLw-eH-E5q" secondAttribute="width" id="ukk-mA-znD"/>
-                            <constraint firstAttribute="centerX" secondItem="XHg-IF-9rA" secondAttribute="centerX" constant="0.5" id="utA-bN-heI"/>
+                            <constraint firstAttribute="centerX" secondItem="XHg-IF-9rA" secondAttribute="centerX" id="utA-bN-heI"/>
                             <constraint firstItem="6Uk-8n-djT" firstAttribute="top" secondItem="HtW-0U-1HO" secondAttribute="bottom" constant="8" id="wXa-aG-Fkt"/>
                             <constraint firstItem="OfK-Y9-ZEQ" firstAttribute="top" secondItem="gxu-cW-N7b" secondAttribute="bottom" id="zYf-YW-2uF"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="AS2-nt-qYq"/>
+                                <exclude reference="utA-bN-heI"/>
                             </mask>
                         </variation>
                     </view>
