@@ -1095,7 +1095,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frequently Asked Questions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tE-37-2TB">
-                                <rect key="frame" x="45" y="83" width="285" height="27"/>
+                                <rect key="frame" x="45" y="28" width="285" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="285" id="P28-J3-Ppx"/>
                                     <constraint firstAttribute="height" constant="27" id="uWH-t2-gTJ"/>
@@ -1105,7 +1105,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQY-Oe-yxr">
-                                <rect key="frame" x="0.0" y="118" width="372" height="549"/>
+                                <rect key="frame" x="0.0" y="63" width="375" height="604"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
                                     <fragment content="How do I add or suggest an acronym?">
@@ -1948,15 +1948,29 @@ Cg
                         <constraints>
                             <constraint firstItem="ZQY-Oe-yxr" firstAttribute="leading" secondItem="0E9-Yz-UDh" secondAttribute="leadingMargin" constant="-16" id="J0x-Is-dMU"/>
                             <constraint firstAttribute="centerX" secondItem="5tE-37-2TB" secondAttribute="centerX" id="J4J-lq-iYC"/>
-                            <constraint firstItem="5tE-37-2TB" firstAttribute="top" secondItem="dPW-96-zbd" secondAttribute="bottom" constant="63" id="Nio-kK-Gy1"/>
+                            <constraint firstItem="5tE-37-2TB" firstAttribute="top" secondItem="dPW-96-zbd" secondAttribute="bottom" constant="8" id="Nio-kK-Gy1"/>
                             <constraint firstAttribute="centerY" secondItem="ZQY-Oe-yxr" secondAttribute="centerY" constant="-59" id="QUX-Ee-Vg8"/>
-                            <constraint firstAttribute="centerX" secondItem="ZQY-Oe-yxr" secondAttribute="centerX" constant="1.5" id="Sw2-1S-JnO"/>
+                            <constraint firstAttribute="centerX" secondItem="ZQY-Oe-yxr" secondAttribute="centerX" id="Sw2-1S-JnO"/>
                             <constraint firstAttribute="centerY" secondItem="5tE-37-2TB" secondAttribute="centerY" constant="237" id="VUJ-eo-twF"/>
                             <constraint firstItem="ZQY-Oe-yxr" firstAttribute="top" secondItem="5tE-37-2TB" secondAttribute="bottom" constant="8" id="XS4-BW-Gd0"/>
+                            <constraint firstItem="ZQY-Oe-yxr" firstAttribute="leading" secondItem="0E9-Yz-UDh" secondAttribute="leading" id="nAj-Cb-Vsa"/>
+                            <constraint firstAttribute="bottom" secondItem="ZQY-Oe-yxr" secondAttribute="bottom" id="omL-Da-3l4"/>
+                            <constraint firstAttribute="trailing" secondItem="ZQY-Oe-yxr" secondAttribute="trailing" id="rau-t9-v4b"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="VUJ-eo-twF"/>
+                                <exclude reference="J0x-Is-dMU"/>
+                                <exclude reference="QUX-Ee-Vg8"/>
+                                <exclude reference="Sw2-1S-JnO"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="pFh-WT-KNC"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="helpTextView" destination="ZQY-Oe-yxr" id="T7d-MC-FQ0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vdW-s0-Quz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

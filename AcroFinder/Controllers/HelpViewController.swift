@@ -10,10 +10,12 @@ import UIKit
 
 class HelpViewController: UIViewController {
 
+    @IBOutlet var helpTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Help"
         // Do any additional setup after loading the view.
+        helpTextView.scrollRangeToVisible(NSMakeRange(0,0))
     }
 
     override func didReceiveMemoryWarning() {

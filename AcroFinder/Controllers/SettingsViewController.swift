@@ -103,7 +103,7 @@ class SettingsViewController: UITableViewController, UITableViewDelegate, UITabl
             case 0:
                 
                 
-                var alert:UIAlertController = UIAlertController(title: "Clear Favorites", message: nil, preferredStyle: .ActionSheet)
+                var alert:UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
                 
                 var defaultAction: UIAlertAction = UIAlertAction(title: "Clear Favorites", style: .Destructive) { (defaultAction) -> Void in
                     if(!acroFav.favorites.isEmpty){
@@ -126,7 +126,7 @@ class SettingsViewController: UITableViewController, UITableViewDelegate, UITabl
                 
             case 1:
                 
-                var alert:UIAlertController = UIAlertController(title: "Clear History", message: nil, preferredStyle: .ActionSheet)
+                var alert:UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
                 
                 var defaultAction: UIAlertAction = UIAlertAction(title: "Clear History", style: .Destructive) { (defaultAction) -> Void in
                     if(!acroFav.favorites.isEmpty){
