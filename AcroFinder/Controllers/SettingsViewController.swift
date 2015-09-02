@@ -226,16 +226,22 @@ class SettingsViewController: UITableViewController, UITableViewDelegate, UITabl
     }
     
     func sendEmail() {
-        var emailTitle = "Feedback"
-        var messageBody = "Feature request or bug report?"
-        var toRecipients = ["uconnibm@gmail.com"]
-        var mc: MFMailComposeViewController = MFMailComposeViewController()
-        mc.mailComposeDelegate = self
-        mc.setSubject(emailTitle)
-        mc.setMessageBody(messageBody, isHTML: false)
-        mc.setToRecipients(toRecipients)
-        
-        self.presentViewController(mc, animated: true, completion: nil)
+        if MFMailComposeViewController.canSendMail() {
+            var emailTitle = "Feedback"
+            var messageBody = "Feature request or bug report?"
+            var toRecipients = ["uconnibm@gmail.com"]
+            var mc: MFMailComposeViewController = MFMailComposeViewController()
+            mc.mailComposeDelegate = self
+            mc.setSubject(emailTitle)
+            mc.setMessageBody(messageBody, isHTML: false)
+            mc.setToRecipients(toRecipients)
+            
+            self.presentViewController(mc, animated: true, completion: nil)
+        }
+        else {
+            var alertView:UIAlertView = UIAlertView(title: "Email Not Available", message: nil, delegate: self, cancelButtonTitle: "OK")
+            alertView.show()
+        }
         
     }
     
