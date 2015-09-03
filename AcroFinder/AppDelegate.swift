@@ -17,9 +17,7 @@ let kSavedAcronymsKey = "savedAcronyms"
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    //var logger:IMFLogger?
     var tags = [String]()
-    //var isUserAuthenticated = false
     
     var firstIndex = NSIndexPath(forRow: 0, inSection: 0)
     var navigationBarAppearace = UINavigationBar.appearance()
