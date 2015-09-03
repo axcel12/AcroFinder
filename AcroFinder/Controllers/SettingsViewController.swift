@@ -30,7 +30,6 @@ class SettingsViewController: UITableViewController, UITableViewDelegate, UITabl
     @IBOutlet var clearFavoritesLabel: UILabel!
     @IBOutlet var contactUsLabel: UILabel!
     
-    var histAcronyms = [NSManagedObject]()
     var favAcronyms = [NSManagedObject]()
 
     override func viewDidLoad() {
@@ -40,8 +39,6 @@ class SettingsViewController: UITableViewController, UITableViewDelegate, UITabl
             selector: "preferredContentSizeChanged:",
             name: UIContentSizeCategoryDidChangeNotification,
             object: nil)
-        
-        fetchHistoryData()
         
         fetchFavoriteData()
         
@@ -129,11 +126,11 @@ class SettingsViewController: UITableViewController, UITableViewDelegate, UITabl
                 var alert:UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
                 
                 var defaultAction: UIAlertAction = UIAlertAction(title: "Clear History", style: .Destructive) { (defaultAction) -> Void in
-                    if(!acroFav.favorites.isEmpty){
-                        acroFav.favorites.removeAll(keepCapacity: false)
-                    }else if(!self.favAcronyms.isEmpty){
-                        self.removeFavoriteData()
+                    if(!historyAcronym.histories.isEmpty){
+                        historyAcronym.histories.removeAll(keepCapacity: false)
                     }
+                    self.saveAllHistoryAFAcronyms()
+                    
                     return
                 }
                 alert.addAction(defaultAction)
@@ -161,6 +158,7 @@ class SettingsViewController: UITableViewController, UITableViewDelegate, UITabl
         }
     }
     
+    /*
     func fetchHistoryData(){
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext!
@@ -175,7 +173,9 @@ class SettingsViewController: UITableViewController, UITableViewDelegate, UITabl
             println("Inside error: Could not fetch \(error), \(error!.userInfo)")
         }
     }
+    */
     
+    /*
     func removeHistoryData(){
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let context = appDelegate.managedObjectContext!
@@ -192,6 +192,7 @@ class SettingsViewController: UITableViewController, UITableViewDelegate, UITabl
             fetchHistoryData()
         }
     }
+    */
     
     func fetchFavoriteData(){
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -286,10 +287,20 @@ class SettingsViewController: UITableViewController, UITableViewDelegate, UITabl
             items.addObject(item)
             println("Saving acronym \(acronym.id)")
         }
-        //Change path
-        NSKeyedArchiver.archiveRootObject(items, toFile: "Library/Caches/history.json")
+        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        if let path = paths[0] as? String {
+            var fullPath = path + "/history.json"
+            println("Current path: \(fullPath)")
+            let success = NSKeyedArchiver.archiveRootObject(items, toFile: fullPath)
+            
+            if success {
+                println("Saving cache successful")
+            }
+            else {
+                println("Saving cache unsuccessful")
+            }
+        }
     }
-    
     
     func preferredContentSizeChanged(notification: NSNotification) {
         aboutLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
