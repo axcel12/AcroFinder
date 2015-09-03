@@ -27,7 +27,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     var foundAcronyms:[AFAcronym] = []
     
     var foundHistory: [AFAcronym] = []
-    var kbHeight: CGFloat!
     
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var searchView: UIView!
@@ -38,6 +37,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         activityIndicator.hidden = true
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
         // Core Data Load
         
@@ -85,6 +87,37 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     override func viewDidDisappear(animated: Bool) {
         searchDidStopLoading(self.searchView)
         self.foundAcronyms.removeAll(keepCapacity: false)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        var info = notification.userInfo!
+        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        var frame: CGRect = self.view.frame
+        frame.origin.y = 0 - keyboardFrame.size.height
+        //self.view.frame = frame
+        // convert label frame
+        let comparisonFrame: CGRect = self.view.convertRect(searchTextField.frame, toView: self.view)
+        // check if label is contained in self.view
+        let isContainedInView:Bool = CGRectContainsRect(frame, comparisonFrame);
+        println("Will Show - Is the view visible? \(isContainedInView)")
+        if !isContainedInView {
+            frame.origin.y = 0 - comparisonFrame.height
+            self.view.frame = frame
+        }
+        
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        var frame: CGRect = self.view.frame
+        frame.origin.y = 0
+        //self.view.frame = frame
+        let comparisonFrame: CGRect = self.view.convertRect(searchTextField.frame, toView: self.view)
+        // check if label is contained in self.view
+        let isContainedInView:Bool = CGRectContainsRect(frame, comparisonFrame);
+        println("Will Hide - Is the view visible? \(isContainedInView)")
+        if isContainedInView {
+            self.view.frame = frame
+        }
     }
     
     //MARK: CoreData Functions
