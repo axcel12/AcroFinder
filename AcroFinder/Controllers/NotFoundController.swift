@@ -124,10 +124,11 @@ class NotFoundController: UIViewController, MFMailComposeViewControllerDelegate 
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    /*
     @IBAction func segueToAdAcro(sender: AnyObject) {
         var newAcroController = storyboard?.instantiateViewControllerWithIdentifier("NewAcroController") as! NewAcroController
         newAcroController.controllerTitle = word
         navigationController?.pushViewController(newAcroController, animated: true)
     }
-    
+    */
 }
