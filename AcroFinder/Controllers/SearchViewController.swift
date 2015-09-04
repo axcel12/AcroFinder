@@ -99,6 +99,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         // check if label is contained in self.view
         let isContainedInView:Bool = CGRectContainsRect(frame, comparisonFrame);
         println("Will Show - Is the view visible? \(isContainedInView)")
+        //If the search text field is covered by the keyboard, move the frame up by the size of the search field.
+        //This only works because I know the smallest sized screens only partially cover the screen.
+        //A better solution would be to make the self.view.frame y match that of the searchTextField.
+        //Not sure on the math
         if !isContainedInView {
             frame.origin.y = 0 - comparisonFrame.height
             self.view.frame = frame
