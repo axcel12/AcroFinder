@@ -392,13 +392,7 @@
                             <outlet property="delegate" destination="dqi-7V-e1V" id="vmI-Rm-0HB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="BeW-Cs-KlV">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lDa-Ph-qAp">
-                            <connections>
-                                <action selector="segueToAddAcro:" destination="dqi-7V-e1V" id="qdm-uh-Qtx"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="BeW-Cs-KlV"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="labelCounter" destination="paX-wD-tGB" id="PXC-fV-Mcn"/>
@@ -1033,13 +1027,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="vvt-Mc-ao9">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZJ8-Am-iZF">
-                            <connections>
-                                <action selector="segueToAdAcro:" destination="iIh-Z5-CZ1" id="3DS-lA-ea9"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="vvt-Mc-ao9"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="googleSearchButton" destination="HtW-0U-1HO" id="RCW-Af-VTg"/>

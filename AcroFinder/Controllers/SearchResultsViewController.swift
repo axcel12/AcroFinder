@@ -307,13 +307,14 @@ class SearchResultsViewController: UITableViewController, UITableViewDataSource,
         }
         self.tableView.reloadData()
     }
-    
+    /*
     //New Acronym Segue
     @IBAction func segueToAddAcro(sender: AnyObject) {
         var newAcroController = storyboard?.instantiateViewControllerWithIdentifier("NewAcroController") as! NewAcroController
         newAcroController.controllerTitle = word
         navigationController?.pushViewController(newAcroController, animated: true)
     }
+    */
     
     func searchDidStartLoading(myTableView: UITableView!){
         activityIndicator.hidden = false
