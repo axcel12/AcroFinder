@@ -81,6 +81,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         tabBarController?.tabBar.barTintColor = UIColor.whiteColor()
         
         self.restartArrays()
+        
+        self.tabBarController?.tabBar.hidden = false
+        self.reloadInputViews()
     }
     
     override func viewDidDisappear(animated: Bool) {
