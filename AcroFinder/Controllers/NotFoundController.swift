@@ -23,6 +23,9 @@ class NotFoundController: UIViewController, MFMailComposeViewControllerDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //No more suggestion option
+        suggestionButton.hidden = true
+        
         notFoundRedLabel.hidden = false
         notFoundRedLabel.text = "Acronym Not Found"
         
