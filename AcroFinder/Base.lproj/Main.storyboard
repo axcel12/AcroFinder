@@ -17,7 +17,7 @@
                         <viewControllerLayoutGuide type="bottom" id="dDm-qQ-0eO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yk5-fi-vG2" userLabel="leftSpace">
@@ -54,8 +54,8 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cyl-Gu-pY7" userLabel="Logo Container">
-                                <rect key="frame" x="210" y="96" width="181" height="134"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cyl-Gu-pY7" userLabel="Logo Container">
+                                <rect key="frame" x="98" y="96" width="181" height="134"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IBM_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Cm0-R3-vhr">
                                         <rect key="frame" x="27" y="0.0" width="125" height="45"/>
@@ -125,7 +125,7 @@
                                 </variation>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Search" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9sj-5E-dvi">
-                                <rect key="frame" x="209" y="230" width="181" height="44"/>
+                                <rect key="frame" x="97" y="230" width="181" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="225" id="Hb4-Lv-TfF"/>
                                     <constraint firstAttribute="height" constant="44" id="KbF-JQ-U4Z"/>
@@ -160,7 +160,7 @@
                                 </variation>
                             </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="wtD-bR-Wa1">
-                                <rect key="frame" x="281" y="319" width="37" height="37"/>
+                                <rect key="frame" x="169" y="319" width="37" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="37" id="9xy-kD-qoo"/>
                                     <constraint firstAttribute="height" constant="37" id="gvr-u9-NlM"/>
