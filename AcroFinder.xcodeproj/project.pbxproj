@@ -312,6 +312,7 @@
 		8CAAD1C419FF4C86001A9E8A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = AcroFinder;
 				TargetAttributes = {

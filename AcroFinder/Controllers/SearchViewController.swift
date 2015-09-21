@@ -81,6 +81,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         tabBarController?.tabBar.barTintColor = UIColor.whiteColor()
         
         self.restartArrays()
+        
+        self.tabBarController?.tabBar.hidden = false
+        self.reloadInputViews()
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -243,6 +246,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         self.word = trimmedAcro
         
         //Alert Sheet for when no text is entered
+        /*
+        * From the iOS Human Interface Guidelines I read that for this case we should use a simple Alert. I will change this from an Action Sheet to an Alert. Another option (that I think it's what you wanted) is to add a hidden label underneath the search box that could show an error message in red every time that something null is been searched (nothing in the search box) that disappears after 1 or 2 seconds. What do you think?
+        */
         if (textField.text.isEmpty || trimmedAcro == "") {
             
             println("Search field is empty. Insert acronym please.")
